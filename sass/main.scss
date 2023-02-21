@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+
+// custom variables 
+$font-family-sans-serif: 'Metrophobic', sans-serif;
+$font-family-base: 'Metrophobic', sans-serif;
+$primary: #CCF7F4;
+$secondary: #EED991;
+$pink: #FF6978;
+$purple: #340068;
+$dark: #221D23;
+$nav-link-color: #221D23;
+$enable-gradients: true;
+
+// import the functions and variables 
+@import '../node_modules/bootstrap/scss/_functions';
+@import '../node_modules/bootstrap/scss/_variables';
+@import '../node_modules/bootstrap/scss/_utilities.scss';
+
+$custom-position-values: (
+    25: 25%,
+);
+$position-values: map-merge($position-values, $custom-position-values);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+// import bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';
+

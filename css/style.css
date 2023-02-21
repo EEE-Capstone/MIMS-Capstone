@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+
+.customGradient {
+    background-image: linear-gradient(#CCF7F4, #ffffff, #EED991);
+    box-shadow: 0 4px 4px 0 rgba(23, 26, 33, 0.35);
+}
