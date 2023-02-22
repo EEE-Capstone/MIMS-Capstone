@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
 
 .customGradient {
-    background-image: linear-gradient(#CCF7F4, #ffffff, #EED991);
-    box-shadow: 0 4px 4px 0 rgba(23, 26, 33, 0.35);
+    background-image: linear-gradient(#CCF7F4, #ffffff,  #EED991);
+}
+
+.customGradientReverse {
+    background-image: linear-gradient( #EED991, #ffffff, #CCF7F4);
+}
+
+.customGradientBlue {
+    background-image: linear-gradient(#ffffff, #CCF7F4);
+}
+
+.customGradientYellow {
+    background-image: linear-gradient(#ffffff, #EED991);
 }
