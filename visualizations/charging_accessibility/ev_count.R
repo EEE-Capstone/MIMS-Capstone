@@ -1,4 +1,4 @@
-ca_ev_registrations_public <- read_csv("Downloads/ca_ev_registrations_public.csv")
+ca_ev_registrations_public <- read_csv("ca_ev_registrations_public.csv") ## Data from: https://www.atlasevhub.com/materials/state-ev-registration-data/#data
 counties <- unique(ca_ev_registrations_public$`County GEOID`)
 count_ev <- numeric(0)
 for (i in 1:length(counties)) {
