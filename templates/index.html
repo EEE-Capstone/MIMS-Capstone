@@ -32,7 +32,7 @@
                   <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Tool</a>
+                  <a class="nav-link" href="#toolSection">Tool</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="equity.html">Equity</a>
@@ -91,6 +91,20 @@
             </p>
             <div id="observablehq-plot2-c4f5412f"></div>
             <!-- <p>Credit: <a href="https://observablehq.com/d/cc45001d41e8b130">Emissions by Year and Policies by Clara Hu</a></p> -->
+            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">
+              Chart Sources
+            </button>
+          </p>
+          <div class="collapse" id="collapseLineChart">
+            <div class="card">
+              <h6 class="card-header">Sources</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div> <!-- end card -->
+          </div> <!-- end collapse of drop down -->
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row pb-1">
@@ -98,7 +112,7 @@
             <h3>Why the focus on transportation?</h3>
             <br>
             <p>
-              The two economic sectors that contributed the most to greenhouse gas emissions in 2020 were transportation at 27 percent and electric power at 25 percent; their contributions to carbon dioxide emissions specifically were 33 percent and 31 percent respectively
+              The two economic sectors that contributed the most to greenhouse gas emissions in 2020 were transportation at 27 percent and electric power at 25 percent; their contributions to carbon dioxide emissions specifically were 33 percent and 31 percent respectively.
             </p>
             <p style="color: #FF6978">~Create flat visualizations for these statistics.~</p>
           </div> <!-- end col -->
@@ -121,7 +135,7 @@
         <div class="row pb-1">
           <div class="col-10 p-5">
             <p>
-              Poor air quality caused by pollutants is detrimental to the environment and has also been proven to have negative health outcomes such as increased risk of asthma, dementia, lung cancer, and heart disease (Schraufnagel, 2019). Reducing greenhouse gas and toxic air pollution would make a great difference in the air quality and ultimately improve population health
+              Poor air quality caused by pollutants is detrimental to the environment and has also been proven to have negative health outcomes such as increased risk of asthma, dementia, lung cancer, and heart disease (Schraufnagel, 2019). Reducing greenhouse gas and toxic air pollution would make a great difference in the air quality and ultimately improve population health.
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
@@ -217,46 +231,226 @@
       <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
         <div class="row pb-1">
           <div class="col-10 p-5">
-            <h3>Zero emission vehicles (ZEVs) still emit.</h3>
+            <h3>But zero emission vehicles (ZEVs) still emit.</h3>
             <p>
               <br>
               While zero-emission vehicles have virtually no tailpipe emissions during operation, they do contribute to emissions elsewhere in their life cycle. Hidden and indirect emissions should also be taken into account when considering the sustainability of zero-emission vehicles. 
+              <br><br>
+              To get a picture of the true life-cycle emissions from any vehicle, a Life Cycle Analysis (LCA) approach uses estimates of the emissions created during each step of a manufacturing process and the emissions created when the vehicle is driven.
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
-        <div class="row pb-2 justify-content-around">
-          <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
-          </div> <!-- end col -->
-          <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 500px">
+            <p>diagram of overview of emissions in LCA for ZEV</p>
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row pb-5 justify-content-around">
-          <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
-          </div> <!-- end col -->
-          <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 500px">
+            <p>How does the LCA look different for ICE vehicles</p>
           </div> <!-- end col -->
         </div> <!-- end row -->
+
+        <div class="row">
+          <div class="col-10 p-5">
+            <h3>Let's dig deeper into emission stages of ZEVs </h3>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>1. Example Stage: Mining Resources **Maybe these can be in a carousel to reduce length of the page,, but it could look ugly</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
+            Chart
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>2. Battery Production - Cathode Supply Chain</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-8 p-5" style="height: 430px">
+            <div id="observablehq-viewof-replay-e6d12576"></div>
+            <div class="py-2"></div>
+            <div id="observablehq-allCharts-e6d12576"></div>
+            <!-- <p>Credit: <a href="https://observablehq.com/d/c901392bea8bf874">Supply Chain Geo by Clara Hu</a></p> -->
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5">
+          <div class="col-12 p-5">
+            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSupplyChain" aria-expanded="false" aria-controls="collapseExample">
+            Chart Sources
+            </button>
+            <div class="collapse" id="collapseSupplyChain">
+              <div class="card">
+                <h6 class="card-header">Sources</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+              </div> <!-- end card -->
+            </div> <!-- end collapse of drop down -->
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>3. Example Stage: Production</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
+            Chart
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>4. Example Stage: Transportation</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
+            Chart
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>5. Example Stage: Vehicle Usage</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
+            Chart
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row">
+          <div class="col-10 px-5">
+            <h5>6. Example Stage: Recycling</h5>
+            <p><!-- caption here --></p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
+            Chart
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+
       </div> <!-- end container -->
     </div> <!-- end reverse gradient -->
 
     <div class="customGradientYellow py-5">
-      <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
-        <div class="row pb-1">
-          <div class="col-8 p-5">
-            <h3>Section Title</h3>
-            <p>Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.</p>
+      <div class="container-md bg-white shadow" style="max-width: 1050px;">
+        <div class="row">
+          <div class="col-10 pt-5 px-5">
+            <h3>Understanding the cost of charging ZEVs</h3>
+            <p>
+              <br>
+              Battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs) are reliant on electricity, which may have varying levels of associated emissions depending on the primary source of electric generation in the geographic area where the vehicles are being charged.
+              <br><br>
+              When taking into account cumulative emissions from ZEVs, it is also important to consider the local electrical grid
+              <br><br>
+              Electricity in the United States is generated through many different energy sources including fossil fuels (natural gas, coal, petroleum), nuclear energy, and renewable energy (wind, hydro, solar, biomass, geothermal). In 2021, the US generated electricity with fossil fuels contributing to over 60 percent of electricity generation and nuclear and renewables contributing around 20 percent each.
+              <br><br>
+              See how the mix of electricity generation differs from region to region in the U.S. 
+            </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
-        <div class="row pb-5">
-          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+        <div class="row px-5">
+          <div class="col-12" style="">
+            <div id="observablehq-allCharts-8f5a3bd3"></div>
+            <!-- <p>Credit: <a href="https://observablehq.com/d/d2acbd3b5d70efa1">Grid Mix by Interconnection Subregion by Clara Hu</a></p> -->
           </div> <!-- end col -->
         </div> <!-- end row -->
-        <div class="row pb-5">
-          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+        <div class="row">
+          <div class="col-10 px-5 py-2">
+            <p>
+              What do those boundaries represent? 
+              <br><br>
+              In the United States, electric grids across multiple states are controlled, operated, and monitored by regional transmission organizations. These regional transmission organizations (RTO) are formed and regulated by the Federal Energy Regulatory Commission (FERC), which oversees interstate exchanges of electricity, oil, and natural gas (Federal Energy Regulatory Commission, 2022). Independent system operators (ISO) are also formed through recommendations of FERC and perform similar functions as RTOs, but at a smaller scale and usually within a single state. RTOs and ISOs engage in trading and purchasing electricity across grids to fulfill energy needs or better integrate renewable energy across geographies.
+            </p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5 justify-content-around">
+          <div class="col-8 px-5 py-2" style="background-color: #FF6978; border-radius: 10px;">
+            <a class="" href="equity.html">Click here to learn more about how the electrical grid affects whether communities can transition to ZEV</a>
           </div> <!-- end col -->
         </div> <!-- end row -->
       </div> <!-- end container -->
     </div> <!-- end gradient section -->
+
+    <div class="py-5">
+      <div class="container-md bg-white mb-5" style="max-width: 1050px;">
+        <div class="row pb-1" id="toolSection">
+          <div class="col-10 p-5">
+            <h3>Calculate vehicle lifecycle emissions</h3>
+            <p>
+              <br><br>
+              We built a tool to calculate LCA! 
+              <br><br>
+              Background and introduction of the tool 
+              <br><br>
+              Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.
+            </p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5">
+          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-1">
+          <div class="col-10 p-5">
+            <h3>See how cool the tool is -- show meaningful outputs</h3>
+            <p>
+              <br><br>
+              Description of the output 
+            </p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="d-flex">
+          <hr class="border border-secondary border-3 opacity-75" style="width:45%;"/> 
+        </div>
+        <div class="row pb-5" id="toolSection">
+          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-1">
+          <div class="col-10 p-5">
+            <h3>Try out the LCA calculator</h3>
+            <p>
+              <br><br>
+              How it works 
+            </p>
+            <ol>
+              <li>Do this</li>
+              <li>Then this</li>
+              <li>And finally this</li>
+            </ol>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-5" id="toolSection">
+          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pb-1">
+          <div class="col-10 p-5">
+            <p>
+              Learn more about how this was built -- link to about page
+            </p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+
+    </div> <!-- end reverse gradient -->
+
 
     <div class="customFooter">
       <div class="container-md" style="max-width: 1050px;">
@@ -271,6 +465,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- Observable JS -->
+    <!-- line chart -->
     <script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
       import define from "https://api.observablehq.com/d/cc45001d41e8b130.js?v=3";
@@ -278,6 +473,23 @@
         if (name === "plot2") return new Inspector(document.querySelector("#observablehq-plot2-c4f5412f"));
       });
     </script>
+    <!-- radar chart -->
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/d/d2acbd3b5d70efa1.js?v=3";
+      new Runtime().module(define, name => {
+        if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-8f5a3bd3"));
+      });
+      </script>
+      <!-- supply chain animation -->
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/c901392bea8bf874.js?v=3";
+        new Runtime().module(define, name => {
+          if (name === "viewof replay") return new Inspector(document.querySelector("#observablehq-viewof-replay-e6d12576"));
+          if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-e6d12576"));
+        });
+        </script>
 
   </body>
 </html>
