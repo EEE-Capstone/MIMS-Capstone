@@ -15,3 +15,26 @@
 .customGradientYellow {
     background-image: linear-gradient(#ffffff, #EED991);
 }
+
+.customTitleImage {
+    background-image: url("../static/images/background5.jpg");
+    background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.customTitleText {
+    margin-top: 18%;
+    color: #ffffff;
+    text-shadow: #FAFAFA 1px 0 5px;
+}
+
+.customFooter {
+    background-color: #340068;
+    color: #ffffff;
+}
+
+.carImage {
+    width: 300px;
+    height: auto;
+}
