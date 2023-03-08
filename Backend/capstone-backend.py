@@ -18,7 +18,7 @@ b = np.array([1,2,3,4])
 a*b
 
 
-# In[13]:
+# In[36]:
 
 
 ## define functions to import as a file
@@ -28,6 +28,9 @@ def est_battery_capacity_from_vehicle(Vehicle):
     kwh_size = Vehicle.range*(1/Vehicle.FE)*33.7
     return kwh_size
 
+def est_battery_weight_from_vehicle(Vehicle):
+    battery_weight = est_battery_capacity_from_vehicle(Vehicle)*1/(.156) ## assume .156 kWh/Kg energy density
+    return battery_weight 
 
 ## vehicle data (here we assume constant for all vehicle types to be changed later)
 non_battery_mass_fractions = [.599, .153, .082, .046, .039, .024, .019, .009, 0]
@@ -49,8 +52,6 @@ def weighted_emissions_calc(vehicle_weight, mass_fractions, emissions_vector):
     mass_fractions = np.array(mass_fractions)
     emissions_vector = np.array(emissions_vector)
     return vehicle_weight*mass_fractions*emissions_vector
-
-
 
 def get_embodied_emissions(vehicle_weight, battery_weight):
     
@@ -77,13 +78,12 @@ def est_embodied_emissions(Vehicle):
     embodied_emissions = get_embodied_emissions(vehicle_weight, battery_weight)  
     return embodied_emissions
 
-def get_grid_carbon(User):
+def get_grid_carbon(user_zip, Zip, Co2):
     ## store lookup table of CO2 intensity by grid region
     ## convert User zipcode input to grid region
-    
-    region = get_user_region(User)
-    Lookup_dict = {'': 1, '': 2}
-    return Lookup_dict[region]
+    user_region = Zip[Zip['ZIP'] == user_zip]
+    Co2 = Co2[Co2['Co2'] == user_region]
+    return Co2
     
 
 def est_usage_emissions(Vehicle, User):
