@@ -22,9 +22,20 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.customTitleAboutImage {
+    background-image: url("../static/images/background4.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .customTitleText {
     margin-top: 18%;
+    color: #ffffff;
+    text-shadow: #FAFAFA 1px 0 5px;
+}
+
+.customNavItem {
     color: #ffffff;
     text-shadow: #FAFAFA 1px 0 5px;
 }
@@ -37,4 +48,9 @@
 .carImage {
     width: 300px;
     height: auto;
+}
+
+.aboutPhoto {
+    width: 200px;
+    height: 200px;
 }

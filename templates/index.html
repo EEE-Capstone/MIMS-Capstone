@@ -29,16 +29,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  <a class="nav-link active customNavItem" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#toolSection">Tool</a>
+                  <a class="nav-link customNavItem" href="#toolSection">Tool</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="equity.html">Equity</a>
+                  <a class="nav-link customNavItem" href="equity.html">Equity</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link">About</a>
+                  <a class="nav-link customNavItem" href="about.html">About</a>
                 </li>
               </ul>
             </div>
@@ -347,7 +347,7 @@
       </div> <!-- end container -->
     </div> <!-- end reverse gradient -->
 
-    <div class="customGradientYellow py-5">
+    <div class="customGradient py-5">
       <div class="container-md bg-white shadow" style="max-width: 1050px;">
         <div class="row">
           <div class="col-10 pt-5 px-5">
@@ -387,7 +387,7 @@
       </div> <!-- end container -->
     </div> <!-- end gradient section -->
 
-    <div class="py-5">
+    <div class="py-5 bg-primary">
       <div class="container-md bg-white mb-5" style="max-width: 1050px;">
         <div class="row pb-1" id="toolSection">
           <div class="col-10 p-5">
@@ -438,6 +438,12 @@
         </div> <!-- end row -->
         <div class="row pb-5" id="toolSection">
           <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+            <!-- this is where the form goes -->
+            <!-- <form action="/your-name/" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <input type="submit" value="Submit">
+            </form> -->
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row pb-1">
