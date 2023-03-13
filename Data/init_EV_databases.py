@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
@@ -16,6 +16,71 @@ zip_to_grid = pd.read_excel('/Users/josheverts/Downloads/Zip_to_Grid.xlsx')
 epa_df = pd.read_xml("/Users/josheverts/Downloads/vehicles.xml")
 epa_test_data = pd.read_csv('/Users/josheverts/Downloads/light-duty-vehicle-test-results-report-2014-present.csv', header = 1)
 test_data_2023 = pd.read_excel('/Users/josheverts/Downloads/23-testcar-2022-11-03.xlsx')
+
+
+# In[6]:
+
+
+xls = pd.ExcelFile('/Users/josheverts/Downloads/GREET_2022/GREET2_2022.xlsm')
+df1 = pd.read_excel(xls, 'Mat_Sum')
+df2 = pd.read_excel(xls, 'Battery_Sum')
+df3 = pd.read_excel(xls, 'Vehi_Comp_Sum')
+
+
+# In[47]:
+
+
+## clean material sum file and extract materials;
+## assign each material an adjusted row index 
+df1_subset = df1.iloc[24:]
+column_names = df1_subset.iloc[0]
+column_names[0] = 'Emissions Type'
+df1_subset.columns = column_names
+df1_emissions_subset = df1_subset.iloc[32-24:46-24] ## adjust to new index
+df1_emissions_subset = df1_emissions_subset.drop([32])
+
+
+# In[49]:
+
+
+df1_emissions_subset.head()
+
+
+# In[95]:
+
+
+## clean battery percentages file
+df2_subset_NiMh = df2.iloc[48:90]
+columns = df2_subset.iloc[0]
+columns[0] = 'Material'
+## create two separate tables for NiMh and Li-ion batteries
+## NiMh battery
+df2_subset_NIMH = df2_subset.iloc[57-48:67-48]
+df2_subset_NIMH.columns = columns
+df2_subset_NIMH = df2_subset_NIMH.drop(df2_subset_NIMH.columns[[1,2]], axis = 1)
+df2_subset_NIMH = df2_subset_NIMH.drop(df2_subset_NIMH.columns[9:], axis = 1)
+## LiIon battery
+df2_subset_LI = df2_subset.iloc[68-48:89-48]
+df2_subset_LI.columns = columns
+df2_subset_LI = df2_subset_LI.drop(df2_subset_LI.columns[[1,2]], axis = 1)
+df2_subset_LI = df2_subset_LI.drop(df2_subset_LI.columns[9:], axis = 1)
+
+
+# In[115]:
+
+
+## clean vehicle composition percentages file
+df3_subset = df3.iloc[135:174]
+columns = df2_subset.iloc[0]
+columns[0] = 'Material'
+df3_subset.columns = columns
+df3_subset = df3_subset.drop(df3_subset.columns[11:], axis = 1)
+
+
+# In[117]:
+
+
+df3_subset
 
 
 # In[181]:
@@ -233,8 +298,103 @@ for row in result:
     print(row)
 
 
-# In[259]:
+# In[82]:
 
 
-len(result)
+## zip2grid database
+zip_to_grid = pd.read_excel('/Users/josheverts/Downloads/Zip_to_Grid.xlsx')
+## rename columns 
+rename_dict = {'ZIP (numeric)': 'ZIP', 'state': 'State', 'eGRID Subregion #1': 'Subregion1', 'eGRID Subregion #2': 'Subregion2',
+              'eGRID Subregion #3': 'Subregion3',}
+zip_to_grid = zip_to_grid.rename(rename_dict, axis=1)  
+zip_to_grid = zip_to_grid[['ZIP', 'State', 'Subregion1', 'Subregion2', 'Subregion3']]
+len(zip_to_grid)
+
+
+# In[83]:
+
+
+zip_to_grid = zip_to_grid.drop_duplicates(['ZIP'])
+
+
+# In[84]:
+
+
+len(zip_to_grid)
+
+
+# In[24]:
+
+
+## subregion emissions database
+subregion_emissions = pd.read_excel('/Users/josheverts/Downloads/power_profiler_zipcode_tool.xlsx', 
+                                    sheet_name = 'eGRID Subregion Emission Factor', header = 2)
+## drop first row (set of codes)
+subregion_emissions = subregion_emissions.drop(index = 0)
+rename_dict = {'eGRID subregion name ': 'RegionName', 'eGRID subregion acronym': 'RegionCode',
+               'eGRID subregion annual CO2 total output emission rate (lb/MWh)': 'Co2Rate'}
+subregion_emissions = subregion_emissions.rename(rename_dict, axis=1)  
+subregion_emissions = subregion_emissions[['RegionName', 'RegionCode', 'Co2Rate']]
+
+
+# In[56]:
+
+
+## create gridmix database 
+db_conn = sql.connect("/Users/josheverts/EV_data/gridmix.db")
+c = db_conn.cursor()
+
+
+# In[57]:
+
+
+c.execute("""DROP TABLE IF EXISTS Zip2Grid;""")
+
+c.execute(
+    """
+    CREATE TABLE IF NOT EXISTS Zip2Grid (
+        ZIP INTEGER,
+        State TEXT NOT NULL,
+        Subregion1 TEXT NOT NULL,
+        Subregion2 TEXT,
+        Subregion3 TEXT,
+        Co2Rate REAL,
+        
+        PRIMARY KEY(ZIP),
+        FOREIGN KEY(Subregion1) REFERENCES Subregion(RegionCode),
+        FOREIGN KEY(Subregion2) REFERENCES Subregion(RegionCode),
+        FOREIGN KEY(Subregion3) REFERENCES Subregion(RegionCode)
+        );
+     """
+)
+# curb weight
+c.execute("""DROP TABLE IF EXISTS Subregion;""")
+c.execute(
+    """
+    CREATE TABLE IF NOT EXISTS Subregion (
+        RegionName TEXT NOT NULL,
+        RegionCode TEXT NOT NULL,
+        Co2Rate REAL,
+        PRIMARY KEY(RegionCode)
+        );
+     """
+)
+
+
+# In[85]:
+
+
+zip_to_grid.to_sql('Zip2Grid', db_conn, if_exists='append', index=False)
+
+
+# In[86]:
+
+
+subregion_emissions.to_sql('Subregion', db_conn, if_exists='append', index=False)
+
+
+# In[ ]:
+
+
+
 
