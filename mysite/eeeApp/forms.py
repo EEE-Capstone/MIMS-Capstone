@@ -1,6 +1,13 @@
 from django import forms
 from eeeApp.models import Vehicle
 
+# define a Form class
+class testForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100, initial='John Doe', required=True)
+    todays_date = forms.TimeField(label='Todays Date', disabled=True)
+    age = forms.IntegerField(label='How old are you?', min_value=1, max_value=100, initial=22)
+    favorite_animal = forms.MultipleChoiceField(label='What is your favorite animal?', choices=[(1, 'Cat'), (2, 'Dog'), (3, 'Rabbit')])
+
 def make_choices(Vehicle):
     ## get choice options
     years = list(set(Vehicle.objects.values_list('Year')))
