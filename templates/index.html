@@ -6,11 +6,17 @@
     <title>MIMS Capstone Project: Index</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-      <!-- CSS -->
+  
+    <!-- CSS -->
     <link href="../css/main.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/slideshow.css" type="text/css">
+
     <!-- Observable -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> 
   
   </head>
   <body>
@@ -32,7 +38,7 @@
                   <a class="nav-link active customNavItem" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link customNavItem" href="#toolSection">Tool</a>
+                  <a class="nav-link customNavItem" href="tool.html">Tool</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link customNavItem" href="equity.html">Equity</a>
@@ -47,7 +53,7 @@
       </div> <!-- end nav bar -->
 
       <div class="container position-relative" style="height: 600px"> <!-- begin content section -->
-        <div class="position-absolute customTitleText">
+        <div class="position-absolute customTitleText" style="margin-top: 18%;">
           <h1>Energy, Emissions, and Electric Vehicles</h1>
           <p class="">MIMS Capstone 2023</p>
         </div>
@@ -56,7 +62,7 @@
 
     <div class="customGradient py-5">
       <div class="container-md" style="max-width: 1050px;">
-        <div class="row" style="height: 400px">
+        <div class="row pb-5">
           <div class="col-6 p-5">
             <h3>Short Introduction Section</h3>
             <br>
@@ -67,8 +73,8 @@
               <li>I will finish this last</li>
             </ul>
           </div> <!-- end col -->
-          <div class="col-6 p-5">
-            <p>Image</p>
+          <div class="col-6 p-5 d-flex justify-content-center">
+            <img src="../static/images/intro.png" style="height: 400px; width: auto;">
           </div>  <!-- end col -->
         </div> <!-- end row -->
       </div> <!-- end container -->
@@ -123,10 +129,10 @@
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row pb-1">
-          <div class="col-4 p-5">
-            <p>Image Here</p>
+          <div class="col-4 p-5 d-flex justify-content-center">
+            <img src="../static/images/traffic.png" style="height: 300px; width: auto;">
           </div> <!-- end col -->
-          <div class="col-8 p-5">
+          <div class="col-8 p-5 d-flex justify-content-start">
             <p>
               Carbon dioxide makes up 99 percent of tailpipe emissions, but vehicles fueled by gasoline or diesel also release harmful air pollutants including sulfur dioxide (SO2), nitrogen oxides (NOx), carbon monoxide (CO), formaldehyde (HCHO), particulate matter (PM), and other carbon containing compounds which make up smog (U.S. Environmental Protection Agency, 2022-b).
             </p>
@@ -229,127 +235,179 @@
     <div class="customGradientReverse py-5">
 
       <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
-        <div class="row pb-1">
-          <div class="col-10 p-5">
+        <div class="row">
+          <div class="col-10 pt-5 px-5">
             <h3>But zero emission vehicles (ZEVs) still emit.</h3>
             <p>
               <br>
               While zero-emission vehicles have virtually no tailpipe emissions during operation, they do contribute to emissions elsewhere in their life cycle. Hidden and indirect emissions should also be taken into account when considering the sustainability of zero-emission vehicles. 
-              <br><br>
-              To get a picture of the true life-cycle emissions from any vehicle, a Life Cycle Analysis (LCA) approach uses estimates of the emissions created during each step of a manufacturing process and the emissions created when the vehicle is driven.
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 500px">
-            <p>diagram of overview of emissions in LCA for ZEV</p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 500px">
-            <p>How does the LCA look different for ICE vehicles</p>
+
+        <div class="row justify-content-around">
+          <div class="col-6 p-5" style="">
+            <div id="observablehq-barchart-5201d7b3"></div>
+          </div> 
+          <div class="col-6 pt-5 pe-5" style="">
+            <p>To get a picture of the true life-cycle emissions from any vehicle, a Life Cycle Analysis (LCA) approach uses estimates of the emissions created during each step of a manufacturing process and the emissions created when the vehicle is driven.
+            </p>
+          </div> 
+        </div>
+
+        <div class="row">
+          <div class="col-10 px-5 pb-4">
+            <p>
+              Explore the different phases here!
+            </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
 
-        <div class="row">
-          <div class="col-10 p-5">
-            <h3>Let's dig deeper into emission stages of ZEVs </h3>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>1. Example Stage: Mining Resources **Maybe these can be in a carousel to reduce length of the page,, but it could look ugly</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
-            Chart
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>2. Battery Production - Cathode Supply Chain</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-8 p-5" style="height: 430px">
-            <div id="observablehq-viewof-replay-e6d12576"></div>
-            <div class="py-2"></div>
-            <div id="observablehq-allCharts-e6d12576"></div>
-            <!-- <p>Credit: <a href="https://observablehq.com/d/c901392bea8bf874">Supply Chain Geo by Clara Hu</a></p> -->
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5">
-          <div class="col-12 p-5">
-            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSupplyChain" aria-expanded="false" aria-controls="collapseExample">
-            Chart Sources
+      <div class="row pb-5">
+        <div class="col-12 pb-5 px-5">
+            <div class="customCarousel">
+                <input type="radio" name="slides" checked="checked" id="slide-1">
+                <input type="radio" name="slides" id="slide-2">
+                <input type="radio" name="slides" id="slide-3">
+                <input type="radio" name="slides" id="slide-4">
+                <!-- <input type="radio" name="slides" id="slide-5"> -->
+                <!-- <input type="radio" name="slides" id="slide-6"> -->
+                <ul class="carousel__thumbnails">
+                  <li>
+                      <label for="slide-1"><img src="../static/images/step1.png" alt=""></label>
+                  </li>
+                  <li>
+                      <label for="slide-2"><img src="../static/images/step2.png" alt=""></label>
+                  </li>
+                  <li>
+                      <label for="slide-3"><img src="../static/images/step3.png" alt=""></label>
+                  </li>
+                  <li>
+                      <label for="slide-4"><img src="../static/images/step4.png" alt=""></label>
+                  </li>
+                  <!-- <li>
+                      <label for="slide-5"><img src="../static/images/step5.png" alt=""></label>
+                  </li> -->
+                  <!-- <li>
+                      <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
+                  </li> -->
+              </ul>
+              <ul class="carousel__slides">
+                  <li class="carousel__slide">
+                      <figure>
+                        <div>
+                          <div class=""> 
+                            <div id="observablehq-stacked_bar3-4bf9e29c"></div>
+                            <!-- <p>Credit: <a href="https://observablehq.com/d/4c5ebaf4cb125f27">LCA Emissions 2 by Clara Hu</a></p> -->
+                          </div>
+                          <div style="" class="d-flex flex-row pt-3">
+                            <div class="">
+                              <div id="observablehq-vehicleParts_barchart-1be27666"></div>
+                            </div> <!-- end end half -->
+                            <div class="bg-secondary">
+                              This is a description 
+                            </div> <!-- end half -->
+                          </div> <!-- end flex section -->
+                        </div>
+                      </figure>
+                  </li>
+                  <li class="carousel__slide">
+                      <figure>
+                        <div>
+                          <div style="" class="">
+                            <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
+                          </div>
+                          <div style="" class="d-flex flex-row pt-3">
+                            <div class="">
+                              <div id="observablehq-battery_barchart-b652a6e2"></div>
+                            </div> <!-- end end half -->
+                            <div class="">
+                              <div id="observablehq-viewof-replay-e6d12576"></div>
+                              <div class="py-2"></div>
+                              <div id="observablehq-allCharts-e6d12576"></div>
+                            </div> <!-- end half -->
+                          </div> <!-- end flex section -->
+                        </div>
+                      </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure>
+                      <div>
+                        <div style="" class="">
+                          <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
+                        </div>
+                        <div style="" class="d-flex flex-row pt-3">
+                          <div class="">
+                            <div id="observablehq-use_barchart-e6297ec9"></div>
+                          </div> <!-- end end half -->
+                          <div class="">
+                            This is a description
+                          </div> <!-- end half -->
+                        </div> <!-- end flex section -->
+                      </div>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure>
+                      <div>
+                        <div style="" class="">
+                          <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
+                        </div>
+                        <div style="" class="d-flex flex-row pt-3">
+                          <div class="">
+                            <div id="observablehq-disposal_barchart-99771b29"></div>
+                          </div> <!-- end end half -->
+                          <div class="">
+                            This is a description
+                          </div> <!-- end half -->
+                        </div> <!-- end flex section -->
+                      </div>
+                    </figure>
+                  </li>
+                </ul>    
+                  <!-- <li class="carousel__slide">
+                      <figure>
+                        <div>
+                          <div style="height: 250px" class="bg-success"> 
+                            This is the bar chart
+                          </div>
+                          <div style="height: 350px" class="bg-success-subtle">
+                            This is a section with information about the section
+                          </div>
+                        </div>
+                      </figure>
+                  </li> -->
+                  <!-- <li class="carousel__slide">
+                      <figure>
+                          <div>
+                              <img src="https://picsum.photos/id/1052/800/450" alt="">
+                          </div>
+                      </figure>
+                  </li> -->
+            </div>
+            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">
+              Chart Sources
             </button>
-            <div class="collapse" id="collapseSupplyChain">
-              <div class="card">
-                <h6 class="card-header">Sources</h6>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">An item</li>
-                  <li class="list-group-item">A second item</li>
-                  <li class="list-group-item">A third item</li>
-                </ul>
-              </div> <!-- end card -->
-            </div> <!-- end collapse of drop down -->
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>3. Example Stage: Production</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
-            Chart
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>4. Example Stage: Transportation</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
-            Chart
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>5. Example Stage: Vehicle Usage</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
-            Chart
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row">
-          <div class="col-10 px-5">
-            <h5>6. Example Stage: Recycling</h5>
-            <p><!-- caption here --></p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5 justify-content-around">
-          <div class="col-10 p-5 bg-dark-subtle" style="height: 300px">
-            Chart
-          </div> <!-- end col -->
-        </div> <!-- end row -->
+          </p>
+          <div class="collapse" id="collapseLineChart">
+            <div class="card">
+              <h6 class="card-header">Sources</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div> <!-- end card -->
+          </div> <!-- end collapse of drop down -->
+      </div>    <!--  end col  -->
+    </div> <!--  end row  -->
 
       </div> <!-- end container -->
     </div> <!-- end reverse gradient -->
 
-    <div class="customGradient py-5">
+    <div class="customGradient pb-5">
       <div class="container-md bg-white shadow" style="max-width: 1050px;">
-        <div class="row">
+        <div class="row pt-3">
           <div class="col-10 pt-5 px-5">
             <h3>Understanding the cost of charging ZEVs</h3>
             <p>
@@ -415,9 +473,6 @@
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
-        <div class="d-flex">
-          <hr class="border border-secondary border-3 opacity-75" style="width:45%;"/> 
-        </div>
         <div class="row pb-5" id="toolSection">
           <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
           </div> <!-- end col -->
@@ -425,38 +480,11 @@
         <div class="row pb-1">
           <div class="col-10 p-5">
             <h3>Try out the LCA calculator</h3>
-            <p>
-              <br><br>
-              How it works 
-            </p>
-            <ol>
-              <li>Do this</li>
-              <li>Then this</li>
-              <li>And finally this</li>
-            </ol>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5" id="toolSection">
-          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
-            <!-- this is where the form goes -->
-            <!-- <form action="/your-name/" method="post">
-              {% csrf_token %}
-              {{ form }}
-              <input type="submit" value="Submit">
-            </form> -->
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-1">
-          <div class="col-10 p-5">
-            <p>
-              Learn more about how this was built -- link to about page
-            </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
       </div> <!-- end container -->
 
     </div> <!-- end reverse gradient -->
-
 
     <div class="customFooter">
       <div class="container-md" style="max-width: 1050px;">
@@ -469,7 +497,14 @@
     </div> <!-- end footer section -->
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <!-- Locomotive Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js">
+      const scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true });
+    </script>
     <!-- Observable JS -->
     <!-- line chart -->
     <script type="module">
@@ -496,6 +531,55 @@
           if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-e6d12576"));
         });
         </script>
+        <!-- bar chart of all emissions lca  -->
+        <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+          new Runtime().module(define, name => {
+            if (name === "barchart") return new Inspector(document.querySelector("#observablehq-barchart-5201d7b3"));
+          });
+          </script>          
+        <!-- Horizontal stacked Bar chart -->
+        <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+          new Runtime().module(define, name => {
+            if (name === "stacked_bar3") return new Inspector(document.querySelector("#observablehq-stacked_bar3-4bf9e29c"));
+          });
+          </script>
+        <!-- emissions during manufacturing -->
+        <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+          new Runtime().module(define, name => {
+            if (name === "vehicleParts_barchart") return new Inspector(document.querySelector("#observablehq-vehicleParts_barchart-1be27666"));
+          });
+        </script>
+        <!-- bar chart battery emissions -->
+        <script type="module">
+          import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+          new Runtime().module(define, name => {
+            if (name === "battery_barchart") return new Inspector(document.querySelector("#observablehq-battery_barchart-b652a6e2"));
+          });
+          </script>
+          <!-- bar chart use -->
+          <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+            new Runtime().module(define, name => {
+              if (name === "use_barchart") return new Inspector(document.querySelector("#observablehq-use_barchart-e6297ec9"));
+            });
+          </script>
+          <!-- bar chart disposal -->
+          <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/4c5ebaf4cb125f27.js?v=3";
+            new Runtime().module(define, name => {
+              if (name === "disposal_barchart") return new Inspector(document.querySelector("#observablehq-disposal_barchart-99771b29"));
+            });
+          </script>
+
 
   </body>
 </html>

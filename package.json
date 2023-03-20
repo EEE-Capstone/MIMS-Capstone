@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Josh-Everts/MIMS-Capstone#readme",
   "dependencies": {
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.2.3",
+    "locomotive-scroll": "^4.1.4"
   }
 }

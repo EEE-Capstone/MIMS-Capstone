@@ -28,9 +28,14 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.customTitleEquityImage {
+    background-image: url("../static/images/equity_background.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .customTitleText {
-    margin-top: 18%;
     color: #ffffff;
     text-shadow: #FAFAFA 1px 0 5px;
 }
@@ -46,7 +51,7 @@
 }
 
 .carImage {
-    width: 300px;
+    width: 250px;
     height: auto;
 }
 
