@@ -71,7 +71,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  transition: all 300ms ease-out;
+  /* transition: all 300ms ease-out; */
   box-sizing: border-box;
   white-space: normal;
 }
@@ -107,7 +107,7 @@
   flex: 1 1 auto;
   max-width: calc(40% - 0px);
   margin: 0 20px;
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 }
 .carousel__thumbnails label {
   display: block;
@@ -116,7 +116,7 @@
   cursor: pointer;
 }
 .carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
-  transition: all 300ms ease-in-out;
+  /* transition: all 300ms ease-in-out; */
 }
 .carousel__thumbnails img {
   display: block;

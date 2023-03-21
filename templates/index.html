@@ -52,12 +52,19 @@
         </nav>  
       </div> <!-- end nav bar -->
 
-      <div class="container position-relative" style="height: 600px"> <!-- begin content section -->
-        <div class="position-absolute customTitleText" style="margin-top: 18%;">
-          <h1>Energy, Emissions, and Electric Vehicles</h1>
-          <p class="">MIMS Capstone 2023</p>
-        </div>
-      </div>  <!-- end content section -->
+      <div class="container-md" style="max-width: 1000px;">
+        <div class="row pb-5 d-flex align-items-center" style="height: 600px;">
+          <div class="col-12 p-5 text-center customTitleText">
+            <h1 class="customHomeTitleText">Energy, Emissions, and Electric Vehicles</h1>
+            <h5 class="customTitleText py-3">MIMS 2023 Capstone Project <br> by Astoria, Clara, and Josh</h5>
+            <button type="button" class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5 customTitleButton">Emissions Explorer</button>
+            <button type="button" class="btn btn-outline-primary btn-lg mt-4 mx-3 rounded-pill px-5 customTitleButtonOutline">Learn More</button>
+
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+
+
     </div> <!-- end header section -->
 
     <div class="customGradient py-5">
@@ -92,15 +99,23 @@
           <div class="col-12 pt-4 px-5">
             <p class="pb-4 col-10">
               In order to reduce emissions and combat climate change the U.S. and states are taking actions through environmental restoration projects, promoting renewable energy, and regulating pollution.
-              <br>
-              Explore key policies passed in the last 30 years by the U.S. and California related to surface transportation by hovering over the emissions line chart.
             </p>
+
+            <!-- DESCRIPTION OF THE CHART -->
+            <hr class="border border-secondary border-1 opacity-100" /> 
+            <h5> Explore key policies passed in the last 30 years by the U.S. and California related to surface transportation by hovering over the emissions line chart.
+            </h5>
+            <hr class="border border-secondary border-1 opacity-100" /> 
+            <br>
+            <!-- END -- DESCRIPTION OF THE CHART -->
+
             <div id="observablehq-plot2-c4f5412f"></div>
             <!-- <p>Credit: <a href="https://observablehq.com/d/cc45001d41e8b130">Emissions by Year and Policies by Clara Hu</a></p> -->
+            
+            <!-- SOURCES SECTION  -->
             <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">
               Chart Sources
             </button>
-          </p>
           <div class="collapse" id="collapseLineChart">
             <div class="card">
               <h6 class="card-header">Sources</h6>
@@ -111,6 +126,8 @@
               </ul>
             </div> <!-- end card -->
           </div> <!-- end collapse of drop down -->
+          <!-- END SOURCES  -->
+
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row pb-1">
@@ -148,36 +165,13 @@
       </div> <!-- end container -->
     </div> <!-- end gradient section -->
 
-    <div class="bg-primary py-5">
-      <div class="container-md mb-5" style="max-width: 1050px;">
-        <div class="row pt-5 pb-2">
-          <h3>Zooming out: measuring transportation emissions</h3>
-          <br>
-          <p>
-            Introduction of digestible outputs here
-          </p>
-        </div>
-        <div class="row pt-2 pb-5">
-          <div class="col-4 p-5" style="height: 100px">
-            <p>Section 1</p>
-          </div> <!-- end col -->
-          <div class="col-4 p-5" style="height: 100px">
-            <p>Section 2</p>
-          </div>  <!-- end col -->
-          <div class="col-4 p-5" style="height: 100px">
-            <p>Section 3</p>
-          </div>  <!-- end col -->
-        </div> <!-- end row -->
-      </div> <!-- end container -->
-    </div> <!-- end section -->
-
     <div class="bg-white py-5">
       <div class="container-md mb-5" style="max-width: 1050px;">
         <div class="row pt-5 pb-2">
-          <h3>We've created more sustainable transportation!</h3>
+          <h3>Sustainable Transportation Alternatives</h3>
           <p>
             <br>
-            Zero emission vehicles are vehicles that produce zero exhaust emissions in any mode and condition (U.S. Department of Energy, n.d.-b).
+            Zero emission vehicles are vehicles that produce zero exhaust emissions in any mode and condition.
             <br><br>
             Conventional internal combustion vehicles apply high pressure on fossil fuels in a heat engine to power the engine, which releases greenhouse gasses as exhaust emissions, while ZEVs eliminate the combustion engine related exhaust emissions. Most ZEVs draw on propulsion energy from an electric battery which virtually eliminates tailpipe carbon emissions.</p>
         </div>
@@ -300,14 +294,16 @@
                             <div id="observablehq-stacked_bar3-4bf9e29c"></div>
                             <!-- <p>Credit: <a href="https://observablehq.com/d/4c5ebaf4cb125f27">LCA Emissions 2 by Clara Hu</a></p> -->
                           </div>
-                          <div style="" class="d-flex flex-row pt-3">
+                          <hr class="border border-secondary border-1 opacity-100" /> 
+                          <div style="" class="d-flex flex-row py-3">
                             <div class="">
                               <div id="observablehq-vehicleParts_barchart-1be27666"></div>
                             </div> <!-- end end half -->
-                            <div class="bg-secondary">
+                            <div class="">
                               This is a description 
                             </div> <!-- end half -->
                           </div> <!-- end flex section -->
+                          <hr class="border border-secondary border-1 opacity-100" /> 
                         </div>
                       </figure>
                   </li>
@@ -317,7 +313,10 @@
                           <div style="" class="">
                             <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
                           </div>
-                          <div style="" class="d-flex flex-row pt-3">
+
+                          <hr class="border border-secondary border-1 opacity-100" /> 
+
+                          <div style="" class="d-flex flex-row py-3">
                             <div class="">
                               <div id="observablehq-battery_barchart-b652a6e2"></div>
                             </div> <!-- end end half -->
@@ -327,6 +326,7 @@
                               <div id="observablehq-allCharts-e6d12576"></div>
                             </div> <!-- end half -->
                           </div> <!-- end flex section -->
+                          <hr class="border border-secondary border-1 opacity-100" /> 
                         </div>
                       </figure>
                   </li>
@@ -336,7 +336,10 @@
                         <div style="" class="">
                           <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
                         </div>
-                        <div style="" class="d-flex flex-row pt-3">
+
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+
+                        <div style="" class="d-flex flex-row py-3">
                           <div class="">
                             <div id="observablehq-use_barchart-e6297ec9"></div>
                           </div> <!-- end end half -->
@@ -344,6 +347,7 @@
                             This is a description
                           </div> <!-- end half -->
                         </div> <!-- end flex section -->
+                        <hr class="border border-secondary border-1 opacity-100" /> 
                       </div>
                     </figure>
                   </li>
@@ -353,7 +357,10 @@
                         <div style="" class="">
                           <img src="../static/images/lca_stacked_bar.png" style="max-width: 90%;">
                         </div>
-                        <div style="" class="d-flex flex-row pt-3">
+
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+
+                        <div style="" class="d-flex flex-row py-3">
                           <div class="">
                             <div id="observablehq-disposal_barchart-99771b29"></div>
                           </div> <!-- end end half -->
@@ -361,6 +368,9 @@
                             This is a description
                           </div> <!-- end half -->
                         </div> <!-- end flex section -->
+
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+
                       </div>
                     </figure>
                   </li>
@@ -408,22 +418,68 @@
     <div class="customGradient pb-5">
       <div class="container-md bg-white shadow" style="max-width: 1050px;">
         <div class="row pt-3">
-          <div class="col-10 pt-5 px-5">
+          <div class="col-12 pt-5 px-5">
             <h3>Understanding the cost of charging ZEVs</h3>
             <p>
               <br>
               Battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs) are reliant on electricity, which may have varying levels of associated emissions depending on the primary source of electric generation in the geographic area where the vehicles are being charged.
               <br><br>
-              When taking into account cumulative emissions from ZEVs, it is also important to consider the local electrical grid
-              <br><br>
-              Electricity in the United States is generated through many different energy sources including fossil fuels (natural gas, coal, petroleum), nuclear energy, and renewable energy (wind, hydro, solar, biomass, geothermal). In 2021, the US generated electricity with fossil fuels contributing to over 60 percent of electricity generation and nuclear and renewables contributing around 20 percent each.
-              <br><br>
-              See how the mix of electricity generation differs from region to region in the U.S. 
+              When taking into account cumulative emissions from ZEVs, it is also important to consider the local electrical grid. Your electric grid consists of different types of sources: 
             </p>
+            <!-- In 2021, the US generated electricity with fossil fuels contributing to over 60 percent of electricity generation and nuclear and renewables contributing around 20 percent each. -->
+
+
           </div> <!-- end col -->
         </div> <!-- end row -->
+
+        <div class="row px-5 pb-4">
+          <div class="col-3">
+            <div class="card" style="border: 0;">
+              <img src="../static/images/memoji.png" class="sourcesPhoto mx-auto d-block"> 
+              <div class="card-body">
+                <p class="text-center"><strong>Renewables</strong></p>
+                <p class="card-text">Examples</p>
+              </div>
+            </div> <!-- end card -->
+          </div> <!-- end col -->
+          <div class="col-3">
+            <div class="card" style="border: 0;">
+              <img src="../static/images/memoji.png" class="sourcesPhoto mx-auto d-block"> 
+              <div class="card-body">
+                <p class="text-center"><strong>Non-renewables</strong></p>
+                <p class="card-text">Fossil fuels, natural gas, coal, petroleum</p>
+              </div>
+            </div> <!-- end card -->
+          </div> <!-- end col -->
+          <div class="col-3">
+            <div class="card" style="border: 0;">
+              <img src="../static/images/memoji.png" class="sourcesPhoto mx-auto d-block"> 
+              <div class="card-body">
+                <p class="text-center"><strong>Nuclear</strong></p>
+                <p class="card-text">Description</p>
+              </div>
+            </div> <!-- end card -->
+          </div> <!-- end col -->
+          <div class="col-3">
+            <div class="card" style="border: 0;">
+              <img src="../static/images/memoji.png" class="sourcesPhoto mx-auto d-block"> 
+              <div class="card-body">
+                <p class="text-center"><strong>Other</strong></p>
+                <p class="card-text">Imported energy</p>
+              </div>
+            </div> <!-- end card -->
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+
         <div class="row px-5">
-          <div class="col-12" style="">
+          <div class="col-12" style="">              
+              <!-- DESCRIPTION OF THE CHART -->
+              <hr class="border border-secondary border-1 opacity-100" /> 
+              <h5>See how the ratio of sources for electricity generation differ from region to region in the U.S. <br>Click on the area you live!
+              </h5>
+              <hr class="border border-secondary border-1 opacity-100" /> 
+              <!-- END -- DESCRIPTION OF THE CHART -->
+
             <div id="observablehq-allCharts-8f5a3bd3"></div>
             <!-- <p>Credit: <a href="https://observablehq.com/d/d2acbd3b5d70efa1">Grid Mix by Interconnection Subregion by Clara Hu</a></p> -->
           </div> <!-- end col -->
@@ -444,47 +500,6 @@
         </div> <!-- end row -->
       </div> <!-- end container -->
     </div> <!-- end gradient section -->
-
-    <div class="py-5 bg-primary">
-      <div class="container-md bg-white mb-5" style="max-width: 1050px;">
-        <div class="row pb-1" id="toolSection">
-          <div class="col-10 p-5">
-            <h3>Calculate vehicle lifecycle emissions</h3>
-            <p>
-              <br><br>
-              We built a tool to calculate LCA! 
-              <br><br>
-              Background and introduction of the tool 
-              <br><br>
-              Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.
-            </p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5">
-          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-1">
-          <div class="col-10 p-5">
-            <h3>See how cool the tool is -- show meaningful outputs</h3>
-            <p>
-              <br><br>
-              Description of the output 
-            </p>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-5" id="toolSection">
-          <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-        <div class="row pb-1">
-          <div class="col-10 p-5">
-            <h3>Try out the LCA calculator</h3>
-          </div> <!-- end col -->
-        </div> <!-- end row -->
-      </div> <!-- end container -->
-
-    </div> <!-- end reverse gradient -->
 
     <div class="customFooter">
       <div class="container-md" style="max-width: 1050px;">
