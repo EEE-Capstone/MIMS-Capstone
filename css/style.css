@@ -64,7 +64,7 @@ body{ font-family: 'Cardo', serif;}
     text-shadow: #FAFAFA 1px 0 5px;
 }
 .customNavItem:hover {
-    color: #340068;
+    color: #000;
     letter-spacing: 0.75px;
     /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
     text-shadow: #fafafa 1px 0 5px;
@@ -113,3 +113,19 @@ body{ font-family: 'Cardo', serif;}
     border-color: #FFB51A;
     color: #FFB51A; 
 }
+
+.customCardHover svg {
+    margin: auto;
+    height: 75px;
+}
+.customCardHover:hover svg {
+    fill:white;
+    stroke: white;
+}
+.customCardHover:hover {
+    background-image: linear-gradient(to right, #FF485B , #9CF6F0);
+    color: white;
+}
+
+
+

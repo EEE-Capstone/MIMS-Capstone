@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from eeeApp.forms import testForm, vehicleForm
 from django.urls import reverse
+from .models import Vehicle
+from django.urls import reverse_lazy
 
 #from .models import _______
 
@@ -30,6 +32,16 @@ def get_name(request):
         form = testForm()
         # print(form.data)
     return render(request, 'testForm.html', {'form': form})
+
+# class TestCreateView(CreateView):
+#     model = Vehicle
+#     form_class = testForm
+#     success_url = reverse_lazy('test_changelist')
+
+# def load_model(request):
+#     make_id = request.GET.get('Make')
+#     model = Vehicle.objects.filter(make_id = Vehicle.objects.values_list('Make'))
+#     return render(request, 'hr/model_dropdown_list_options.html'), {'Model': model}
 
 def get_vehicle(request):
     #POST request means process data 

@@ -24,6 +24,13 @@ def make_choices(col):
 
 # define a Form class
 class testForm(forms.Form):
+    # class Meta: 
+    #     model = Vehicle 
+    #     fields = ('year', 'make', 'model', 'zipcode')
+    # def __init__ (self, *args, **kwargs):
+    #     super().__init__( *args, **kwargs)
+    #     self.fields['year'].queryset = Vehicle.objects.none()
+
     your_name = forms.CharField(label='Your name', max_length=100, initial='John Doe', required=True)
     todays_date = forms.TimeField(label='Todays Date', disabled=True, required = False)
     age = forms.IntegerField(label='How old are you?', min_value=1, max_value=100, initial=22)
