@@ -74,7 +74,7 @@ function perMileFunction() {
   for (let j = 0; j < iso_row - 1; j++) {
     for (let i = 0; i < 20; i++) {
       const coals_pile = iso_container.append('image')
-        .attr("href", './icon.png')
+        .attr("href", 'icons/coal.svg')
         .attr('width', 30)
         .attr('height', 30)
         .attr('x', 10 + (35*i))
@@ -84,7 +84,7 @@ function perMileFunction() {
 
     for (let i = 0; i < last_row; i++) {
     const coals_pile = iso_container.append('image')
-      .attr("href", './icon.png')
+      .attr("href", 'icons/coal.svg')
       .attr('width', 30)
       .attr('height', 30)
       .attr('x', 10 + (35*i))
@@ -435,7 +435,7 @@ container2.append('text')
   .text(`gas-powered vehicles in a year`);
 
 const vehicle_image = container2.append('image')
-  .attr("href", './icon.png')
+  .attr("href", './icons/gascar2.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
@@ -469,11 +469,11 @@ container2.append('text')
   .text(`American homes in a year`);
 
 const home_image = container2.append('image')
-  .attr("href", './icon.png')
-  .attr('width', 50)
-  .attr('height', 50)
-  .attr('x', 20)
-  .attr('y', 90 - 15 + 10)
+  .attr("href", './icons/house.svg')
+  .attr('width', 35)
+  .attr('height', 35)
+  .attr('x', 20 + 8)
+  .attr('y', 90 - 15 + 10 + 5)
 
   ///Airplane hours
 
@@ -502,7 +502,7 @@ container2.append('text')
   .text(`hours as a passenger on an international flight`);
 
 const airplane_image = container2.append('image')
-  .attr("href", './icon.png')
+  .attr("href", './icons/plane.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
@@ -536,11 +536,12 @@ container2.append('text')
   .text(`acres of US forest in a year`);
 
 const forest_image = container2.append('image')
-  .attr("href", './icon.png')
-  .attr('width', 50)
-  .attr('height', 50)
-  .attr('x', 20)
-  .attr('y', 160 - 15 + 10)
+  .attr("href", 'icons/forest.svg')
+  .attr('width', 40)
+  .attr('height', 40)
+  .attr('x', 20 + 5)
+  .attr('y', 160 - 15 + 10 + 5) 
+  .style('fill', 'blue')
 
   ///Pickup Trucks coal
 
@@ -569,7 +570,7 @@ container2.append('text')
   .text(`standard pickup trucks of coal`);
 
 const coal_image = container2.append('image')
-  .attr("href", './icon.png')
+  .attr("href", 'icons/coal_pickup.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
@@ -631,7 +632,7 @@ container3.append('text')
   .text(`gas-powered vehicles in a year`);
 
 const vehicle_image2 = container3.append('image')
-  .attr("href", './icon.png')
+  .attr("href", './icons/gascar2.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
@@ -665,11 +666,11 @@ container3.append('text')
   .text(`American homes in a year`);
 
 const home_image2 = container3.append('image')
-  .attr("href", './icon.png')
-  .attr('width', 50)
-  .attr('height', 50)
-  .attr('x', 20)
-  .attr('y', 90 - 15 + 10)
+  .attr("href", './icons/house.svg')
+  .attr('width', 35)
+  .attr('height', 35)
+  .attr('x', 20 + 8)
+  .attr('y', 90 - 15 + 10 + 5)
 
   ///Airplane hours
 
@@ -698,7 +699,7 @@ container3.append('text')
   .text(`hours as a passenger on an international flight`);
 
 const airplane_image2 = container3.append('image')
-  .attr("href", './icon.png')
+  .attr("href", './icons/plane.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
@@ -732,11 +733,11 @@ container3.append('text')
   .text(`acres of US forest in a year`);
 
 const forest_image2 = container3.append('image')
-  .attr("href", './icon.png')
-  .attr('width', 50)
-  .attr('height', 50)
-  .attr('x', 20)
-  .attr('y', 160 - 15 + 10)
+  .attr("href", 'icons/forest.svg')
+  .attr('width', 40)
+  .attr('height', 40)
+  .attr('x', 20 + 5)
+  .attr('y', 160 - 15 + 10 + 5)
 
   ///Pickup Trucks coal
 
@@ -765,7 +766,7 @@ container3.append('text')
   .text(`standard pickup trucks of coal`);
 
 const coal_image2 = container3.append('image')
-  .attr("href", './icon.png')
+  .attr("href", 'icons/coal_pickup.svg')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
