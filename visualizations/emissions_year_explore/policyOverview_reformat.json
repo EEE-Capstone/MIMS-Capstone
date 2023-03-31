@@ -1,0 +1,157 @@
+[
+    {
+      "Year": 1990,
+      "US": "Clean Air Act Amends. of 1990",
+      "CA": "Low-Emissions Vehicle Program enacted (LEV I plus ZEV)"
+    },
+    {
+      "Year": 1991,
+      "US": "Intermodal Surface Transportation Efficiency Act (ISTEA) of 1991",
+      "CA": ""
+    },
+    {
+      "Year": 1992,
+      "US": "Energy Policy Act of 1992",
+      "CA": ""
+    },
+    {
+      "Year": 1993,
+      "US": "Partnership for a New Generation of Vehicles established",
+      "CA": ""
+    },
+    {
+      "Year": 1994,
+      "US": "Energy Policy and Conservation Act Amendments of 1994",
+      "CA": ""
+    },
+    {
+      "Year": 1995,
+      "US": "The National Highway System Designation Act of 1995",
+      "CA": ""
+    },
+    {
+      "Year": 1996,
+      "US": "Leaded gasoline banned as part of Clean Air Act",
+      "CA": ""
+    },
+    {
+      "Year": 1997,
+      "US": "Million Solar Roofs Initiative",
+      "CA": ""
+    },
+    {
+      "Year": 1998,
+      "US": "Transportation Equity Act of the 21st Century (TEA 21) of 1998",
+      "CA": "Low-Emission Vehicle Program revised (LEV II)"
+    },
+    {
+      "Year": 1999,
+      "US": ["Green Energy Parks Program", "Wind Powering America Initiative"],
+      "CA": ""
+    },
+    {
+      "Year": 2000,
+      "US": "",
+      "CA": "Public Transit Bus Fleet Rule and Emission Standards for New Urban Buses"
+    },
+    {
+      "Year": 2001,
+      "US": "",
+      "CA": "Amendments to LEV II and Zero-Emission Vehicle Regulations"
+    },
+    {
+      "Year": 2002,
+      "US": "",
+      "CA": "AB 1493: Clean Cars Standards ('Pavley')"
+    },
+    {
+      "Year": 2003,
+      "US": "",
+      "CA": "California Energy Action Plan (EAP) adopted"
+    },
+    {
+      "Year": 2004,
+      "US": ["Clean School Bus USA Program","SmartWay Transport Partnership Program"],
+      "CA": ""
+    },
+    {
+      "Year": 2005,
+      "US": ["Energy Policy Act of 2005", "Safe Accountable Flexible Transportation Equity Act - A Legacy For Users (SAFTEA- LU) of 2005"],
+      "CA": "Executive Order S-3-05 (Governor's Climate Change E.O.-Gov. Schwarzenegger)"
+    },
+    {
+      "Year": 2006,
+      "US": "",
+      "CA": "AB 32: Global Warming Solutions Act"
+    },
+    {
+      "Year": 2007,
+      "US": "Energy Policy Act of 2007",
+      "CA": ""
+    },
+    {
+      "Year": 2008,
+      "US": "Energy Policy Act of 2008",
+      "CA": "SB 375: Sustainable Communities & Climate Change Protection Act"
+    },
+    {
+      "Year": 2009,
+      "US": "CAFE (Corporate Average Fuel Economy) Standards of 2009",
+      "CA": "Executive Order S-1-07 signed by Governor Schwarzenegger"
+    },
+    {
+      "Year": 2010,
+      "US": "Light-Duty Vehicle Greenhouse Gas Emission Standards and Corporate Average Fuel Economy Standards established",
+      "CA": ""
+    },
+    {
+      "Year": 2011,
+      "US": "",
+      "CA": "Low Carbon Fuel Standard (LCFS) regulation implemented under AB 32"
+    },
+    {
+      "Year": 2012,
+      "US": "MAP 21",
+      "CA": ["Advanced Clean Cars Program adopted by CARB for 2017 - 2025 vehicles", "Executive Order B-16-2012 signed by Governor Jerry Brown"]
+    },
+    {
+      "Year": 2013,
+      "US": "National Program to Improve Fuel. Economy and Greenhouse Gases for Passenger Cars and Light Trucks extended through 2025",
+      "CA": ""
+    },
+    {
+      "Year": 2014,
+      "US": "Tier 3 Motor Vehicle Emission and Fuel Standards established",
+      "CA": ""
+    },
+    {
+      "Year": 2015,
+      "US": "FAST (Fixing America's Surface Transportation) Act",
+      "CA": "Executive Order B-30-15 signed by Governor Jerry Brown"
+    },
+    {
+      "Year": 2016,
+      "US": "",
+      "CA": "SB 32: Updates to the California Global Warning Solutions Act of 2006"
+    },
+    {
+      "Year": 2017,
+      "US": "",
+      "CA": "AB1/SB1: Road Recovery and Accountability Act in California"
+    },
+    {
+      "Year": 2018,
+      "US": "",
+      "CA": ["Executive Order B-48-18 signed by Governor Jerry Brown", "SB 1014: California Clean Miles Standard and Incentive Program", "SB 100: The 100 Percent Clean Energy Act of 2018"]
+    },
+    {
+      "Year": 2019,
+      "US": "America's Transportation Infrastructure Act of 2019",
+      "CA": ""
+    },
+    {
+      "Year": 2020,
+      "US": "Safer Affordable Fuel- Efficient (SAFE) Vehicle Rule Part One",
+      "CA": "Executive Order N-79-20 signed by Governor Gavin Newsom"
+    }
+  ]
