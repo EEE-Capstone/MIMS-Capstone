@@ -1,0 +1,366 @@
+[
+  {
+    "Subregion": "AKGD",
+    "Renewable": 14.4,
+    "Non-Renewable": 85.7,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      14.4,
+      85.7,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "AKMS",
+    "Renewable": 68.9,
+    "Non-Renewable": 31.2,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      68.9,
+      31.2,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "AZNM",
+    "Renewable": 18.4,
+    "Non-Renewable": 62.9,
+    "Nuclear": 18.8,
+    "Other": 0,
+    "values": [
+      18.4,
+      62.9,
+      18.8,
+      0
+    ]
+  },
+  {
+    "Subregion": "CAMX",
+    "Renewable": 39.7,
+    "Non-Renewable": 52.1,
+    "Nuclear": 8.1,
+    "Other": 0.2,
+    "values": [
+      39.7,
+      52.1,
+      8.1,
+      0.2
+    ]
+  },
+  {
+    "Subregion": "ERCT",
+    "Renewable": 25.7,
+    "Non-Renewable": 64.7,
+    "Nuclear": 9.5,
+    "Other": 0.1,
+    "values": [
+      25.7,
+      64.7,
+      9.5,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "FRCC",
+    "Renewable": 5.2,
+    "Non-Renewable": 82.4,
+    "Nuclear": 11.8,
+    "Other": 0.4,
+    "values": [
+      5.2,
+      82.4,
+      11.8,
+      0.4
+    ]
+  },
+  {
+    "Subregion": "HIMS",
+    "Renewable": 35.8,
+    "Non-Renewable": 64.3,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      35.8,
+      64.3,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "HIOA",
+    "Renewable": 12.3,
+    "Non-Renewable": 87.6,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      12.3,
+      87.6,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "MROE",
+    "Renewable": 12.3,
+    "Non-Renewable": 87.8,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      12.3,
+      87.8,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "MROW",
+    "Renewable": 40.7,
+    "Non-Renewable": 50.5,
+    "Nuclear": 8.6,
+    "Other": 0.2,
+    "values": [
+      40.7,
+      50.5,
+      8.6,
+      0.2
+    ]
+  },
+  {
+    "Subregion": "NEWE",
+    "Renewable": 17,
+    "Non-Renewable": 56.8,
+    "Nuclear": 26.3,
+    "Other": 0.1,
+    "values": [
+      17,
+      56.8,
+      26.3,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "NWPP",
+    "Renewable": 56.4,
+    "Non-Renewable": 40.6,
+    "Nuclear": 3,
+    "Other": 0.1,
+    "values": [
+      56.4,
+      40.6,
+      3,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "NYCW",
+    "Renewable": 0.4,
+    "Non-Renewable": 90.8,
+    "Nuclear": 8.7,
+    "Other": 0,
+    "values": [
+      0.4,
+      90.8,
+      8.7,
+      0
+    ]
+  },
+  {
+    "Subregion": "NYLI",
+    "Renewable": 5.3,
+    "Non-Renewable": 94.8,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      5.3,
+      94.8,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "NYUP",
+    "Renewable": 40.6,
+    "Non-Renewable": 26.2,
+    "Nuclear": 33.2,
+    "Other": 0,
+    "values": [
+      40.6,
+      26.2,
+      33.2,
+      0
+    ]
+  },
+  {
+    "Subregion": "PRMS",
+    "Renewable": 2.5,
+    "Non-Renewable": 97.5,
+    "Nuclear": 0,
+    "Other": 0,
+    "values": [
+      2.5,
+      97.5,
+      0,
+      0
+    ]
+  },
+  {
+    "Subregion": "RFCE",
+    "Renewable": 4.2,
+    "Non-Renewable": 59.8,
+    "Nuclear": 36,
+    "Other": 0,
+    "values": [
+      4.2,
+      59.8,
+      36,
+      0
+    ]
+  },
+  {
+    "Subregion": "RFCM",
+    "Renewable": 10,
+    "Non-Renewable": 72.7,
+    "Nuclear": 17.3,
+    "Other": 0,
+    "values": [
+      10,
+      72.7,
+      17.3,
+      0
+    ]
+  },
+  {
+    "Subregion": "RFCW",
+    "Renewable": 7.1,
+    "Non-Renewable": 64.3,
+    "Nuclear": 28.5,
+    "Other": 0.1,
+    "values": [
+      7.1,
+      64.3,
+      28.5,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "RMPA",
+    "Renewable": 37.3,
+    "Non-Renewable": 62.6,
+    "Nuclear": 0,
+    "Other": 0.1,
+    "values": [
+      37.3,
+      62.6,
+      0,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "SPNO",
+    "Renewable": 37.7,
+    "Non-Renewable": 50.5,
+    "Nuclear": 11.7,
+    "Other": 0,
+    "values": [
+      37.7,
+      50.5,
+      11.7,
+      0
+    ]
+  },
+  {
+    "Subregion": "SPSO",
+    "Renewable": 35.1,
+    "Non-Renewable": 64.7,
+    "Nuclear": 0,
+    "Other": 0.2,
+    "values": [
+      35.1,
+      64.7,
+      0,
+      0.2
+    ]
+  },
+  {
+    "Subregion": "SRMV",
+    "Renewable": 2.9,
+    "Non-Renewable": 72.1,
+    "Nuclear": 24.9,
+    "Other": 0.1,
+    "values": [
+      2.9,
+      72.1,
+      24.9,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "SRMW",
+    "Renewable": 10.1,
+    "Non-Renewable": 78.6,
+    "Nuclear": 11.1,
+    "Other": 0.2,
+    "values": [
+      10.1,
+      78.6,
+      11.1,
+      0.2
+    ]
+  },
+  {
+    "Subregion": "SRSO",
+    "Renewable": 9.8,
+    "Non-Renewable": 70.8,
+    "Nuclear": 19.3,
+    "Other": 0,
+    "values": [
+      9.8,
+      70.8,
+      19.3,
+      0
+    ]
+  },
+  {
+    "Subregion": "SRTV",
+    "Renewable": 11.2,
+    "Non-Renewable": 57.9,
+    "Nuclear": 30.9,
+    "Other": 0,
+    "values": [
+      11.2,
+      57.9,
+      30.9,
+      0
+    ]
+  },
+  {
+    "Subregion": "SRVC",
+    "Renewable": 9.3,
+    "Non-Renewable": 51.9,
+    "Nuclear": 38.8,
+    "Other": 0.1,
+    "values": [
+      9.3,
+      51.9,
+      38.8,
+      0.1
+    ]
+  },
+  {
+    "Subregion": "U.S.",
+    "Renewable": 19.7,
+    "Non-Renewable": 61.4,
+    "Nuclear": 18.9,
+    "Other": 0.1,
+    "values": [
+      19.7,
+      61.4,
+      18.9,
+      0.1
+    ]
+  }
+]
