@@ -15,6 +15,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         file_path = options['path']
         model = apps.get_model(options['app_name'], options['model_name'])
+        ## delete existing entries in model
+        model.objects.all().delete()
         ## csv option works if cols in csv exactly match model
         # with open(file_path, 'rb') as csv_file:
         #     reader = csv.reader(csv_file, delimiter=',', quotechar='|')
@@ -25,23 +27,51 @@ class Command(BaseCommand):
 
         # pandas option:
 
-        df=pd.read_csv(file_path)
-        row_iter = df.iterrows()
-        objs = [model(
-                VID = row['VehicleID_x'],
-                Year = row['Year_x'],
-                MFRCode = row['MFRCode'],
-                Make = row['Make'],
-                Model = row['Model'],
-                Range = row['Range'],
-                RangeHwy = row['RangeHwy'],
-                atvType = row['atvType'],
-                UHighway = row['UHighway'],
-                UCity = row['UCity'],
-                City08 = row['city08U'],
-                Highway08 = row['highway08U'],
-                CurbWeight = row['CurbWeight']
-            )
-            for index, row in row_iter
-        ]
-        model.objects.bulk_create(objs)
+        if options['model_name'] == 'Vehicle':
+
+            df=pd.read_csv(file_path)
+            row_iter = df.iterrows()
+            objs = [model(
+                    # VID = row['VehicleID_x'],
+                    # Year = row['Year_x'],
+                    # MFRCode = row['MFRCode'],
+                    # Make = row['Make_y'],
+                    # Model = row['Model_y'],
+                    # Range = row['Range'],
+                    # RangeHwy = row['RangeHwy'],
+                    # atvType = row['atvType'],
+                    # UHighway = row['UHighway'],
+                    # UCity = row['UCity'],
+                    # City08 = row['city08U'],
+                    # Highway08 = row['highway08U'],
+                    # CurbWeight = row['CurbWeight']
+                    Model = row['Model_y'],
+                    Make = row['Make_y'],
+                    Year = row['Year'],
+                    atvType = row['atvType'],
+                    cylinders = row['cylinders'],
+                    displ = row['displ'],
+                    transmission_type = row['trany'],
+                    VID = row['VehicleID'],
+                    AdjWeight = row['AdjWeight'],
+                    comb08 = row['comb08'],
+                    combinedUF = row['combinedUF'],
+                    combE = row['combE'],
+                    Highway08U = row['highway08U'],
+                    RangeHwyA = row['rangeHwyA'],
+                    RangeHwy = row['RangeHwy'],
+                    Range = row['Range'],
+                    City08U = row['city08U'],
+                    UCity = row['UCity'],
+                    UHighway = row['UHighway']
+                )
+                for index, row in row_iter
+            ]
+            model.objects.bulk_create(objs)
+        else:
+            with open(file_path, 'r') as csv_file:
+                reader = csv.reader(csv_file, delimiter=',', quotechar='|')
+                header = next(reader)
+                for row in reader:
+                    object_dict = {key: value for key, value in zip(header, row)}
+                    model.objects.create(**object_dict) 
