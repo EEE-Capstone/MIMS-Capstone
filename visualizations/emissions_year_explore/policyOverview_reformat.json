@@ -76,7 +76,7 @@
     },
     {
       "Year": 2005,
-      "US": ["Energy Policy Act of 2005", "Safe Accountable Flexible Transportation Equity Act - A Legacy For Users (SAFTEA- LU) of 2005"],
+      "US": ["Energy Policy Act (EPAct) of 2005", "Safe Accountable Flexible Transportation Equity Act - A Legacy For Users (SAFTEA- LU) of 2005"],
       "CA": "Executive Order S-3-05 (Governor's Climate Change E.O.-Gov. Schwarzenegger)"
     },
     {
@@ -86,12 +86,12 @@
     },
     {
       "Year": 2007,
-      "US": "Energy Policy Act of 2007",
+      "US": "Energy Independence and Security Act of 2007",
       "CA": ""
     },
     {
       "Year": 2008,
-      "US": "Energy Policy Act of 2008",
+      "US": "Energy Improvement and Extension Act of 2008",
       "CA": "SB 375: Sustainable Communities & Climate Change Protection Act"
     },
     {
@@ -101,7 +101,7 @@
     },
     {
       "Year": 2010,
-      "US": "Light-Duty Vehicle Greenhouse Gas Emission Standards and Corporate Average Fuel Economy Standards established",
+      "US": ["Light-Duty Vehicle Greenhouse Gas Emission Standards", "Corporate Average Fuel Economy Standards"],
       "CA": ""
     },
     {
@@ -116,8 +116,8 @@
     },
     {
       "Year": 2013,
-      "US": "National Program to Improve Fuel. Economy and Greenhouse Gases for Passenger Cars and Light Trucks extended through 2025",
-      "CA": ""
+      "US": "",
+      "CA": "California Clean Energy Jobs Act"
     },
     {
       "Year": 2014,
