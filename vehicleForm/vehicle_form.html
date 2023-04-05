@@ -42,12 +42,12 @@
             <span id = 'configBox'>
                 Configuration: <span id = "configStart"> <i>Select Vehicle Model First</i></span>
                 <div id="btn-group">
-                    <button id="bt1" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
-                    <button id="bt2" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
-                    <button id="bt3" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
-                    <button id="bt4" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
-                    <button id="bt5" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
-                    <button id="bt6" type="button" class = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
+                    <button id="bt1" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
+                    <button id="bt2" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
+                    <button id="bt3" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
+                    <button id="bt4" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
+                    <button id="bt5" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
+                    <button id="bt6" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
                   </div>
         </span>
         <br><br>
@@ -210,9 +210,9 @@
                 populateSelectType(response)
             }
         })
-             $('.bt').attr("disabled", true);
+             $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
-            $('.bt').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("background-color", 'whitesmoke');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
@@ -230,9 +230,9 @@
                 document.getElementById("make_res").innerHTML = "";
             }
         })
-            $('.bt').attr("disabled", true);
+            $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
-            $('.bt').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("background-color", 'whitesmoke');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
@@ -249,9 +249,9 @@
                 populateSelectModel(response)
             }
         })
-            $('.bt').attr("disabled", true);
+            $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
-            $('.bt').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("background-color", 'whitesmoke');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
@@ -270,7 +270,7 @@
             // $('#btn-group').show();
             //$('.bt').show();
             $('#configStart').hide();
-            $('.bt').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("background-color", 'whitesmoke');
             $('#bt1').css('background-color', '#46B5B5');
             $('#submitbtn').attr("disabled", false);
             $('#secondSubmit').hide();
@@ -278,8 +278,8 @@
         });
 
 
-        $('.bt').on('click', function() {
-            $('.bt').css("background-color", 'whitesmoke');
+        $('button[name = "bt"]').on('click', function() {
+            $('button[name = "bt"]').css("background-color", 'whitesmoke');
             $(this).css('background-color', '#46B5B5');
             $('#secondSubmit').hide();
             $('#output').hide();
@@ -494,7 +494,7 @@ for (let i = 0; i < configs.length; i++) {
     function clearSelectConfig() {
 
         // document.getElementsByClassName('bt').style.background = 'whitesmoke';
-        document.getElementsByClassName('bt').disabled = true;
+        // document.getElementsByClassName('bt').disabled = true;
         document.getElementById("config_res").innerHTML = "";
     };
 
