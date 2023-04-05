@@ -194,6 +194,14 @@ const container = d3.select("#barChart")
   .append("svg")
   .append("g")
 
+const rect = container.append("rect")
+  .attr("x", 0)
+  .attr("y", 0)
+  .attr("height", 300)
+  .attr("width", 300)
+  // .attr("rx", 15)
+  // .attr("ry", 15)
+  .style("fill", "white");
 
 //yAxis
 const y = d3.scaleLinear()
