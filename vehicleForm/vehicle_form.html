@@ -160,7 +160,7 @@
 
         $.ajax({
             method:"GET",
-            url:'./vehicle_data_2023.json',
+            url:'./json/vehicle_data_2023.json',
             success:function(response) {
                 myArray = response
                 // buildTable(myArray)
@@ -176,7 +176,7 @@
         $('#zip').on('change', function() {
             $.ajax({
             method:"GET",
-            url:'./zip_to_subregion.json',
+            url:'./json/zip_to_subregion.json',
             success:function(response) {
                 showSubregion(response);
             }
@@ -201,7 +201,7 @@
         $('#selYear').on('change', function() {
             $.ajax({
             method:"GET",
-            url:'./vehicle_data_2023.json',
+            url:'./json/vehicle_data_2023.json',
             success:function(response) {
                 clearSelectMake();
                 clearSelectModel();
@@ -222,7 +222,7 @@
         $('#selType').on('change', function() {
             $.ajax({
             method:"GET",
-            url:'./vehicle_data_2023.json',
+            url:'./json/vehicle_data_2023.json',
             success:function(response) {
                 clearSelectModel()
                 clearSelectConfig()
@@ -242,7 +242,7 @@
         $('#selMake').on('change', function() {
             $.ajax({
             method:"GET",
-            url:'./vehicle_data_2023.json',
+            url:'./json/vehicle_data_2023.json',
             success:function(response) {
                 document.getElementById("model_res").innerHTML = "";
                 clearSelectConfig()
@@ -260,7 +260,7 @@
         $('#selModel').on('change', function() {
             $.ajax({
             method:"GET",
-            url:'./vehicle_data_2023.json',
+            url:'./json/vehicle_data_2023.json',
             success:function(response) {
                 populateSelectConfig(response)
                 showConfig(document.getElementById('bt1'))
@@ -869,7 +869,7 @@ function emissions_eval(data, ice, phev, bev) { // change to kgs
 function ajaxCall1(){
     $.ajax({
         method: "GET",
-        url:'./vehicle_data_2023.json',
+        url:'./json/vehicle_data_2023.json',
         success: function(response){
             vehicle_data = getVehicle(response);
             iceList = findICE(response);
@@ -882,7 +882,7 @@ function ajaxCall1(){
 function ajaxCall2(){
     $.ajax({
         method: "GET",
-        url: './vehicle_emissions_data.json',
+        url: './json/vehicle_emissions_data.json',
         success: function(response){
             manufacturing_data = response
             ajaxCall3();
@@ -892,7 +892,7 @@ function ajaxCall2(){
 function ajaxCall3(){
     $.ajax({
         method: "GET",
-        url: './LI_emissions_data.json',
+        url: './json/LI_emissions_data.json',
         success: function(response){
             battery_data = response
             vehicle_emissions_array = process_vehicle(vehicle_data, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate);
