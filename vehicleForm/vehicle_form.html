@@ -6,7 +6,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <body>
     <h1 id = "header"> Vehicle Emissions Form</h1>
-    <h3>Complete the form to find lifetime emissiions for your vehicle of interest.</h3> 
+    <h3>Complete the form to find lifetime emissions for your vehicle of interest.</h3> 
     <form>
     <!-- <form  onsubmit="showOutput()"> -->
         <span>
@@ -308,7 +308,7 @@
             avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
             document.getElementById("avg_miles").innerHTML = avg_miles
             ajaxCall1()
-            $('#secondSubmit').show();
+            //$('#secondSubmit').show();
         })
 
 
@@ -545,13 +545,23 @@ for (let i = 0; i < configs.length; i++) {
     function showResult() {
         var x = parseInt(document.getElementById("zip_res").innerHTML)
         if (!zip_list.includes(x)) {
-            return document.getElementById("warningmessage").innerHTML = "Please double check your 5-digit zip code!"
+            var x = document.getElementById("warningmessage");
+            x.style.display = "block"
+            var y = document.getElementById("secondSubmit")";
+            y.style.display = "none"
+            return document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
         }
         else if (document.getElementById("zip").value.match(/\d{5,5}/)) {
-            var x = document.getElementById("warningmessage")//.innerHTML = "";
+            var x = document.getElementById("warningmessage");
             x.style.display = "none"
+            var y = document.getElementById("secondSubmit");
+            y.style.display = "block"
         }  else {
-            document.getElementById("warningmessage").innerHTML = "Please double check your 5-digit zip code!"
+            var x = document.getElementById("warningmessage");
+            x.style.display = "block"
+            var y = document.getElementById("secondSubmit");
+            y.style.display = "none"
+            document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
     }
     }
 
