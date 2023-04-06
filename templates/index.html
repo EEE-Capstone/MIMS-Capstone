@@ -97,7 +97,10 @@
             <h3>Where we stand regarding emissions</h3>
             <br>
             <p>
-              In 2020, greenhouse gas emissions in the United States totaled to 5,981 million metric tons of CO2 equivalent (MMT CO2e), with carbon dioxide being the most prevalent greenhouse gas emission, making up 79 percent of the total GHG emissions.
+              As greenhouse gases are emitted into the Earth's atmosphere, heat from the sun is trapped, leading to global warming and climate change. Because carbon dioxide is the most significant greenhouse gas, the effect of greenhouse gases are often measured in carbon dioxide equivalencies (CO2e).
+              The CO2 equivalent of a greenhouse gas is a measure of the gas's global warming potential (how much heat the gas traps) relative to carbon dioxide.
+              <br><br>
+              In 2020, greenhouse gas emissions in the United States totaled to 5,981 million metric tons of CO2 equivalent (MMT CO2e), with carbon dioxide being the most prevalent greenhouse gas emission, making up 79 percent of the total GHG emissions.  
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
@@ -124,11 +127,12 @@
             </button>
           <div class="collapse" id="collapseLineChart">
             <div class="card">
-              <h6 class="card-header">Sources</h6>
+              <!-- <h6 class="card-header">Sources</h6> -->
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">CARB (2007) GHG 1990–2004 Inventory & Documentation. <a style="color:gray" href="https://ww2.arb.ca.gov/ghg-1990-to-2004">https://ww2.arb.ca.gov/ghg-1990-to-2004</a>.</li>
+                <li class="list-group-item">CARB (2022) California Greenhouse Gas Emissions for 2000 to 2020 Trends of Emissions and Other Indicators. California Air Resources Board. <a style="color:gray" href="https://ww2.arb.ca.gov/ghg-inventory-data">https://ww2.arb.ca.gov/ghg-inventory-data</a>.</li>
+                <li class="list-group-item">EPA (2022) Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2020. U.S. Environmental Protection Agency, EPA 430-R-22-003. <a style="color:gray" href="https://www.epa.gov/ghgemissions/draft-inventory-us-greenhouse-gas-emissionsand-sinks-1990-2020">https://www.epa.gov/ghgemissions/draft-inventory-us-greenhouse-gas-emissionsand-sinks-1990-2020</a>.</li>
+                <li class="list-group-item">United States Census Bureau (2022) Population and Housing Unit Estimates Datasets.<a style="color:gray" href="https://www.census.gov/programs-surveys/popest/data/data-sets.html">https://www.census.gov/programs-surveys/popest/data/data-sets.html</a>.</li>
               </ul>
             </div> <!-- end card -->
           </div> <!-- end collapse of drop down -->
@@ -166,7 +170,7 @@
             <p>
               Carbon dioxide makes up 99 percent of tailpipe emissions, but vehicles fueled by gasoline or diesel also release harmful air pollutants including sulfur dioxide (SO2), nitrogen oxides (NOx), carbon monoxide (CO), formaldehyde (HCHO), particulate matter (PM), and other carbon containing compounds which make up smog.
               <br><br>
-              Poor air quality caused by pollutants is detrimental to the environment and has also been proven to have negative health outcomes such as increased risk of asthma, dementia, lung cancer, and heart disease (Schraufnagel, 2019). 
+              In addition to climate change, poor air quality caused by pollutants is detrimental to the environment and has also been proven to have negative health outcomes such as increased risk of asthma, dementia, lung cancer, and heart disease (Schraufnagel, 2019). 
               <br>
               Reducing greenhouse gas and toxic air pollution would make a great difference in the air quality and ultimately improve population health.
             </p>
@@ -181,6 +185,9 @@
           <h3>Sustainable Transportation Alternatives</h3>
           <p>
             <br>
+            Because of the high quantity of emissions attributed to transportation, some states are now advocating for alternatives to conventional internal combustion engine vehicles. 
+            In 2020, Governor Gavin Newsom signed an executive order for 100% of new vehicles sold in California to be zero emission vehicles by 2035.
+            <br><br>
             Zero emission vehicles are vehicles that produce zero exhaust emissions in any mode and condition.
             <br><br>
             Conventional internal combustion vehicles apply high pressure on fossil fuels in a heat engine to power the engine, which releases greenhouse gasses as exhaust emissions, while ZEVs eliminate the combustion engine related exhaust emissions. Most ZEVs draw on propulsion energy from an electric battery which virtually eliminates tailpipe carbon emissions.</p>
@@ -362,17 +369,28 @@
                               <!-- <img src="../static/images/explore/bar_battery.png" class="pb-5" style="max-width: 100%;"> -->
                               <div id="observablehq-vehicleParts_barchart-1be27666"></div>
                               <div class="bg-secondary mt-4 p-2 rounded-2">
-                                BEVs are generally powered by lithium-ion batteries which require higher amounts of raw materials and energy to produce resulting in higher carbon emissions.
+                                BEVs are generally powered by lithium-ion batteries which require transporting and processing more raw materials from around the world, resulting in higher energy usage and emissions during production.
                               </div>
                             </div> <!-- end end half -->
                             <div style="width: 60%">
                               <h4>Battery</h4>
                               <div id="observablehq-allCharts-e6d12576"></div>
                               <div class="py-2"></div>
-                              <div id="observablehq-viewof-replay-e6d12576"></div>
+                              <div style="width:15%;float:right" id="observablehq-viewof-replay-e6d12576"></div>
                               <!-- <img src="../static/images/explore/mining.png" style="width:80%"> -->
                             </div> <!-- end half -->
                           </div> <!-- end flex section -->
+                          <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">
+                            Chart Sources
+                          </button>
+                          <div class="collapse" id="collapseLineChart">
+                            <div class="card">
+                              <!-- <h6 class="card-header">Sources</h6> -->
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Redwood Materials (2023) Circular Supply Chain for Lithium-ion Batteries. <a style="color:gray" href="https://www.redwoodmaterials.com/">https://www.redwoodmaterials.com/</a>.</li>
+                              </ul>
+                            </div> <!-- end card -->
+                          </div> <!-- end collapse of drop down -->
                           <hr class="border border-secondary border-1 opacity-100" /> 
                         </div>
                       </figure>
@@ -490,20 +508,9 @@
                       </figure>
                   </li> -->
             </div>
-            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">
-              Chart Sources
-            </button>
+            
           </p>
-          <div class="collapse" id="collapseLineChart">
-            <div class="card">
-              <h6 class="card-header">Sources</h6>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-              </ul>
-            </div> <!-- end card -->
-          </div> <!-- end collapse of drop down -->
+          
       </div>    <!--  end col  -->
     </div> <!--  end row  -->
 
