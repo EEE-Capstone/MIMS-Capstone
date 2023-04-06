@@ -89,6 +89,10 @@ body{ font-family: 'Cardo', serif;}
     width: 100px;
     height: 100px;
 }
+.tcoPhoto {
+    width: 20%;
+    height: auto;
+}
 
 .customTitleButton {
     font-family: 'Josefin Sans', sans-serif;
