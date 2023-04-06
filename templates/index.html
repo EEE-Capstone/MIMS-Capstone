@@ -73,7 +73,7 @@
           <div class="col-6 p-5">
             <h3>Welcome to our MIMS Capstone!</h3>
             <br>
-            <p>This project was inspired by the transition towards more sustainable transportation and with it more sustainable energy generation. 
+            <p>This project was influenced by the transition towards more sustainable transportation and with it more sustainable energy generation. 
               <br><br>
               We investigate:</p>
             <ul>
@@ -139,18 +139,18 @@
         <div class="row pb-1">
           <div class="col-10 px-5 pt-5">
             <h3>Why the focus on transportation?</h3>
-            <br>
+            <!-- <br> -->
             <p>
-              The two economic sectors that contributed the most to greenhouse gas emissions in 2020 were transportation at 27 percent and electric power at 25 percent; their contributions to carbon dioxide emissions specifically were 33 percent and 31 percent respectively.
+              <!-- The two economic sectors that contributed the most to greenhouse gas emissions in 2020 were transportation at 27 percent and electric power at 25 percent; their contributions to carbon dioxide emissions specifically were 33 percent and 31 percent respectively. -->
             </p>
           </div> <!-- end col -->
         </div> <!-- end row -->
         <div class="row py-3">
           <div class="col-12 px-5">
-            <h5>Transportation contributes to: </h5>
+            <h5>In the U.S. <span class="fs-6 text-black">(2020)</span> transportation contributed to: </h5>
           </div> <!-- end col -->
-          <div class="col-12 px-5 text-center">
-            <img src="../static/images/flat_emissions.png" style="max-width: 60%;">
+          <div class="col-12 px-5 pt-3 text-center">
+            <img src="../static/images/flat_emissions.png" style="max-width: 50%;">
           </div> <!-- end col -->
         </div> <!-- end row -->
         <!-- <div class="row py-3 d-flex justify-content-center">
@@ -533,6 +533,7 @@
               <div class="card-body">
                 <h5 class="text-center">Renewables</h5>
                 <p class="card-text">Sources include: wind, hydro, solar, biomass, & geothermal</p>
+                <a class="btn btn-success btn-md rounded-pill px-2 text-center" href="">Mimimal Emissions</a>
               </div>
             </div> <!-- end card -->
           </div> <!-- end col -->
@@ -542,6 +543,7 @@
               <div class="card-body">
                 <h5 class="text-center">Non-renewables</h5>
                 <p class="card-text">Sources include: fossil fuels, natural gas, coal, & petroleum</p>
+                <a class="btn btn-danger btn-md rounded-pill px-2 text-center" href="">Significant Emissions</a>
               </div>
             </div> <!-- end card -->
           </div> <!-- end col -->
@@ -551,6 +553,7 @@
               <div class="card-body">
                 <h5 class="text-center">Nuclear</h5>
                 <p class="card-text">The U.S. currently has 95 operating nuclear power plants.</p>
+                <a class="btn btn-warning btn-md rounded-pill px-2 text-center" href="">Less Emissions</a>
               </div>
             </div> <!-- end card -->
           </div> <!-- end col -->
@@ -565,22 +568,29 @@
           </div> <!-- end col -->
         </div> <!-- end row -->
 
-        <div class="row px-5 py-4 align-items-center">
-          <div class="col-6" style=""> 
+        <div class="row px-5 align-items-center">
+          <div class="col-10" style=""> 
             <p class="">
               For example, California's electricity generation is comprised of 40% renewable sources and 52% non-renewable sources.
               <br>
               While in Florida, 82% of all electricity generation is sourced from non-renewables.
             </p>
             <p class="">
-              Because electric cars are charged with electricity sourced from the grid, the emissions created from producing that electricity are now an associated emission for the EV.
+              Because electric cars are charged with electricity sourced from the grid, the emissions created from producing that electricity are now associated emissions for the EV.
               <br><br>
               <u>Ultimately, location matters.</u> Driving an electric car in California will have less associated emissions than driving the same electric car in Florida.
             </p>
           </div> <!-- end col -->
-          <div class="col-6 text-center" style=""> 
+        </div> <!-- end row -->
+
+        <div class="row px-5 py-4 align-items-center">
+          <div class="col-6" style=""> 
             <img src="../static/images/gridmix/CA.png" class="mx-auto d-block" style="width:40%"> 
+            <img src="../static/images/gridmix/ElectricityasEmissionsCA.png" class="mx-auto d-block" style="width:80%"> 
+          </div> <!-- end col -->
+          <div class="col-6 text-center" style=""> 
             <img src="../static/images/gridmix/FL.png" class="mx-auto d-block" style="width:40%"> 
+            <img src="../static/images/gridmix/ElectricityasEmissionsFL.png" class="mx-auto d-block" style="width:80%"> 
           </div> <!-- end col -->
         </div> <!-- end row -->
 
@@ -618,6 +628,28 @@
         </div>  end row -->
       </div> <!-- end container -->
     </div> <!-- end gradient section -->
+
+    <div class="bg-secondary pb-5">
+      <div class="container-md pb-5 bg-white shadow" style="max-width: 1050px;">
+        <div class="row pt-5">
+          <div class="col-12 pt-3 px-5">
+            <h3>Where next?</h3>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+        <div class="row pt-2">
+          <div class="col-6 pt-3 px-5 text-center">
+            <h5>Explore the Emissions of a Vehicle</h5>
+            <!-- <p>Input the year, make, and model of any vehicle to see its lifetime emissions.</p> -->
+            <a class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5 customTitleButton" href="tool.html">Emissions Explorer</a>
+          </div> <!-- end col -->
+          <div class="col-6 pt-3 px-5 text-center">
+            <h5>Learn about Currrent Barriers to ZEV Adoption</h5>
+            <p class="pt-3">The adoption of zero emission vehicles is more complicated than just people purchasing them. An infrastructure needs to be in place to accomodate for this increased use of ZEVs</p>
+            <a class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5 customTitleButton" href="equity.html">ZEV Accessibility</a>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+    </div> <!-- end yellow section -->
 
     <div class="customFooter">
       <div class="container-md" style="max-width: 1050px;">
