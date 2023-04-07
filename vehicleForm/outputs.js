@@ -443,7 +443,7 @@ const container3 = d3.select("#equivalencies2")
 
 const rectangle2 = container3.append("rect")
   .attr("width", 575)
-  .attr("height", 225)
+  .attr("height", 280)
   .attr("x", 0) //270
   .attr("y", 15) //30
   .attr("fill", "white")
@@ -460,78 +460,11 @@ const rectangle2 = container3.append("rect")
  .style("font-weight", 900)
  .text(`Lifetime emissions from ${input} are equivalent to:`);
 
-///Gas powered vehicles
-
-container3.append('text')
-  .attr('x', 30 + 60)
-  .attr('y', 55 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`Emissions from`);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 160)
-  .attr('y', 55 + 15 + 10)
-  .style('font', '15px sans-serif')
-  .style('fill', '#46B5B5')
-  .style("font-weight", 900)
-  .text(`~${Math.round(gas_power_vehicle_per_year)} `);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 200)
-  .attr('y', 55 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`gas-powered vehicles in a year`);
-
-const vehicle_image2 = container3.append('image')
-  .attr("href", './icons/gascar2.svg')
-  .attr('width', 50)
-  .attr('height', 50)
-  .attr('x', 20)
-  .attr('y', 55 - 15 + 10)
-
-
-///Energy in American homes per year
-
-container3.append('text')
-  .attr('x', 30 + 60)
-  .attr('y', 90 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`Electricity emissions from`);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 160)
-  .attr('y', 90 + 15 + 10)
-  .style('font', '15px sans-serif')
-  .style('fill', '#46B5B5')
-  .style("font-weight", 900)
-  .text(`~${Math.round(home_elec_use)} `);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 200)
-  .attr('y', 90 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`American homes in a year`);
-
-const home_image2 = container3.append('image')
-  .attr("href", './icons/house.svg')
-  .attr('width', 35)
-  .attr('height', 35)
-  .attr('x', 20 + 8)
-  .attr('y', 90 - 15 + 10 + 5)
-
   ///Airplane hours
 
 container3.append('text')
   .attr('x', 30 + 60)
-  .attr('y', 125 + 15 + 10)
+  .attr('y', 55 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
   .style("font-weight", 100)
@@ -539,7 +472,7 @@ container3.append('text')
 
 container3.append('text')
   .attr('x', 30 + 60 + 160)
-  .attr('y', 125 + 15 + 10)
+  .attr('y', 55 + 15 + 10)
   .style('font', '15px sans-serif')
   .style('fill', '#46B5B5')
   .style("font-weight", 900)
@@ -547,7 +480,7 @@ container3.append('text')
 
 container3.append('text')
   .attr('x', 30 + 60 + 200)
-  .attr('y', 125 + 15 + 10)
+  .attr('y', 55 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
   .style("font-weight", 100)
@@ -558,47 +491,13 @@ const airplane_image2 = container3.append('image')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
-  .attr('y', 125 - 15 + 10)
-
-
-///Acres US Forests
-
-container3.append('text')
-  .attr('x', 30 + 60)
-  .attr('y', 160 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`Carbon sequestered by`);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 160)
-  .attr('y', 160 + 15 + 10)
-  .style('font', '15px sans-serif')
-  .style('fill', '#46B5B5')
-  .style("font-weight", 900)
-  .text(`~${Math.round(acres_us_forests)} `);
-
-container3.append('text')
-  .attr('x', 30 + 60 + 200)
-  .attr('y', 160 + 15 + 10)
-  .style('font', '13px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`acres of US forest in a year`);
-
-const forest_image2 = container3.append('image')
-  .attr("href", 'icons/forest.svg')
-  .attr('width', 40)
-  .attr('height', 40)
-  .attr('x', 20 + 5)
-  .attr('y', 160 - 15 + 10 + 5)
+  .attr('y', 55 - 15 + 10)
 
   ///Pickup Trucks coal
 
 container3.append('text')
   .attr('x', 30 + 60)
-  .attr('y', 195 + 15 + 10)
+  .attr('y', 90 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
   .style("font-weight", 100)
@@ -606,7 +505,7 @@ container3.append('text')
 
 container3.append('text')
   .attr('x', 30 + 60 + 160)
-  .attr('y', 195 + 15 + 10)
+  .attr('y', 90 + 15 + 10)
   .style('font', '15px sans-serif')
   .style('fill', '#46B5B5')
   .style("font-weight", 900)
@@ -614,7 +513,7 @@ container3.append('text')
 
 container3.append('text')
   .attr('x', 30 + 60 + 200)
-  .attr('y', 195 + 15 + 10)
+  .attr('y', 90 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
   .style("font-weight", 100)
@@ -625,205 +524,315 @@ const coal_image2 = container3.append('image')
   .attr('width', 50)
   .attr('height', 50)
   .attr('x', 20)
-  .attr('y', 195 - 15 + 10)
-
-// }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
- ////// YEARLY EQUIVALENCIES
- 
-  ///rectangle border for equivalencies
-
-const container2 = d3.select("#equivalencies")
-.append("svg")
-.append("g")
-
-const rectangle = container2.append("rect")
-.attr("width", 575)
-.attr("height", 225)
-.attr("x", 0) //270
-.attr("y", 15) //30
-.attr("fill", "white")
-.attr("stroke", "#FFB51A")
-.attr("stroke-width", 1.5)
-.attr('rx', 20);
+  .attr('y', 90 - 15 + 10 + 5)
 
 ////// ///Equivalency texts -- PER YEAR //////////
-container2.append('text')
+container3.append('text')
 .attr('x', 20)
-.attr('y', 30 + 15)
+.attr('y', 30 + 15 + 125)
 .style('font', '16px sans-serif')
 .style('color', 'black')
 .style("font-weight", 900)
-.text(`Yearly emissions from ${input} over ${life_years} years are equivalent to:`);
+.text(`Annual emissions from ${input} are equivalent to:`);
 
 ///Gas powered vehicles
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60)
-.attr('y', 55 + 15 + 10)
+.attr('y', 55 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`Emissions from`);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 160)
-.attr('y', 55 + 15 + 10)
+.attr('y', 55 + 15 + 10 + 125)
 .style('font', '15px sans-serif')
 .style('fill', '#46B5B5')
 .style("font-weight", 900)
 .text(`${Math.round(100 * gas_power_vehicle_per_year/life_years) / 100} `);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 200)
-.attr('y', 55 + 15 + 10)
+.attr('y', 55 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`gas-powered vehicles in a year`);
 
-const vehicle_image = container2.append('image')
+const vehicle_image = container3.append('image')
 .attr("href", './icons/gascar2.svg')
 .attr('width', 50)
 .attr('height', 50)
 .attr('x', 20)
-.attr('y', 55 - 15 + 10)
+.attr('y', 55 - 15 + 10 + 125)
 
 
 ///Energy in American homes per year
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60)
-.attr('y', 90 + 15 + 10)
+.attr('y', 90 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`Electricity emissions from`);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 160)
-.attr('y', 90 + 15 + 10)
+.attr('y', 90 + 15 + 10 + 125)
 .style('font', '15px sans-serif')
 .style('fill', '#46B5B5')
 .style("font-weight", 900)
 .text(`${Math.round(100 * home_elec_use/life_years) / 100} `);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 200)
-.attr('y', 90 + 15 + 10)
+.attr('y', 90 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`American homes in a year`);
 
-const home_image = container2.append('image')
+const home_image = container3.append('image')
 .attr("href", './icons/house.svg')
 .attr('width', 35)
 .attr('height', 35)
 .attr('x', 20 + 8)
-.attr('y', 90 - 15 + 10 + 5)
-
-///Airplane hours
-
-container2.append('text')
-.attr('x', 30 + 60)
-.attr('y', 125 + 15 + 10)
-.style('font', '13px sans-serif')
-.style('color', 'black')
-.style("font-weight", 100)
-.text(`Emissions from flying`);
-
-container2.append('text')
-.attr('x', 30 + 60 + 160)
-.attr('y', 125 + 15 + 10)
-.style('font', '15px sans-serif')
-.style('fill', '#46B5B5')
-.style("font-weight", 900)
-.text(`${Math.round(100 * hours_airplane/life_years) / 100} `);
-
-container2.append('text')
-.attr('x', 30 + 60 + 200)
-.attr('y', 125 + 15 + 10)
-.style('font', '13px sans-serif')
-.style('color', 'black')
-.style("font-weight", 100)
-.text(`hours as a passenger on an international flight`);
-
-const airplane_image = container2.append('image')
-.attr("href", './icons/plane.svg')
-.attr('width', 50)
-.attr('height', 50)
-.attr('x', 20)
-.attr('y', 125 - 15 + 10)
-
+.attr('y', 90 - 15 + 10 + 125)
 
 ///Acres US Forests
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60)
-.attr('y', 160 + 15 + 10)
+.attr('y', 125 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`Carbon sequestered by`);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 160)
-.attr('y', 160 + 15 + 10)
+.attr('y', 125 + 15 + 10 + 125)
 .style('font', '15px sans-serif')
 .style('fill', '#46B5B5')
 .style("font-weight", 900)
 .text(`${Math.round(100 * acres_us_forests/life_years) / 100} `);
 
-container2.append('text')
+container3.append('text')
 .attr('x', 30 + 60 + 200)
-.attr('y', 160 + 15 + 10)
+.attr('y', 125 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
 .style("font-weight", 100)
 .text(`acres of US forest in a year`);
 
-const forest_image = container2.append('image')
+const forest_image = container3.append('image')
 .attr("href", 'icons/forest.svg')
 .attr('width', 40)
 .attr('height', 40)
 .attr('x', 20 + 5)
-.attr('y', 160 - 15 + 10 + 5) 
+.attr('y', 125 - 15 + 10 + 5 + 125) 
 .style('fill', 'blue')
 
-///Pickup Trucks coal
-
-container2.append('text')
-.attr('x', 30 + 60)
-.attr('y', 195 + 15 + 10)
-.style('font', '13px sans-serif')
-.style('color', 'black')
-.style("font-weight", 100)
-.text(`Emissions from burning`);
-
-container2.append('text')
-.attr('x', 30 + 60 + 160)
-.attr('y', 195 + 15 + 10)
-.style('font', '15px sans-serif')
-.style('fill', '#46B5B5')
-.style("font-weight", 900)
-.text(`${Math.round(100 * pickup_coal/life_years) / 100} `);
-
-container2.append('text')
-.attr('x', 30 + 60 + 200)
-.attr('y', 195 + 15 + 10)
-.style('font', '13px sans-serif')
-.style('color', 'black')
-.style("font-weight", 100)
-.text(`standard pickup trucks of coal`);
-
-const coal_image = container2.append('image')
-.attr("href", 'icons/coal_pickup.svg')
-.attr('width', 50)
-.attr('height', 50)
-.attr('x', 20)
-.attr('y', 195 - 15 + 10)
-
-// ////Burning Pounds of Coal
 }
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////
+//  ////// YEARLY EQUIVALENCIES
+ 
+//   ///rectangle border for equivalencies
+
+// const container2 = d3.select("#equivalencies")
+// .append("svg")
+// .append("g")
+
+// const rectangle = container2.append("rect")
+// .attr("width", 575)
+// .attr("height", 225)
+// .attr("x", 0) //270
+// .attr("y", 15) //30
+// .attr("fill", "white")
+// .attr("stroke", "#FFB51A")
+// .attr("stroke-width", 1.5)
+// .attr('rx', 20);
+
+// ////// ///Equivalency texts -- PER YEAR //////////
+// container2.append('text')
+// .attr('x', 20)
+// .attr('y', 30 + 15)
+// .style('font', '16px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 900)
+// .text(`Yearly emissions from ${input} over ${life_years} years are equivalent to:`);
+
+// ///Gas powered vehicles
+
+// container2.append('text')
+// .attr('x', 30 + 60)
+// .attr('y', 55 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`Emissions from`);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 160)
+// .attr('y', 55 + 15 + 10)
+// .style('font', '15px sans-serif')
+// .style('fill', '#46B5B5')
+// .style("font-weight", 900)
+// .text(`${Math.round(100 * gas_power_vehicle_per_year/life_years) / 100} `);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 200)
+// .attr('y', 55 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`gas-powered vehicles in a year`);
+
+// const vehicle_image = container2.append('image')
+// .attr("href", './icons/gascar2.svg')
+// .attr('width', 50)
+// .attr('height', 50)
+// .attr('x', 20)
+// .attr('y', 55 - 15 + 10)
+
+
+// ///Energy in American homes per year
+
+// container2.append('text')
+// .attr('x', 30 + 60)
+// .attr('y', 90 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`Electricity emissions from`);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 160)
+// .attr('y', 90 + 15 + 10)
+// .style('font', '15px sans-serif')
+// .style('fill', '#46B5B5')
+// .style("font-weight", 900)
+// .text(`${Math.round(100 * home_elec_use/life_years) / 100} `);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 200)
+// .attr('y', 90 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`American homes in a year`);
+
+// const home_image = container2.append('image')
+// .attr("href", './icons/house.svg')
+// .attr('width', 35)
+// .attr('height', 35)
+// .attr('x', 20 + 8)
+// .attr('y', 90 - 15 + 10 + 5)
+
+// ///Airplane hours
+
+// container2.append('text')
+// .attr('x', 30 + 60)
+// .attr('y', 125 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`Emissions from flying`);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 160)
+// .attr('y', 125 + 15 + 10)
+// .style('font', '15px sans-serif')
+// .style('fill', '#46B5B5')
+// .style("font-weight", 900)
+// .text(`${Math.round(100 * hours_airplane/life_years) / 100} `);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 200)
+// .attr('y', 125 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`hours as a passenger on an international flight`);
+
+// const airplane_image = container2.append('image')
+// .attr("href", './icons/plane.svg')
+// .attr('width', 50)
+// .attr('height', 50)
+// .attr('x', 20)
+// .attr('y', 125 - 15 + 10)
+
+
+// ///Acres US Forests
+
+// container2.append('text')
+// .attr('x', 30 + 60)
+// .attr('y', 160 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`Carbon sequestered by`);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 160)
+// .attr('y', 160 + 15 + 10)
+// .style('font', '15px sans-serif')
+// .style('fill', '#46B5B5')
+// .style("font-weight", 900)
+// .text(`${Math.round(100 * acres_us_forests/life_years) / 100} `);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 200)
+// .attr('y', 160 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`acres of US forest in a year`);
+
+// const forest_image = container2.append('image')
+// .attr("href", 'icons/forest.svg')
+// .attr('width', 40)
+// .attr('height', 40)
+// .attr('x', 20 + 5)
+// .attr('y', 160 - 15 + 10 + 5) 
+// .style('fill', 'blue')
+
+// ///Pickup Trucks coal
+
+// container2.append('text')
+// .attr('x', 30 + 60)
+// .attr('y', 195 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`Emissions from burning`);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 160)
+// .attr('y', 195 + 15 + 10)
+// .style('font', '15px sans-serif')
+// .style('fill', '#46B5B5')
+// .style("font-weight", 900)
+// .text(`${Math.round(100 * pickup_coal/life_years) / 100} `);
+
+// container2.append('text')
+// .attr('x', 30 + 60 + 200)
+// .attr('y', 195 + 15 + 10)
+// .style('font', '13px sans-serif')
+// .style('color', 'black')
+// .style("font-weight", 100)
+// .text(`standard pickup trucks of coal`);
+
+// const coal_image = container2.append('image')
+// .attr("href", 'icons/coal_pickup.svg')
+// .attr('width', 50)
+// .attr('height', 50)
+// .attr('x', 20)
+// .attr('y', 195 - 15 + 10)
+
+// // ////Burning Pounds of Coal
+// }
