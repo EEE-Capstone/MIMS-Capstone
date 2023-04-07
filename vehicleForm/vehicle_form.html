@@ -6,16 +6,21 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <body>
     <h1 id = "header"> Vehicle Emissions Form</h1>
-    <h3>Complete the form to find lifetime emissions for your vehicle of interest.</h3> 
+    <h3>Complete the form to find lifetime emissions for your vehicle of interest.</h3>  
     <form>
     <!-- <form  onsubmit="showOutput()"> -->
         <span>
             Zip Code: <input type="text" id="zip" value="5-digit zip code" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
         </span>
         <span>
-            Number of years planned on driving: <input type="number" id="yearsOwn" value="17" min="0" max="100" oninput = "showYearsown()"/> 
+            Number of years planned on driving: <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
         </span>
         <br><br>
+        <span>
+            Number of miles planned on driving: <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
+            <p style = "font-size:11px">US average is 17 years and 178000 miles driven.</p>
+        </span>
+        <br>
        <span> 
             Year: <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
                     <option value="" selected = "selected"> -- Select a Year --</option>
@@ -60,7 +65,8 @@
         <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
         <p id = "warningmessage" style = "font-size:11px; color:red"></p>
 <br>
-        <div id = "responses" style = "display:None">
+        <div id = "responses">
+            <!-- style = "display:None" -->
             Responses:<br>
             <ol id = "zip_res"></ol>
             <ol id = "yearsOwn_res">17</ol>
@@ -84,6 +90,10 @@
             <ol id = "ICEemissionAvg"></ol>
             <ol id = "PHEVemissionAvg"></ol>
             <ol id = "BEVemissionAvg"></ol>
+            US Grid Mix Average:
+            <ol id = "USICEemissionAvg"></ol>
+            <ol id = "USPHEVemissionAvg"></ol>
+            <ol id = "USBEVemissionAvg"></ol>
         </div>
 
 
@@ -115,11 +125,11 @@
       <div style="width: 1000px;height:70px">
         <svg id="avg_text" style="width: 1000px;height:50px"></svg>
       </div>
-      <div class="container" style="width: 200px;height:40px">
+      <div class="container" style="width: 300px;height:40px">
         <form>
           <center>
           <label for="miles">Enter number of miles:</label><br>
-          <input type="number" id="miles" value="0" min="0" max="1000" maxlength="4" oninput="return perMileFunction()"/> 
+          <input type="number" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
           <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
         </center>
         </form>
@@ -141,8 +151,8 @@
       </div>
 
       <!-- ISOTOPES -->
-      <div style="width: 1000px;height:220px">
-        <svg id="isotopes" style="width: 1000px;height:220px"></svg>
+      <div style="width: 1000px;height:300px">
+        <svg id="isotopes" style="width: 1000px;height:300px"></svg>
       </div>
 </div>
 
@@ -196,6 +206,18 @@
             $('#secondSubmit').hide();
             $('#output').hide()
         })
+
+        $('#milesDrive').on('click', function() {
+            $('#secondSubmit').hide();
+            $('#output').hide()
+        })
+
+
+        $('#milesDrive').on('change', function() {
+            $('#secondSubmit').hide();
+            $('#output').hide()
+        })
+
 
 
         $('#selYear').on('change', function() {
@@ -286,6 +308,7 @@
             }
         );
 
+    const US_CO2Rate_avg = 443.956547
 
     var avg_CO2eRate = []
     var avg_miles = []
@@ -302,11 +325,16 @@
     var avgPHEV = []
     var avgBEV = []
 
+    var USavgICE = []
+    var USavgPHEV = []
+    var USavgBEV = []
+
 
         $('#submitbtn').on('click', function() {
             avg_CO2eRate = Number(document.getElementById("CO2eRate").innerHTML); //grid intensity
-            avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
-            document.getElementById("avg_miles").innerHTML = avg_miles
+            avg_miles = Number(document.getElementById("avg_miles").innerHTML); //miles_estimated
+            // avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
+            // document.getElementById("avg_miles").innerHTML = avg_miles
             ajaxCall1()
             //$('#secondSubmit').show();
         })
@@ -507,6 +535,12 @@ for (let i = 0; i < configs.length; i++) {
         const x = document.getElementById("yearsOwn").value 
         document.getElementById("yearsOwn_res").innerHTML = x
     } 
+
+function showMilesDrive() {
+        const x = document.getElementById("milesDrive").value 
+        document.getElementById("avg_miles").innerHTML = x
+    } 
+
   function showYear() {
         let year = document.getElementById('selYear')
         document.getElementById("year_res").innerHTML = year.options[year.selectedIndex].text
@@ -846,6 +880,17 @@ function getAvg(data) {
     return avgEmissions
 }
 
+function getUSAvg(data) {
+    var emissionsList = []
+    for (let i = 0; i < data.length; i++) {
+        var cur_vehicle = data[i]
+        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, US_CO2Rate_avg)
+        emissionsList.push(cur_emission[4])
+    }
+    var avgEmissions = emissionsList.reduce((a, b) => a + b) / emissionsList.length
+    return avgEmissions
+}
+
 function getVehicle(full_data) {
     let year = document.getElementById("selYear")
     var year_data = year.options[year.selectedIndex].text
@@ -862,7 +907,7 @@ function getVehicle(full_data) {
     return data[0]
 }
 
-function emissions_eval(data, ice, phev, bev) { // change to kgs
+function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change to kgs
     document.getElementById("totalEmissions").innerHTML = data[4] / 1000
     document.getElementById("totalBattery").innerHTML = data[0] / 1000
     document.getElementById("totalVehicle").innerHTML = data[1] / 1000
@@ -872,6 +917,9 @@ function emissions_eval(data, ice, phev, bev) { // change to kgs
     document.getElementById("ICEemissionAvg").innerHTML = ice / 1000
     document.getElementById("PHEVemissionAvg").innerHTML = phev / 1000
     document.getElementById("BEVemissionAvg").innerHTML = bev / 1000
+    document.getElementById("USICEemissionAvg").innerHTML = USice / 1000
+    document.getElementById("USPHEVemissionAvg").innerHTML = USphev / 1000
+    document.getElementById("USBEVemissionAvg").innerHTML = USbev / 1000
 }
 
 
@@ -910,7 +958,10 @@ function ajaxCall3(){
             avgICE = getAvg(iceList);
             avgPHEV = getAvg(phevList);
             avgBEV = getAvg(bevList);
-            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV);
+            USavgICE = getUSAvg(iceList)
+            USavgPHEV = getUSAvg(phevList)
+            USavgBEV = getUSAvg(bevList)
+            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV);
         }
     });
 }

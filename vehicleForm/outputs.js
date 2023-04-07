@@ -41,8 +41,8 @@ function perMileFunction() {
 
   const x = document.getElementById("miles").value; 
 
-  if (x > 1000 || x < 0) {
-    document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 1000."
+  if (x > 200000 || x < 0) {
+    document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 200000."
     document.getElementById("emissions-output").innerHTML = ""
     document.getElementById("emissions-equi").innerHTML = ""
     // const iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 0.904)
@@ -55,7 +55,7 @@ function perMileFunction() {
     iso_container
       .insert('rect')
       .attr('width', 1000)
-      .attr('height', 250) // EDIT HEIGHT to height (200)
+      .attr('height', 1000) // EDIT HEIGHT to height (200)
       .attr('x', 0)
       .attr('y', 0)
       .attr('fill', "white")
@@ -63,14 +63,35 @@ function perMileFunction() {
   } else {
   document.getElementById("check_input").innerHTML = ""
   document.getElementById("emissions-output").innerHTML = `${Math.round(x * emissions_per_mile * 100) / 100} kgCO2e`
+  
+  if (x * emissions_per_mile < 45.2) {
+  
   document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 0.904)} pounds of coal`
-  const iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 0.904)
-  const iso_counts = Array.from(Array(iso).keys())
+  var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 0.904)
+  var coalIso = 'icons/coal.svg'
+  var iconSize = 28
 
+  } else if (x * emissions_per_mile < 1356) {
+
+    document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 45.2)} fifty-pound bags of coal`
+    var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 45.2)
+    var coalIso = 'icons/coalBag.svg'
+    var iconSize = 30
+
+  } else {
+
+    document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 1356)} standard pickup trucks of coal`
+    var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 1356)
+    var coalIso = 'icons/coal_pickup.svg'
+    var iconSize = 32
+
+  }
   //Isotopes
   
-  const iso_row = Math.ceil(iso / 20 )
-  const last_row = 20 - ((20 * iso_row) - iso)
+  const iso_row = Math.ceil(iso / 10 )
+  const last_row = 10 - ((10 * iso_row) - iso)
+  const last_col = last_row - (Math.floor(last_row / 5) * 5)
+  const last_full = Math.floor(last_row / 5)
   const iso_last_height = (iso_row - 1) * 30
 
   // const xPartScale = d3.scalePoint()
@@ -92,26 +113,39 @@ function perMileFunction() {
     .attr('x', 0)
     .attr('y', 0)
     .attr('fill', "white")
-    
+
   for (let j = 0; j < iso_row - 1; j++) {
-    for (let i = 0; i < 20; i++) {
-      const coals_pile = iso_container.append('image')
-        .attr("href", 'icons/coal.svg')
-        .attr('width', 30)
-        .attr('height', 30)
-        .attr('x', 10 + (35*i))
-        .attr('y', 0 + (30*j))
+    for (let i = 0; i < 5; i++) {
+      for (let k = 0; k < 2; k++) {
+        const coals_pile = iso_container.append('image')
+          .attr("href", coalIso)
+          .attr('width', iconSize)
+          .attr('height', iconSize)
+          .attr('x', 10 + (35*i) + (200*k))
+          .attr('y', 0 + (30*j))
+      }
     }
   }
 
-    for (let i = 0; i < last_row; i++) {
-    const coals_pile = iso_container.append('image')
-      .attr("href", 'icons/coal.svg')
-      .attr('width', 30)
-      .attr('height', 30)
-      .attr('x', 10 + (35*i))
-      .attr('y', iso_last_height)
+    for (let i = 0; i < last_full; i++) {
+      for (let j = 0; j < 5; j++) {
+        const coals_pile = iso_container.append('image')
+        .attr("href", coalIso)
+        .attr('width', iconSize)
+        .attr('height', iconSize)
+        .attr('x', 10 + (35*j) + (200*i))
+        .attr('y', iso_last_height)
+      }
   }
+
+  for (let i = 0; i < last_col; i++) {
+      const coals_pile = iso_container.append('image')
+      .attr("href", coalIso)
+      .attr('width', iconSize)
+      .attr('height', iconSize)
+      .attr('x', 10 + (35*i) + (last_full * 200))
+      .attr('y', iso_last_height)
+}
 
   // iso_container.append('text')
   //   .attr('x', 0 )
@@ -274,6 +308,30 @@ const phev_bar2 = barchart2
 .attr('y', y(hybrid_average))
 .attr('fill', "gray")
 
+const USphev = barchart2
+    .insert('line')
+    .attr('x1',55)
+    .attr('x2', 85)
+    .attr('y1', y(document.getElementById("USPHEVemissionAvg").innerHTML))
+    .attr('y2', y(document.getElementById("USPHEVemissionAvg").innerHTML))
+    .style("stroke", "red")
+    .style("stroke-width", 1)
+
+const USphev_label = barchart2
+    .append('text')
+    .attr('x', 51)
+    .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML) - 9)
+    .style("font", "6.5px sans-serif")
+    .style('fill', 'red')
+    .text(`Average`)
+const USphev_label2 = barchart2
+    .append('text')
+    .attr('x', 51)
+    .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML)-2)
+    .style("font", "6.5px sans-serif")
+    .style('fill', 'red')
+    .text(`US Grid Mix`)
+
 /// BEV
 const bev_bar2 = barchart2
 .insert('rect')
@@ -282,6 +340,30 @@ const bev_bar2 = barchart2
 .attr('x', 97.5 )
 .attr('y', y(bev_average))
 .attr('fill', "gray")
+
+const USbev = barchart2
+    .insert('line')
+    .attr('x1',97.5)
+    .attr('x2', 127.5)
+    .attr('y1', y(document.getElementById("USBEVemissionAvg").innerHTML))
+    .attr('y2', y(document.getElementById("USBEVemissionAvg").innerHTML))
+    .style("stroke", "red")
+    .style("stroke-width", 1)
+
+const USbev_label = barchart2
+    .append('text')
+    .attr('x', 93.5)
+    .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML) - 9)
+    .style("font", "6.5px sans-serif")
+    .style('fill', 'red')
+    .text(`Average`)
+const USbev_label2 = barchart2
+    .append('text')
+    .attr('x', 93.5)
+    .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML)-2)
+    .style("font", "6.5px sans-serif")
+    .style('fill', 'red')
+    .text(`US Grid Mix`)
 
 // labels
 const avg_emission_label2 = barchart2
