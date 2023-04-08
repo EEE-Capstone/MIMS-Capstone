@@ -402,38 +402,38 @@ barchart2.append("g")
     .attr("transform", "translate(0,0)rotate(-30)")
     .style("text-anchor", "end");
 
-// labels
-const avg_emission_label2 = barchart2
-  .append('text')
-  .attr('x', 14)
-  .attr('y', y(average) + 10)
-  .style("font", "9.5px sans-serif")
-  .style('fill', 'white')
-  .text(`${Math.round(average)}`)
+// // labels
+// const avg_emission_label2 = barchart2
+//   .append('text')
+//   .attr('x', 14)
+//   .attr('y', y(average) + 10)
+//   .style("font", "9.5px sans-serif")
+//   .style('fill', 'white')
+//   .text(`${Math.round(average)}`)
 
-const phev_label2 = barchart2
-  .append('text')
-  .attr('x', 56.5)
-  .attr('y', y(hybrid_average) + 10)
-  .style("font", "9.5px sans-serif")
-  .style('fill', 'white')
-  .text(`${Math.round(hybrid_average)}`)
+// const phev_label2 = barchart2
+//   .append('text')
+//   .attr('x', 56.5)
+//   .attr('y', y(hybrid_average) + 10)
+//   .style("font", "9.5px sans-serif")
+//   .style('fill', 'white')
+//   .text(`${Math.round(hybrid_average)}`)
 
-const bev_label2 = barchart2
-  .append('text')
-  .attr('x', 99)
-  .attr('y', y(bev_average) + 10)
-  .style("font", "9.5px sans-serif")
-  .style('fill', 'white')
-  .text(`${Math.round(bev_average)}`)
+// const bev_label2 = barchart2
+//   .append('text')
+//   .attr('x', 99)
+//   .attr('y', y(bev_average) + 10)
+//   .style("font", "9.5px sans-serif")
+//   .style('fill', 'white')
+//   .text(`${Math.round(bev_average)}`)
 
-const input_emission_label2 = barchart2
-  .append('text')
-  .attr('x', 141.5)
-  .attr('y', y(data) + 10)
-  .style("font", "9.5px sans-serif")
-  .style('fill', 'white')
-  .text(`${Math.round(data)}`)
+// const input_emission_label2 = barchart2
+//   .append('text')
+//   .attr('x', 141.5)
+//   .attr('y', y(data) + 10)
+//   .style("font", "9.5px sans-serif")
+//   .style('fill', 'white')
+//   .text(`${Math.round(data)}`)
 
 const title2 = container
   .append('text')
@@ -518,7 +518,7 @@ const container3 = d3.select("#equivalencies2")
 const rectangle2 = container3.append("rect")
   .attr("width", 575)
   .attr("height", 280)
-  .attr("x", 0) //270
+  .attr("x", 2) //270
   .attr("y", 15) //30
   .attr("fill", "white")
   .attr("stroke", "#FFB51A")
@@ -553,12 +553,12 @@ container3.append('text')
   .text(`~${Math.round(hours_airplane)} `);
 
 container3.append('text')
-  .attr('x', 30 + 60 + 200)
+  .attr('x', 30 + 60 + 240)
   .attr('y', 55 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
   .style("font-weight", 100)
-  .text(`hours as a passenger on an international flight`);
+  .text(`hours on an international flight`);
 
 const airplane_image2 = container3.append('image')
   .attr("href", './icons/plane.svg')
@@ -586,7 +586,7 @@ container3.append('text')
   .text(`~${Math.round(pickup_coal)} `);
 
 container3.append('text')
-  .attr('x', 30 + 60 + 200)
+  .attr('x', 30 + 60 + 240)
   .attr('y', 90 + 15 + 10)
   .style('font', '13px sans-serif')
   .style('color', 'black')
@@ -628,7 +628,7 @@ container3.append('text')
 .text(`${Math.round(100 * gas_power_vehicle_per_year/life_years) / 100} `);
 
 container3.append('text')
-.attr('x', 30 + 60 + 200)
+.attr('x', 30 + 60 + 240)
 .attr('y', 55 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
@@ -662,7 +662,7 @@ container3.append('text')
 .text(`${Math.round(100 * home_elec_use/life_years) / 100} `);
 
 container3.append('text')
-.attr('x', 30 + 60 + 200)
+.attr('x', 30 + 60 + 240)
 .attr('y', 90 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
@@ -695,7 +695,7 @@ container3.append('text')
 .text(`${Math.round(100 * acres_us_forests/life_years) / 100} `);
 
 container3.append('text')
-.attr('x', 30 + 60 + 200)
+.attr('x', 30 + 60 + 240)
 .attr('y', 125 + 15 + 10 + 125)
 .style('font', '13px sans-serif')
 .style('color', 'black')
