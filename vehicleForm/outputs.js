@@ -216,10 +216,12 @@ function makeBarchart() {
   const average = document.getElementById("ICEemissionAvg").innerHTML //Average based on zip code, year, lifetime years owned
   const hybrid_average = document.getElementById("PHEVemissionAvg").innerHTML // same as above
   const bev_average = document.getElementById("BEVemissionAvg").innerHTML // same as above
+  const usphev_avg = document.getElementById("USPHEVemissionAvg").innerHTML
+  const usbev_avg = document.getElementById("USBEVemissionAvg").innerHTML
   const data = document.getElementById("totalEmissions").innerHTML
 
 
-  const maxValue = Math.max(average, hybrid_average, bev_average, data)
+  const maxValue = Math.max(average, hybrid_average, bev_average, data, usbev_avg, usphev_avg)
 
 
 
@@ -227,6 +229,20 @@ function makeBarchart() {
 const container = d3.select("#barChart")
   .append("svg")
   .append("g")
+
+
+container
+  .append('defs')
+  .append('pattern')
+  .attr('id', 'diagonalHatch')
+  .attr('patternUnits', 'userSpaceOnUse')
+  .attr('width', 4)
+  .attr('height', 4)
+  .append('path')
+  .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  .attr('stroke', '#D9D9D9')
+  .attr('stroke-width', 0.8)
+
 
 const rect = container.append("rect")
   .attr("x", 0)
@@ -272,13 +288,6 @@ const x2 = d3.scaleBand()
   .range([ 0, 180 ])
   .padding(0.2);
 
-barchart2.append("g")
-  .attr("transform", "translate(0," + height + ")") // EDIT HEIGHT to height (200)
-  .call(d3.axisBottom(x2))
-  .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
-
 /// Output bars
 const input_bar2 = barchart2
 .insert('rect')
@@ -308,29 +317,42 @@ const phev_bar2 = barchart2
 .attr('y', y(hybrid_average))
 .attr('fill', "gray")
 
-const USphev = barchart2
-    .insert('line')
-    .attr('x1',55)
-    .attr('x2', 85)
-    .attr('y1', y(document.getElementById("USPHEVemissionAvg").innerHTML))
-    .attr('y2', y(document.getElementById("USPHEVemissionAvg").innerHTML))
-    .style("stroke", "red")
-    .style("stroke-width", 1)
+const USphev = barchart2.append("rect")
+      .attr("x", 55)
+      .attr("y", y(document.getElementById("USPHEVemissionAvg").innerHTML))
+      .attr("width", 30)
+      .attr("height", height - y(document.getElementById("USPHEVemissionAvg").innerHTML))
+      .attr('fill', 'url(#diagonalHatch)');
 
-const USphev_label = barchart2
-    .append('text')
-    .attr('x', 51)
-    .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML) - 9)
-    .style("font", "6.5px sans-serif")
-    .style('fill', 'red')
-    .text(`Average`)
-const USphev_label2 = barchart2
-    .append('text')
-    .attr('x', 51)
-    .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML)-2)
-    .style("font", "6.5px sans-serif")
-    .style('fill', 'red')
-    .text(`US Grid Mix`)
+// barchart2.append("rect")
+//     .attr("x", 0)
+//     .attr("width", 100)
+//     .attr("height", 100)
+//     .attr('fill', 'url(#diagonalHatch)');
+
+// const USphev = barchart2
+//     .insert('line')
+//     .attr('x1',55)
+//     .attr('x2', 85)
+//     .attr('y1', y(document.getElementById("USPHEVemissionAvg").innerHTML))
+//     .attr('y2', y(document.getElementById("USPHEVemissionAvg").innerHTML))
+//     .style("stroke", "red")
+//     .style("stroke-width", 1)
+
+// const USphev_label = barchart2
+//     .append('text')
+//     .attr('x', 51)
+//     .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML) - 9)
+//     .style("font", "6.5px sans-serif")
+//     .style('fill', 'red')
+//     .text(`Average`)
+// const USphev_label2 = barchart2
+//     .append('text')
+//     .attr('x', 51)
+//     .attr('y', y(document.getElementById("USPHEVemissionAvg").innerHTML)-2)
+//     .style("font", "6.5px sans-serif")
+//     .style('fill', 'red')
+//     .text(`US Grid Mix`)
 
 /// BEV
 const bev_bar2 = barchart2
@@ -341,29 +363,44 @@ const bev_bar2 = barchart2
 .attr('y', y(bev_average))
 .attr('fill', "gray")
 
-const USbev = barchart2
-    .insert('line')
-    .attr('x1',97.5)
-    .attr('x2', 127.5)
-    .attr('y1', y(document.getElementById("USBEVemissionAvg").innerHTML))
-    .attr('y2', y(document.getElementById("USBEVemissionAvg").innerHTML))
-    .style("stroke", "red")
-    .style("stroke-width", 1)
+const USbev = barchart2.append("rect")
+      .attr("x", 97.5)
+      .attr("y", y(document.getElementById("USBEVemissionAvg").innerHTML))
+      .attr("width", 30)
+      .attr("height", height - y(document.getElementById("USBEVemissionAvg").innerHTML))
+      .attr('fill', 'url(#diagonalHatch)')
 
-const USbev_label = barchart2
-    .append('text')
-    .attr('x', 93.5)
-    .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML) - 9)
-    .style("font", "6.5px sans-serif")
-    .style('fill', 'red')
-    .text(`Average`)
-const USbev_label2 = barchart2
-    .append('text')
-    .attr('x', 93.5)
-    .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML)-2)
-    .style("font", "6.5px sans-serif")
-    .style('fill', 'red')
-    .text(`US Grid Mix`)
+// const USbev = barchart2
+//     .insert('line')
+//     .attr('x1',97.5)
+//     .attr('x2', 127.5)
+//     .attr('y1', y(document.getElementById("USBEVemissionAvg").innerHTML))
+//     .attr('y2', y(document.getElementById("USBEVemissionAvg").innerHTML))
+//     .style("stroke", "red")
+//     .style("stroke-width", 1)
+
+// const USbev_label = barchart2
+//     .append('text')
+//     .attr('x', 93.5)
+//     .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML) - 9)
+//     .style("font", "6.5px sans-serif")
+//     .style('fill', 'red')
+//     .text(`Average`)
+// const USbev_label2 = barchart2
+//     .append('text')
+//     .attr('x', 93.5)
+//     .attr('y', y(document.getElementById("USBEVemissionAvg").innerHTML)-2)
+//     .style("font", "6.5px sans-serif")
+//     .style('fill', 'red')
+//     .text(`US Grid Mix`)
+
+// x axis
+barchart2.append("g")
+  .attr("transform", "translate(0," + height + ")") // EDIT HEIGHT to height (200)
+  .call(d3.axisBottom(x2))
+  .selectAll("text")
+    .attr("transform", "translate(0,0)rotate(-30)")
+    .style("text-anchor", "end");
 
 // labels
 const avg_emission_label2 = barchart2
@@ -404,6 +441,43 @@ const title2 = container
   .attr('y', 15) //310
   .style("font", "14px sans-serif")
   .text(`Lifetime Emissions Comparisons`)
+
+const reg_avg = container
+  .append('text')
+  .attr('x', 127)
+  .attr('y', 28) //310
+  .style("font", "9px sans-serif")
+  .text(`Regional Grid Mix`)
+container.append('rect')
+    .attr('x', 117)//width*2 +7)
+    .attr('y', 21)
+    .attr('width', 6)
+    .attr('height', 6)
+    .attr('fill', 'gray')
+    .style('opacity', 1)
+
+const us_avg = container
+  .append('text')
+  .attr('x', 127)
+  .attr('y', 38) //310
+  .style("font", "9px sans-serif")
+  .text(`Average US Grid Mix`)
+// container.append('rect')
+//   .attr('x', 120)//width*2 +7)
+//   .attr('y', 31)
+//   .attr('width', 6)
+//   .attr('height', 6)
+//   .attr('stroke', '#D9D9D9')
+//   //.attr('fill', 'white')
+//   .style('opacity', 1)
+  container.append('rect')
+  .attr('x', 117)//width*2 +7)
+  .attr('y', 31)
+  .attr('width', 6)
+  .attr('height', 6)
+  .attr('fill', 'url(#diagonalHatch)')
+  .attr('stroke', '#D9D9D9')
+  .style('opacity', 1)
 }
 
 ///////////////////////////////////////////////////////////////////
