@@ -228,58 +228,75 @@
               </div> <!-- end row -->
 
             </div> <!-- end container -->
-          </div> <!-- end reverse gradient -->
+        </div> <!-- end container -->
 
+        <div class="customGradient py-5" id = "output" style = "display: None">
+            <div class="container-md bg-white shadow" style="max-width: 1050px;">
 
-    <!-- OUTPUTS!! -->
-    <div id = "output" style = "display: None">
-        <div style="width: 100%;height:100%">
-            <h2 id = "vehicleInput">Output Options</h2>
-            <h3 id = "totEmissionsOutput"></h3>
+            <!-- OUTPUTS!! -->
+            <div class="row py-5 px-5">
+                <div class="col-12">
+                    <!-- <div id = "output" style = "display: None"> -->
+                    <h2 id = "vehicleInput">Output Options</h2>
+                    <h3 id = "totEmissionsOutput"></h3>
+                    <p id = "vehicleConfig"></p>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
 
-            <p id = "vehicleConfig"></p>
+            <div class="row px-5" style="">
+                <div class="col-4" style="">
+                    <svg id="barChart"style="width:100%; height: 350px"></svg>
+                </div> <!-- end col -->
+                <div class="col-8" style="">
+                     <!-- <svg id="equivalencies" style="width: 600px;height:250px"></svg> -->
+                    <svg id="equivalencies2" style="width:100%; height: 350px"></svg>
+                </div> <!-- end col -->
+                <div class="col-12">
+                    <p style = "">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs. <br> **Note: Emissions calculations for equivalencies are based on US averages.</p>
+                </div>
+             </div> <!-- end row -->
 
-            <svg id="barChart" style="width: 300px;height:300px"></svg>
-            <!-- <svg id="equivalencies" style="width: 600px;height:250px"></svg> -->
-            <svg id="equivalencies2" style="width: 600px;height:325px"></svg> 
-            <p style = "font-size:10px">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs. <br> **Note: Emissions calculations for equivalencies are based on US averages.</p>
-        </div>
-        <br>
-        <!-- PER MILE EMISSIONS -->
-        <h2>Estimated emissions for corresponding travel distance</h2>
-        <div style="width: 1000px;height:70px">
-            <svg id="avg_text" style="width: 1000px;height:50px"></svg>
-        </div>
-        <div class="container" style="width: 300px;height:40px">
-            <form>
-            <center>
-            <label for="miles">Enter number of miles:</label><br>
-            <input type="number" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
-            <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
-            </center>
-            </form>
-        </div>
-        <div style="width: 300px;height:10px">
-            <center>
-            <span style = "font-size:11px; color:red" id="check_input"></span>
-            </center>
-        </div>
-        <br>
-        <div >
-            Estimated Emissions:
-        <b> <span id="emissions-output"></span> </b>
-        </div>
-        <div >
-            This is equivalent to emissions from burning:
-        <b> <span id="emissions-equi"></span> </b>
-        <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variaty of factors including road condition, weather, speed, etc.</p>
-        </div>
+            <!-- PER MILE EMISSIONS -->
+             <div class="row px-5 pt-5" style="">
+                <div class="col-12">
+                    <h2>Estimated emissions for corresponding travel distance</h2>
+                        <!-- <div style="width: 1000px;height:70px"> -->
+                    <svg id="avg_text" style="width: 1000px;height:50px"></svg>
+                        <!-- </div> -->
+                </div> <!-- end col -->
 
-        <!-- ISOTOPES -->
-        <div style="width: 1000px;height:300px">
-            <svg id="isotopes" style="width: 1000px;height:300px"></svg>
-        </div>
-    </div>
+                <div class="col-12">
+                    <form>
+                        <label for="miles" class="form-label">Enter number of miles:</label>
+                        <input type="number" class="form-control" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
+                        <div id="miles" class="form-text">Minimum Number of Miles: 1, Maximum: 200,000</div>
+                        <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
+                    </form>
+                    <div style="width: 300px;height:10px">
+                        <span style = "font-size:11px; color:red" id="check_input"></span>
+                    </div>
+                </div> <!-- end col -->
+
+                <div class="col-12 pt-4">
+                    <h5>Estimated Emissions</h5>
+
+                    <span id="emissions-output"></span> 
+                    <div >
+                        This is equivalent to emissions from burning:
+                    <b> <span id="emissions-equi"></span> </b>
+                    <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variaty of factors including road condition, weather, speed, etc.</p>
+                    </div>
+            
+                    <!-- ISOTOPES -->
+                    <div style="width: 1000px;height:300px">
+                        <svg id="isotopes" style="width: 1000px;height:300px"></svg>
+                    </div>
+
+                </div> <!-- end col -->
+             </div> <!-- end row -->
+
+            </div> <!-- end container -->
+        </div> <!-- end reverse gradient -->
 
     </body>
     
