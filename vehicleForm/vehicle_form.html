@@ -1,163 +1,287 @@
-<!DOCTYPE html>
-<html lange = "en">
-<head>
-    <meta charset = "UTF-8">
-    <title>Vehicle Emissions Form</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<body>
-    <h1 id = "header"> Vehicle Emissions Form</h1>
-    <h3>Complete the form to find lifetime emissions for your vehicle of interest.</h3>  
-    <form>
-    <!-- <form  onsubmit="showOutput()"> -->
-        <span>
-            Zip Code: <input type="text" id="zip" value="5-digit zip code" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
-        </span>
-        <span>
-            Number of years planned on driving: <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
-        </span>
-        <br><br>
-        <span>
-            Number of miles planned on driving: <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
-            <p style = "font-size:11px">US average is 17 years and 178000 miles driven.</p>
-        </span>
-        <br>
-       <span> 
-            Year: <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
-                    <option value="" selected = "selected"> -- Select a Year --</option>
-                </select> 
-        </span>
-        <span>
-            Vehicle Type: <select name = "Selected Type" id="selType" onchange = "showType()" required>
-                    <option value="" selected = "selected"> -- Select a Year First --</option>
-                </select> 
-        </span>
-        <br><br>
-        <span>
-            Make: <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
-                    <option value="" selected = "selected"> -- Select a Type First --</option>
-                </select> 
-        </span>
+<!doctype html>
+<html lang="en">
 
-        <span>
-            Model: <select name = "Selected Make" id="selModel" onchange = "showModel()" required>
-                    <option value="" selected = "selected"> -- Select a Make First --</option>
-                </select> 
-        </span>
-        <br><br>
-            <span id = 'configBox'>
-                Configuration: <span id = "configStart"> <i>Select Vehicle Model First</i></span>
-                <div id="btn-group">
-                    <button id="bt1" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
-                    <button id="bt2" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
-                    <button id="bt3" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
-                    <button id="bt4" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
-                    <button id="bt5" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
-                    <button id="bt6" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
+    <head>
+        <!-- <meta charset="utf-8"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset = "UTF-8">
+        <title>Emissions Explorer Tool</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- CSS -->
+        <link href="../css/main.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <link rel="stylesheet" href="../css/styleForm.css" type="text/css">
+        <!-- Observable -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+        <!-- AJAX -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="customTitleEquityImage">
+
+            <div class="col-12"> <!-- begin nav bar -->
+              <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <a class="" href="#"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <ul class="nav">
+                      <li class="nav-item">
+                        <a class="nav-link customNavItem" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active customNavItem" aria-current="page" href="../vehicleForm/vehicle_form.html">Emissions Explorer</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link customNavItem" href="equity.html">Accessibility</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link customNavItem" href="about.html">About</a>
+                      </li>
+                    </ul>
                   </div>
-        </span>
-        <br><br>
-        <div id = "firstSubmit">
-            <button id = "submitbtn" type="button"  onclick = "showResult()" disabled>Submit</button>
-        </div>
-        <div id = "secondSubmit" style="display:None">
-            <button id = "resultsbtn" type="button"  onclick = "showOutput()">View Results</button>
-        </div>
-        <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
-        <p id = "warningmessage" style = "font-size:11px; color:red"></p>
-<br>
-        <div id = "responses" style = "display:None">
-            <!-- style = "display:None" -->
-            Responses:<br>
-            <ol id = "zip_res"></ol>
-            <ol id = "yearsOwn_res">17</ol>
-            <ol id = "avg_miles">178000</ol>
-            <ol id = "subregion"></ol>
-            <ol id = "CO2eRate"></ol>
-            <ol id = "year_res"></ol>
-            <ol id = "type_res"></ol>
-            <ol id = "make_res"></ol>
-            <ol id = "model_res"></ol>
-            <ol id = "config_res"></ol>
-            <ol id = "yearmakemodel"></ol>
-            Total Emissions: 
-            <ol id = "totalEmissions"></ol>
-            <ol id = "roundedEmissions"></ol>
-            <ol id = "totalBattery"></ol>
-            <ol id = "totalVehicle"></ol>
-            <ol id = "totalUsage"></ol>
-            <ol id = "totalDisposal"></ol>
-            Averages:
-            <ol id = "ICEemissionAvg"></ol>
-            <ol id = "PHEVemissionAvg"></ol>
-            <ol id = "BEVemissionAvg"></ol>
-            US Grid Mix Average:
-            <ol id = "USICEemissionAvg"></ol>
-            <ol id = "USPHEVemissionAvg"></ol>
-            <ol id = "USBEVemissionAvg"></ol>
-        </div>
-
-
-    </form>
-
-    <br><br>
-
-
-<!-- OUTPUTS!! -->
-
-<div id = "output" style = "display: None">
-    <div style="width: 100%;height:100%">
-
+                </div>
+              </nav>  
+            </div> <!-- end nav bar -->
         
-        <h2 id = "vehicleInput">Output Options</h2>
-        <h3 id = "totEmissionsOutput"></h3>
+              <div class="container-md" style="max-width: 1050px;">
+                <div class="row pb-5 d-flex align-items-center" style="height: 200px;">
+                  <div class="col-12 p-5 customTitleText">
+                    <h1 class="customTitleText" id="header">Our Emissions Explorer Tool</h1>
+                  </div> <!-- end col -->
+                </div> <!-- end row -->
+              </div> <!-- end container -->
 
-        <p id = "vehicleConfig"></p>
+        </div> <!-- end header section -->      
+        <!-- <h1 id = "header"> Vehicle Emissions Form</h1> -->
 
-        <svg id="barChart" style="width: 300px;height:300px"></svg>
-        <!-- <svg id="equivalencies" style="width: 600px;height:250px"></svg> -->
-        <svg id="equivalencies2" style="width: 600px;height:325px"></svg> 
-        <p style = "font-size:10px">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs. <br> **Note: Emissions calculations for equivalencies are based on US averages.</p>
-      </div>
-      <br>
+        <div class="customGradientReverse py-5">
+            <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
+              <div class="row pb-1">
+                <div class="col-12 px-5 pt-5">
+                  <h3>Complete the form to find lifetime emissions for your vehicle of interest.</h3>
+                  <!-- <p><br>Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.</p> -->
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+              <div class="row pb-5">
+                <div class="col-12 p-5" style="">
+                    <form>
+                        <!-- <form  onsubmit="showOutput()"> -->
+                        <div class="row mb-3">
+                            <div class="col-auto">
+                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                            </div>
+                            <div class="col-auto">
+                                <label for="zip" class="form-label">Zip Code:</label>
+                                <input type="text" class="form-control" id="zip" value="00000" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
+                                <div id="zipHelp" class="form-text">Location is key for us to calculate your emissions based on your local grid.</div>
+                            </div>
+                        </div>
+                        <!-- <span>
+                            Zip Code: <input type="text" id="zip" value="00000" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
+                        </span> -->
+                        <div class=" row mb-3">
+                            <div class="col-auto">
+                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                            </div>
+                            <div class="col-auto">
+                                <label for="yearsOwn" class="form-label">Number of years planned on driving:</label>
+                                <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
+                                <div id="yearsOwnHelp" class="form-text">Text Help</div>
+                            </div> <!-- end col -->
 
-      <!-- PER MILE EMISSIONS -->
-      <h2>Estimated emissions for corresponding travel distance</h2>
-      <div style="width: 1000px;height:70px">
-        <svg id="avg_text" style="width: 1000px;height:50px"></svg>
-      </div>
-      <div class="container" style="width: 300px;height:40px">
-        <form>
-          <center>
-          <label for="miles">Enter number of miles:</label><br>
-          <input type="number" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
-          <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
-        </center>
-        </form>
-      </div>
-      <div style="width: 300px;height:10px">
-        <center>
-        <span style = "font-size:11px; color:red" id="check_input"></span>
-        </center>
-      </div>
-      <br>
-      <div >
-        Estimated Emissions:
-       <b> <span id="emissions-output"></span> </b>
-      </div>
-      <div >
-        This is equivalent to emissions from burning:
-       <b> <span id="emissions-equi"></span> </b>
-       <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variaty of factors including road condition, weather, speed, etc.</p>
-      </div>
+                            <div class="col-auto">
+                                <label for="milesDrive" class="form-label">Number of miles planned on driving:</label>
+                                <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
+                                <div id="milesDriveHelp" class="form-text">US average is 17 years and 178000 miles driven.</div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        <!-- <span>
+                            Number of years planned on driving: <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
+                        </span> -->
+                        <!-- <span>
+                            Number of miles planned on driving: <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
+                            <p style = "font-size:11px">US average is 17 years and 178000 miles driven.</p>
+                        </span> -->
+                        <div class=" row mb-3">
+                            <div class="col-auto">
+                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                            </div>
+                            <div class="col-auto">
+                                <label for="selYear" class="form-label">Year</label>
+                                <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
+                                    <option value="" selected = "selected"> -- Select a Year --</option>
+                                </select>
+                                <div id="selYearHelp" class="form-text">Text Help</div>
+                            </div> <!-- end col -->
 
-      <!-- ISOTOPES -->
-      <div style="width: 1000px;height:300px">
-        <svg id="isotopes" style="width: 1000px;height:300px"></svg>
-      </div>
-</div>
+                            <div class="col-auto">
+                                <label for="selType" class="form-label">Vehicle Type</label>
+                                <select name = "Selected Type" id="selType" onchange = "showType()" required>
+                                    <option value="" selected = "selected"> -- Select a Year First --</option>
+                                </select>                                 
+                                <div id="selTypeHelp" class="form-text">ICE, BHEV, BEV</div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        <!-- <span> 
+                            Year: <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
+                                    <option value="" selected = "selected"> -- Select a Year --</option>
+                            </select> 
+                         </span> -->
+                        <!-- <span>
+                            Vehicle Type: <select name = "Selected Type" id="selType" onchange = "showType()" required>
+                                    <option value="" selected = "selected"> -- Select a Year First --</option>
+                            </select> 
+                        </span> -->
+
+                        <div class=" row mb-3">
+                            <div class="col-auto">
+                                <label for="selMake" class="form-label">Make</label>
+                                <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
+                                    <option value="" selected = "selected"> -- Select a Type First --</option>
+                                </select>
+                                <div id="selMakeHelp" class="form-text">Text Help</div>
+                            </div> <!-- end col -->
+
+                            <div class="col-auto">
+                                <label for="selModel" class="form-label">Vehicle Model</label>
+                                <select name = "Selected Make" id="selModel" onchange = "showModel()" required>
+                                    <option value="" selected = "selected"> -- Select a Make First --</option>
+                                </select>                                 
+                                <div id="selModelHelp" class="form-text">Make Help</div>
+                            </div> <!-- end col -->
+
+                            <div class="col-auto">
+                                <span id = 'configBox'>
+                                    Configuration: <span id = "configStart"> <i>Select Vehicle Model First</i></span>
+                                    <div id="btn-group">
+                                        <button id="bt1" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
+                                        <button id="bt2" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
+                                        <button id="bt3" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
+                                        <button id="bt4" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
+                                        <button id="bt5" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
+                                        <button id="bt6" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
+                                    </div>
+                                </span>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        <!-- <span>
+                            Make: <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
+                                <option value="" selected = "selected"> -- Select a Type First --</option>
+                            </select> 
+                        </span> -->
+                        <!-- <span>
+                            Model: <select name = "Selected Make" id="selModel" onchange = "showModel()" required>
+                                    <option value="" selected = "selected"> -- Select a Make First --</option>
+                                </select> 
+                        </span> -->
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div id = "firstSubmit">
+                                    <button id = "submitbtn" class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5" type="button"  onclick = "showResult()" disabled>Submit</button>
+                                </div>
+                                <div id = "secondSubmit" style="display:None">
+                                    <button id = "resultsbtn" type="button"  onclick = "showOutput()">View Results</button>
+                                </div>
+                                    <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
+                                    <p id = "warningmessage" style = "font-size:11px; color:red"></p>
+                            <br>
+                                    <div id = "responses" style = "display:None">
+                                        <!-- style = "display:None" -->
+                                        Responses:<br>
+                                        <ol id = "zip_res"></ol>
+                                        <ol id = "yearsOwn_res">17</ol>
+                                        <ol id = "avg_miles">178000</ol>
+                                        <ol id = "subregion"></ol>
+                                        <ol id = "CO2eRate"></ol>
+                                        <ol id = "year_res"></ol>
+                                        <ol id = "type_res"></ol>
+                                        <ol id = "make_res"></ol>
+                                        <ol id = "model_res"></ol>
+                                        <ol id = "config_res"></ol>
+                                        <ol id = "yearmakemodel"></ol>
+                                        Total Emissions: 
+                                        <ol id = "totalEmissions"></ol>
+                                        <ol id = "roundedEmissions"></ol>
+                                        <ol id = "totalBattery"></ol>
+                                        <ol id = "totalVehicle"></ol>
+                                        <ol id = "totalUsage"></ol>
+                                        <ol id = "totalDisposal"></ol>
+                                        Averages:
+                                        <ol id = "ICEemissionAvg"></ol>
+                                        <ol id = "PHEVemissionAvg"></ol>
+                                        <ol id = "BEVemissionAvg"></ol>
+                                        US Grid Mix Average:
+                                        <ol id = "USICEemissionAvg"></ol>
+                                        <ol id = "USPHEVemissionAvg"></ol>
+                                        <ol id = "USBEVemissionAvg"></ol>
+                                    </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        </form>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+
+            </div> <!-- end container -->
+          </div> <!-- end reverse gradient -->
 
 
-</body>
+    <!-- OUTPUTS!! -->
+    <div id = "output" style = "display: None">
+        <div style="width: 100%;height:100%">
+            <h2 id = "vehicleInput">Output Options</h2>
+            <h3 id = "totEmissionsOutput"></h3>
+
+            <p id = "vehicleConfig"></p>
+
+            <svg id="barChart" style="width: 300px;height:300px"></svg>
+            <!-- <svg id="equivalencies" style="width: 600px;height:250px"></svg> -->
+            <svg id="equivalencies2" style="width: 600px;height:325px"></svg> 
+            <p style = "font-size:10px">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs. <br> **Note: Emissions calculations for equivalencies are based on US averages.</p>
+        </div>
+        <br>
+        <!-- PER MILE EMISSIONS -->
+        <h2>Estimated emissions for corresponding travel distance</h2>
+        <div style="width: 1000px;height:70px">
+            <svg id="avg_text" style="width: 1000px;height:50px"></svg>
+        </div>
+        <div class="container" style="width: 300px;height:40px">
+            <form>
+            <center>
+            <label for="miles">Enter number of miles:</label><br>
+            <input type="number" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
+            <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
+            </center>
+            </form>
+        </div>
+        <div style="width: 300px;height:10px">
+            <center>
+            <span style = "font-size:11px; color:red" id="check_input"></span>
+            </center>
+        </div>
+        <br>
+        <div >
+            Estimated Emissions:
+        <b> <span id="emissions-output"></span> </b>
+        </div>
+        <div >
+            This is equivalent to emissions from burning:
+        <b> <span id="emissions-equi"></span> </b>
+        <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variaty of factors including road condition, weather, speed, etc.</p>
+        </div>
+
+        <!-- ISOTOPES -->
+        <div style="width: 1000px;height:300px">
+            <svg id="isotopes" style="width: 1000px;height:300px"></svg>
+        </div>
+    </div>
+
+    </body>
     
 
 <script src="https://d3js.org/d3.v6.js"></script>
