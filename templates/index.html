@@ -370,14 +370,13 @@
                               <p class="pt-4">Proportion to Lifetime Emissions</p>
                               <img src="../static/images/explore/bar1.png" style="max-width: 100%;">
                               <!-- <div class="bg-secondary mt-2 p-2 rounded-2">
-                                BEVs are generally powered by lithium-ion batteries which require transporting and processing more raw materials from around the world, resulting in higher energy usage and emissions during production.
                               </div> -->
                             </div> <!-- end end half -->
                             <div style="width: 60%">
                               <h4>Battery</h4>
-                              <div id="observablehq-allCharts-e6d12576"></div>
-                              <div class="py-2"></div>
-                              <div style="width:15%;float:right" id="observablehq-viewof-replay-e6d12576"></div>
+                              <p class="">
+                                ZEVs are generally powered by lithium-ion batteries which are larger than the lead-acid batteries that equivalent-sized ICE vehicles use to start their engine. These larger lithium-ion batteries require higher amounts of raw materials and energy to produce, which can result in higher carbon emissions during the manufacturing stage of ZEVs. 
+                              </p>
                               <!-- <img src="../static/images/explore/mining.png" style="width:80%"> -->
                             </div> <!-- end half -->
                           </div> <!-- end flex section -->
@@ -524,10 +523,58 @@
   <div class="bg-primary pb-5">
       <div class="container-md bg-white shadow" style="max-width: 1050px;">
         <div class="row pt-3">
-          <div class="col-12 pt-5 px-5">
+          <div class="col-12 pt-5 px-5 text-center">
             <h3>Where do all these emissions occur?</h3>
           </div>    <!--  end col  -->
         </div> <!--  end row  -->
+
+        <div class="row pt-3">
+          <div class="col-6 px-5 pt-5">
+            <!-- <h5> How do emissions across these life stages differ between ZEVs and ICEs? 
+            </h5> -->
+            <p class="">
+              The lifetime emissions of any vehicle span beyond just where the vehicle is used. 
+              <hr class="border border-secondary border-1 opacity-100" /> 
+              <h5>Emissions in the Center
+              </h5>
+              <hr class="border border-secondary border-1 opacity-100" /> 
+              In the center, emissions are produced locally. Tailpipe emissions and electricity generation emissions for a vehicle take place closer to use. 
+            </p>
+            <p>
+              However the associated emissions in other phases of the vehicle lifecycle happen all over the world. If your car is imported, the production emissions occuring at the factory might not directly affect you, but does affect the country and community where the factory is.
+            </p>
+          </div> <!-- end col -->
+          <div class="col-6 px-5 pt-5 text-center">
+            <img src="../static/images/LCA/central-periphery.png" style="width: 70%; height: auto" class="text-center">
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      
+        <div class="row">
+          <div class="col-12 px-5" style="">              
+            <!-- DESCRIPTION OF THE CHART -->
+            <hr class="border border-secondary border-1 opacity-100" /> 
+            <h5>Emissions in the Periphery
+            </h5>
+            <hr class="border border-secondary border-1 opacity-100" /> 
+            <!-- END -- DESCRIPTION OF THE CHART -->
+        </div> <!-- end col -->
+        </div> <!-- end row -->
+
+        <div class="row pb-5 pt-3">
+          <div class="col-7 px-5">
+            <div id="observablehq-allCharts-e6d12576"></div>
+            <div id="observablehq-viewof-replay-e6d12576"></div>
+          </div> <!-- end col -->
+          <div class="col-5 px-5 d-flex align-items-center">
+            <p>
+              This map illustrates the global production of cathodes for BEVS. 
+              <br><br>
+              Emissions occur not only at each of those sites, but also when transporting materials and parts from one site to another.
+              <br><br>
+              To what extent are we offsetting our emissions to the periphery? 
+            </p>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
 
       </div> <!-- end container -->
     </div>
@@ -536,7 +583,7 @@
       <div class="container-md bg-white shadow" style="max-width: 1050px;">
         <div class="row pt-3">
           <div class="col-12 pt-5 px-5">
-            <h3>Understanding the cost of charging ZEVs</h3>
+            <h3>Emissions associated to charge ZEVs</h3>
             <p>
               <br>
               Battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs) are reliant on electricity, which may have varying levels of associated emissions depending on the primary source of electric generation in the geographic area where the vehicles are being charged.
