@@ -332,6 +332,7 @@
             url:'./json/zip_to_subregion.json',
             success:function(response) {
                 showSubregion(response);
+                avg_CO2eRate = Number(document.getElementById("CO2eRate").innerHTML); //grid intensity
             }
         })
             $('#output').hide()
@@ -484,7 +485,6 @@
 
 
         $('#submitbtn').on('click', function() {
-            avg_CO2eRate = Number(document.getElementById("CO2eRate").innerHTML); //grid intensity
             // avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
             // document.getElementById("avg_miles").innerHTML = avg_miles
             ajaxCall1();
