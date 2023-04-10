@@ -307,7 +307,9 @@
     <!-- <script type = "module" src = "test_form.js"></script> -->
     <script>
      
-     var myArray = []
+    var myArray = []
+    var avg_CO2eRate = []
+    var avg_miles = 178000
 
         $.ajax({
             method:"GET",
@@ -368,6 +370,7 @@
         $('#milesDrive').on('change', function() {
             $('#secondSubmit').hide();
             $('#output').hide()
+            avg_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join("")); //miles_estimated
         })
 
 
@@ -462,8 +465,6 @@
 
     const US_CO2Rate_avg = 443.956547
 
-    var avg_CO2eRate = []
-    var avg_miles = []
     var vehicle_data = []
     var manufacturing_data = []
     var battery_data = []
@@ -484,7 +485,6 @@
 
         $('#submitbtn').on('click', function() {
             avg_CO2eRate = Number(document.getElementById("CO2eRate").innerHTML); //grid intensity
-            avg_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join("")); //miles_estimated
             // avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
             // document.getElementById("avg_miles").innerHTML = avg_miles
             ajaxCall1();
@@ -763,7 +763,7 @@ function showMilesDrive() {
             // y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
         }
-        else if (avg_miles  > 1000000) {
+        else if (avg_miles > 1000000) {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
             // var y = document.getElementById("secondSubmit");
