@@ -36,7 +36,7 @@ function getInput() {
 /// function for per mile
 function perMileFunction() {
 
-  const life_miles = document.getElementById("avg_miles").innerHTML //Change based on input
+  const life_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join("")) //Change based on input
   const data = document.getElementById("totalEmissions").innerHTML
   const emissions_per_mile = data / life_miles
 
@@ -162,7 +162,7 @@ function perMileFunction() {
 function avg_emiPerMi_text() {
 
   const life_years = document.getElementById("yearsOwn_res").innerHTML //Change based on input
-  const life_miles = document.getElementById("avg_miles").innerHTML 
+  const life_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join(""))
   const data = document.getElementById("totalEmissions").innerHTML
   const emissions_per_mile = data / life_miles
   const round_emissions_per_mile = Math.round(100 * emissions_per_mile)/100
@@ -486,7 +486,7 @@ const us_avg = container
 function makeEquivalencies() {
   const data = document.getElementById("totalEmissions").innerHTML
   const life_years = document.getElementById("yearsOwn_res").innerHTML
-  const life_miles = document.getElementById("avg_miles").innerHTML 
+  const life_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join(""))
 
 // Conversions for Equivilencies -- source: https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references
 // const gallons_gasoline = data / 8.887//kg
