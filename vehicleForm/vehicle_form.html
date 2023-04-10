@@ -759,15 +759,15 @@ function showMilesDrive() {
         if (!zip_list.includes(x)) {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
-            var y = document.getElementById("secondSubmit");
-            y.style.display = "none"
+            // var y = document.getElementById("secondSubmit");
+            // y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
         }
         else if (avg_miles  > 1000000) {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
-            var y = document.getElementById("secondSubmit");
-            y.style.display = "none"
+            // var y = document.getElementById("secondSubmit");
+            // y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "The maximum number of miles planned on driving is 1,000,000."
         } else if (document.getElementById("zip").value.match(/\d{5,5}/)) {
             var x = document.getElementById("warningmessage");
@@ -778,8 +778,8 @@ function showMilesDrive() {
         }  else {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
-            var y = document.getElementById("secondSubmit");
-            y.style.display = "none"
+            // var y = document.getElementById("secondSubmit");
+            // y.style.display = "none"
             document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
     }
     }
