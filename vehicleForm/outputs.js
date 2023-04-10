@@ -26,9 +26,10 @@ function outputViz() {
 
 function getInput() {
    const x = document.getElementById("roundedEmissions").innerHTML
+   var formatted_number = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
    //const x = document.getElementById("avg_miles").innerHTML
    document.getElementById("vehicleInput").innerHTML = `Emissions Estimate for ${document.getElementById("yearmakemodel").innerHTML} (${document.getElementById("type_res").innerHTML})`
-   document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${x} kgCO2e`
+   document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${formatted_number} kgCO2e`
    document.getElementById("vehicleConfig").innerHTML = `Configuration: ${document.getElementById("config_res").innerHTML}`
 }
 
@@ -39,7 +40,7 @@ function perMileFunction() {
   const data = document.getElementById("totalEmissions").innerHTML
   const emissions_per_mile = data / life_miles
 
-  const x = document.getElementById("miles").value; 
+  const x = Number(document.getElementById("miles").value.split(',').join("")); 
 
   if (x > 200000 || x < 0) {
     document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 200000."

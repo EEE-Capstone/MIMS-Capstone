@@ -97,8 +97,8 @@
 
                             <div class="col-auto">
                                 <label for="milesDrive" class="form-label">Number of miles planned on driving:</label>
-                                <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
-                                <div id="milesDriveHelp" class="form-text">US average is 17 years and 178000 miles driven.</div>
+                                <input type="text" id="milesDrive" value="178,000" min="0.1" oninput = "showMilesDrive()"/> 
+                                <div id="milesDriveHelp" class="form-text">US average is 17 years and 178,000 miles driven over vehicle lifetime.</div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
                         <!-- <span>
@@ -185,9 +185,9 @@
                                 <div id = "firstSubmit">
                                     <button id = "submitbtn" class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5" type="button"  onclick = "showResult()" disabled>Submit</button>
                                 </div>
-                                <div id = "secondSubmit" style="display:None">
+                                <!-- <div id = "secondSubmit" style="display:None">
                                     <button id = "resultsbtn" type="button"  onclick = "showOutput()">View Results</button>
-                                </div>
+                                </div> -->
                                     <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
                                     <p id = "warningmessage" style = "font-size:11px; color:red"></p>
                             <br>
@@ -268,7 +268,7 @@
                 <div class="col-12">
                     <form>
                         <label for="miles" class="form-label">Enter number of miles:</label>
-                        <input type="number" class="form-control" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
+                        <input type="text" class="form-control" id="miles" value="0" min="0" max="200000" maxlength="6" oninput="return perMileFunction()"/> 
                         <div id="miles" class="form-text">Minimum Number of Miles: 1, Maximum: 200,000</div>
                         <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
                     </form>
@@ -351,6 +351,17 @@
         $('#milesDrive').on('click', function() {
             $('#secondSubmit').hide();
             $('#output').hide()
+        })
+
+        $('#milesDrive').on('input', function() {
+            var removeChar = this.value.replace(/[^0-9\.]/g, '') // This is to remove alphabets and special characters.
+            // console.log(removeChar);
+            var removeDot = removeChar.replace(/\./g, '') // This is to remove "DOT"
+            this.value = removeDot
+    
+            var formatedNumber = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            // console.log(formatedNumber);
+            this.value = formatedNumber
         })
 
 
@@ -473,20 +484,36 @@
 
         $('#submitbtn').on('click', function() {
             avg_CO2eRate = Number(document.getElementById("CO2eRate").innerHTML); //grid intensity
-            avg_miles = Number(document.getElementById("avg_miles").innerHTML); //miles_estimated
+            avg_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join("")); //miles_estimated
             // avg_miles = 178000 / 17 * Number(document.getElementById("yearsOwn_res").innerHTML); //miles_estimated
             // document.getElementById("avg_miles").innerHTML = avg_miles
-            ajaxCall1()
-            //$('#secondSubmit').show();
-        })
-
-
-        $('#resultsbtn').on('click', function() {
+            ajaxCall1();
             $('html,body').animate({
             scrollTop: $("#output").offset().top},
             'slow');
             return outputViz();
-        });
+            //$('#secondSubmit').show();
+        })
+
+
+        // $('#resultsbtn').on('click', function() {
+        //     $('html,body').animate({
+        //     scrollTop: $("#output").offset().top},
+        //     'slow');
+        //     return outputViz();
+        // });
+
+
+        $('#miles').on('input', function() {
+            var removeChar = this.value.replace(/[^0-9\.]/g, '') // This is to remove alphabets and special characters.
+            // console.log(removeChar);
+            var removeDot = removeChar.replace(/\./g, '') // This is to remove "DOT"
+            this.value = removeDot
+    
+            var formatedNumber = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            // console.log(formatedNumber);
+            this.value = formatedNumber
+        })
 
 
 function showVehicle(full_data) {
@@ -517,6 +544,8 @@ function showVehicle(full_data) {
       years.push(data[i].Year)
     }
     var uniqueYears = years.filter((value, index, self) => self.indexOf(value) === index);
+    uniqueYears.sort();
+    uniqueYears.reverse();
     for (let i = 0; i < uniqueYears.length; i++) {
         ele.innerHTML = ele.innerHTML +
         //  '<option value="' + data[i].id + '">' + data[i].Year + '</option>';
@@ -543,6 +572,7 @@ function showVehicle(full_data) {
       types.push(data[i].atvType)
     }
     var uniqueTypes = types.filter((value, index, self) => self.indexOf(value) === index);
+    uniqueTypes.sort();
     for (let i = 0; i < uniqueTypes.length; i++) {
     ele.innerHTML = ele.innerHTML +
     //'<option >' + year + '</option>';
@@ -571,6 +601,7 @@ function showVehicle(full_data) {
         makes.push(data[i].Make)
     }
     var uniqueMakes = makes.filter((value, index, self) => self.indexOf(value) === index);
+    uniqueMakes.sort();
     for (let i = 0; i < uniqueMakes.length; i++) {
     ele.innerHTML = ele.innerHTML +
     '<option>' + uniqueMakes[i] + '</option>';
@@ -599,6 +630,7 @@ function showVehicle(full_data) {
         models.push(data[i].Model)
     }
     var uniqueModels = models.filter((value, index, self) => self.indexOf(value) === index);
+    uniqueModels.sort();
     for (let i = 0; i < uniqueModels.length; i++) {
     ele.innerHTML = ele.innerHTML +
     '<option>' + uniqueModels[i] + '</option>';
@@ -716,6 +748,11 @@ function showMilesDrive() {
 
 
 /////////////////////////////// SHOW OUTPUT//////////////////////////////////
+
+    function showOutput() {
+        var x = document.getElementById("output");
+        x.style.display = "block";
+    }
     
     function showResult() {
         var x = parseInt(document.getElementById("zip_res").innerHTML)
@@ -726,11 +763,18 @@ function showMilesDrive() {
             y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
         }
-        else if (document.getElementById("zip").value.match(/\d{5,5}/)) {
+        else if (avg_miles  > 1000000) {
+            var x = document.getElementById("warningmessage");
+            x.style.display = "block"
+            var y = document.getElementById("secondSubmit");
+            y.style.display = "none"
+            return document.getElementById("warningmessage").innerHTML = "The maximum number of miles planned on driving is 1,000,000."
+        } else if (document.getElementById("zip").value.match(/\d{5,5}/)) {
             var x = document.getElementById("warningmessage");
             x.style.display = "none"
-            var y = document.getElementById("secondSubmit");
-            y.style.display = "block"
+            // var y = document.getElementById("secondSubmit");
+            // y.style.display = "block"
+            showOutput();
         }  else {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
@@ -738,11 +782,6 @@ function showMilesDrive() {
             y.style.display = "none"
             document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
     }
-    }
-
-    function showOutput() {
-        var x = document.getElementById("output");
-        x.style.display = "block";
     }
 
 ////////////////////////////// EMISSIONS CALCULATIONS ///////////////////////
@@ -1106,6 +1145,9 @@ function ajaxCall3(){
         }
     });
 }
+
+///// testing number and commas
+
 
 
 
