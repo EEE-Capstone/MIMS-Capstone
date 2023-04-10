@@ -491,7 +491,7 @@
             $('html,body').animate({
             scrollTop: $("#output").offset().top},
             'slow');
-            return outputViz();
+            // return outputViz();
             //$('#secondSubmit').show();
         })
 
@@ -1142,6 +1142,7 @@ function ajaxCall3(){
             USavgPHEV = getUSAvg(phevList)
             USavgBEV = getUSAvg(bevList)
             emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV);
+            outputViz()
         }
     });
 }
