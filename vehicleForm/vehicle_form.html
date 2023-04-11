@@ -247,7 +247,7 @@
                                     <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
                                     <p id = "warningmessage" style = "font-size:11px; color:red"></p>
                             <br>
-                                    <div id = "responses" style = "display:None">
+                                    <div id = "responses">
                                         <!-- style = "display:None" -->
                                         Responses:<br>
                                         <ol id = "zip_res"></ol>
@@ -1177,7 +1177,7 @@ function getVehicle(full_data) {
     return data[0]
 }
 
-function emissions_eval(data, ice, phev, bev, USice, USphev, USbev, yearEmi) { // change to kgs
+function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) {//, yearEmi) { // change to kgs
     document.getElementById("totalEmissions").innerHTML = data[4] / 1000
     document.getElementById("totalBattery").innerHTML = data[0] / 1000
     document.getElementById("totalVehicle").innerHTML = data[1] / 1000
@@ -1190,7 +1190,7 @@ function emissions_eval(data, ice, phev, bev, USice, USphev, USbev, yearEmi) { /
     document.getElementById("USICEemissionAvg").innerHTML = USice / 1000
     document.getElementById("USPHEVemissionAvg").innerHTML = USphev / 1000
     document.getElementById("USBEVemissionAvg").innerHTML = USbev / 1000
-    document.getElementById("yearEmissions").innerHTML = yearEmi
+    //document.getElementById("histarray").innerHTML = yearEmi
 }
 
 
@@ -1233,8 +1233,8 @@ function ajaxCall3(){
             USavgICE = getUSAvg(iceList)
             USavgPHEV = getUSAvg(phevList)
             USavgBEV = getUSAvg(bevList)
-            yearEmissions = getYearList(yearList)
-            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV, yearEmissions);
+            //yearEmissions = getYearList(yearList)
+            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV);//, yearEmissions);
             outputViz()
         }
     });
