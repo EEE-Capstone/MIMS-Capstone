@@ -220,6 +220,8 @@
                                         <ol id = "USICEemissionAvg"></ol>
                                         <ol id = "USPHEVemissionAvg"></ol>
                                         <ol id = "USBEVemissionAvg"></ol>
+                                        Year List:
+                                        <ol id = "histarray"></ol>
                                     </div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
@@ -285,6 +287,7 @@
                         This is equivalent to emissions from burning:
                     <b> <span id="emissions-equi"></span> </b>
                     <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variaty of factors including road condition, weather, speed, etc.</p>
+                    <b> <span id="printyearemissions"></span> </b>
                     </div>
             
                     <!-- ISOTOPES -->
@@ -474,6 +477,7 @@
     var iceList = []
     var phevList = []
     var bevList = []
+    var yearList = []
 
     var avgICE = []
     var avgPHEV = []
@@ -482,6 +486,7 @@
     var USavgICE = []
     var USavgPHEV = []
     var USavgBEV = []
+    var yearEmissions = []
 
 
         $('#submitbtn').on('click', function() {
@@ -1016,6 +1021,15 @@ function process_vehicle(Vehicle, Manufacturing, Battery, emissions_types, miles
     return lifetime_emissions
 }
 
+function findYear(full_data) {
+    let year = document.getElementById("selYear")
+    var year_data = year.options[year.selectedIndex].text
+    var data = full_data.filter(function (el) {
+        return el.Year === Number(year_data)  && el.atvType === type_data 
+    })
+    return data
+}
+
 function findICE(full_data) {
     let year = document.getElementById("selYear")
     var year_data = year.options[year.selectedIndex].text
@@ -1071,6 +1085,16 @@ function getUSAvg(data) {
     return avgEmissions
 }
 
+function getYearList(data) {
+    var emissionsList = []
+    for (let i = 0; i < data.length; i++) {
+        var cur_vehicle = data[i]
+        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate)
+        emissionsList.push(cur_emission[4] / 1000)
+    }
+    return emissionsList
+}
+
 function getVehicle(full_data) {
     let year = document.getElementById("selYear")
     var year_data = year.options[year.selectedIndex].text
@@ -1087,7 +1111,7 @@ function getVehicle(full_data) {
     return data[0]
 }
 
-function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change to kgs
+function emissions_eval(data, ice, phev, bev, USice, USphev, USbev, yearEmi) { // change to kgs
     document.getElementById("totalEmissions").innerHTML = data[4] / 1000
     document.getElementById("totalBattery").innerHTML = data[0] / 1000
     document.getElementById("totalVehicle").innerHTML = data[1] / 1000
@@ -1100,6 +1124,7 @@ function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change 
     document.getElementById("USICEemissionAvg").innerHTML = USice / 1000
     document.getElementById("USPHEVemissionAvg").innerHTML = USphev / 1000
     document.getElementById("USBEVemissionAvg").innerHTML = USbev / 1000
+    document.getElementById("yearEmissions").innerHTML = yearEmi
 }
 
 
@@ -1114,6 +1139,7 @@ function ajaxCall1(){
             iceList = findICE(response);
             phevList = findPHEV(response)
             bevList = findEV(response)
+            yearList = findYear(response)
             ajaxCall2();
         }
     });
@@ -1141,7 +1167,8 @@ function ajaxCall3(){
             USavgICE = getUSAvg(iceList)
             USavgPHEV = getUSAvg(phevList)
             USavgBEV = getUSAvg(bevList)
-            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV);
+            yearEmissions = getYearList(yearList)
+            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV, yearEmissions);
             outputViz()
         }
     });

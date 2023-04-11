@@ -20,6 +20,7 @@ function outputViz() {
   makeBarchart();
   avg_emiPerMi_text();
   makeEquivalencies();
+  makeYearHist();
 }
 
 /////////////////////////////  NECESSARY FUNCTIONS //////////////////////////////////
@@ -31,6 +32,12 @@ function getInput() {
    document.getElementById("vehicleInput").innerHTML = `Emissions Estimate for ${document.getElementById("yearmakemodel").innerHTML} (${document.getElementById("type_res").innerHTML})`
    document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${formatted_number} kgCO2e`
    document.getElementById("vehicleConfig").innerHTML = `Configuration: ${document.getElementById("config_res").innerHTML}`
+}
+
+////////////
+function getInput() {
+  const x = document.getElementById("yearEmissions").innerHTML
+  document.getElementById("printyearemissions").innerHTML = [x]
 }
 
 /// function for per mile
