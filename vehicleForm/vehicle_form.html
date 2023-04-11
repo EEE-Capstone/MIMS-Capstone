@@ -60,11 +60,67 @@
         </div> <!-- end header section -->      
         <!-- <h1 id = "header"> Vehicle Emissions Form</h1> -->
 
-        <div class="customGradientReverse py-5">
+        <div class="customGradient py-5">
+
+            <div class="container-md pb-5 my-5 bg-white shadow" style="max-width: 1050px;">
+              <div class="row pt-5">
+                <div class="col-12 pt-3 px-5">
+                  <h3>Introduction about the Tool and the Model</h3>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+
+              <div class="row pt-2">
+                <div class="col-12 pt-3 px-5">
+                  <p>We built a tool that -------
+                    <br><br>
+                    This is the model we used -------
+                    <br><br>
+                    This is where we got the data 
+                    <br><br>
+                    These are the assumptions we made
+                  </p>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+
+              <div class="row pt-2">
+                <div class="col-12 pt-3 px-5">
+                    <h5>We made some cool stuff with aggregated data</h5>
+                  <p><br>Histogram of Vehicles Lifetime Emissions from 2000 and 2023</p>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+              <div class="row pb-5">
+                <div class="col-12 p-5 bg-dark-subtle" style="height: 500px">
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+            </div> <!-- end container -->
+
+            <div class="container-md mt-5 pb-5 bg-white shadow" style="max-width: 1050px;">
+                <div class="row pt-5">
+                  <div class="col-12 pt-3 px-5">
+                    <h3>Compare and Contrast Different Vehicles</h3>
+                  </div> <!-- end col -->
+                </div> <!-- end row -->
+                <div class="row pb-2 justify-content-around">
+                    <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+                    </div> <!-- end col -->
+                    <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+                  <div class="row pb-5 justify-content-around">
+                    <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+                    </div> <!-- end col -->
+                    <div class="col-5 p-5 bg-dark-subtle" style="height: 400px">
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+              </div> <!-- end container -->
+
+          </div> <!-- end gradient section -->
+
+        <div class="customGradientReverse pb-5">
             <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
               <div class="row pb-1">
-                <div class="col-12 px-5 pt-5">
-                  <h3>Complete the form to find lifetime emissions for your vehicle of interest</h3>
+                <div class="col-12 px-5 pt-5 text-center">
+                  <h3>Calculate Lifetime Emissions for a Vehicle - Your Choice!</h3>
                   <!-- <p><br>Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.</p> -->
                 </div> <!-- end col -->
               </div> <!-- end row -->
@@ -74,7 +130,7 @@
                         <!-- <form  onsubmit="showOutput()"> -->
                         <div class="row mb-5">
                             <div class="col-auto">
-                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                                <img src="../static/images/emissionsExplorer/1.png" class="" style="width: 50px; height: 50px">
                             </div>
                             <div class="col-auto">
                                 <label for="zip" class="form-label">Zip Code:</label>
@@ -87,7 +143,7 @@
                         </span> -->
                         <div class=" row mb-5">
                             <div class="col-auto">
-                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                                <img src="../static/images/emissionsExplorer/2.png" class="" style="width: 50px; height: 50px">
                             </div>
                             <div class="col-auto">
                                 <label for="yearsOwn" class="form-label">Number of years planned on driving:</label>
@@ -110,7 +166,7 @@
                         </span> -->
                         <div class=" row mb-4">
                             <div class="col-auto">
-                                <img src="../static/images/explore/step1.png" class="" style="width: 50px; height: 50px">
+                                <img src="../static/images/emissionsExplorer/3.png" class="" style="width: 50px; height: 50px">
                             </div>
                             <div class="col-auto">
                                 <label for="selYear" class="form-label">Year</label>
@@ -125,7 +181,7 @@
                                 <select name = "Selected Type" id="selType" onchange = "showType()" required>
                                     <option value="" selected = "selected"> -- Select a Year First --</option>
                                 </select>                                 
-                                <div id="selTypeHelp" class="form-text">ICE, BHEV, BEV</div>
+                                <div id="selTypeHelp" class="form-text">ICE, PHEV, BEV</div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
                         <!-- <span> 
@@ -297,6 +353,16 @@
 
             </div> <!-- end container -->
         </div> <!-- end reverse gradient -->
+
+        <div class="customFooter">
+            <div class="container-md" style="max-width: 1050px;">
+              <div class="row">
+                <div class="col-8 p-5">
+                  Astoria Ho, Clara Hu, Josh Everts -- MIMS '23 Capstone Project
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+            </div> <!-- end container -->
+          </div> <!-- end footer section -->
 
     </body>
     
