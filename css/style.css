@@ -131,5 +131,26 @@ body{ font-family: 'Cardo', serif;}
     color: white;
 }
 
+.customCardHoverICE svg {
+    margin: auto;
+    height: 75px;
+}
+.customCardHoverICE:hover svg {
+    fill:white;
+    stroke: white;
+}
+.customCardHoverICE:hover {
+    background-image: linear-gradient(to right, #CCBFD9 , #EED991);
+    color: white;
+}
 
+.customZEVTag {
+    background-image: linear-gradient(to right, #FF485B , #9CF6F0);
+    font-size: large;
+}
+
+.customICETag {
+    background-image: linear-gradient(to right, #CCBFD9 , #EED991);
+    font-size: large;
+}
 
