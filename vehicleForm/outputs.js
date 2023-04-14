@@ -40,7 +40,8 @@ function perMileFunction() {
   const data = document.getElementById("totalEmissions").innerHTML
   const emissions_per_mile = data / life_miles
 
-  const x = Number(document.getElementById("miles").value.split(',').join("")); 
+  var x = Number(document.getElementById("miles").value.split(',').join("")); 
+  var equi_emissions = x*emissions_per_mile
 
   if (x > 200000 || x < 0) {
     document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 200000."
@@ -65,35 +66,35 @@ function perMileFunction() {
   document.getElementById("check_input").innerHTML = ""
   document.getElementById("emissions-output").innerHTML = `${Math.round(x * emissions_per_mile * 100) / 100} kgCO2e`
   
-  if (x * emissions_per_mile < 45.2) {
+  if (equi_emissions < 45.2) {
   
   document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 0.904)} pounds of coal`
-  var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 0.904)
+  var iso = Math.round(x * emissions_per_mile / 0.904)
   var coalIso = 'icons/coal.svg'
   var iconSize = 28
 
-  } else if (x * emissions_per_mile < 1356) {
+  } else if (equi_emissions < 1356) {
 
     document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 45.2)} fifty-pound bags of coal`
-    var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 45.2)
+    var iso = Math.round(x * emissions_per_mile / 45.2)
     var coalIso = 'icons/coalBag.svg'
     var iconSize = 30
 
   } else {
 
     document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 1356)} standard pickup trucks of coal`
-    var iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 1356)
+    var iso = Math.round(x * emissions_per_mile / 1356)
     var coalIso = 'icons/coal_pickup.svg'
     var iconSize = 32
 
   }
   //Isotopes
   
-  const iso_row = Math.ceil(iso / 10 )
-  const last_row = 10 - ((10 * iso_row) - iso)
-  const last_col = last_row - (Math.floor(last_row / 5) * 5)
-  const last_full = Math.floor(last_row / 5)
-  const iso_last_height = (iso_row - 1) * 30
+  var iso_row = Math.ceil(iso / 10 )
+  var last_row = 10 - ((10 * iso_row) - iso)
+  var last_col = last_row - (Math.floor(last_row / 5) * 5)
+  var last_full = Math.floor(last_row / 5)
+  var iso_last_height = (iso_row - 1) * 30
 
   // const xPartScale = d3.scalePoint()
   //     .domain(Array.from(Array(20).keys()))
@@ -155,6 +156,30 @@ function perMileFunction() {
   //   .style('color', 'black')
   //   .style("font-weight", 100)
   //   .text(`${last_row}`);
+
+  //   iso_container.append('text')
+  //   .attr('x', 0 )
+  //   .attr('y', 35)
+  //   .style('font', '13px sans-serif')
+  //   .style('color', 'black')
+  //   .style("font-weight", 100)
+  //   .text(`${iso}`);
+
+  //   iso_container.append('text')
+  //   .attr('x', 0 )
+  //   .attr('y', 45)
+  //   .style('font', '13px sans-serif')
+  //   .style('color', 'black')
+  //   .style("font-weight", 100)
+  //   .text(`${x}`);
+
+  //   iso_container.append('text')
+  //   .attr('x', 0 )
+  //   .attr('y', 55)
+  //   .style('font', '13px sans-serif')
+  //   .style('color', 'black')
+  //   .style("font-weight", 100)
+  //   .text(`${Math.round(equi_emissions)}`);
    }
 }
 
@@ -188,7 +213,7 @@ avg_mi.append('text')
   .style("font-weight", 100)
   .text(`Over a vehicle life of `);
 avg_mi.append('text')
-  .attr('x', 140 )
+  .attr('x', 145 )
   .attr('y', 25)
   .style('font', '14px')
   .style('color', 'black')
@@ -202,7 +227,7 @@ avg_mi.append('text')
   .style("font-weight", 100)
   .text(`Average Emissions Per Mile:`);
 avg_mi.append('text')
-  .attr('x', 190 )
+  .attr('x', 195 )
   .attr('y', 45)
   .style('font', '14px')
   .style('color', 'black')
