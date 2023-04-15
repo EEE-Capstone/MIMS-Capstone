@@ -562,12 +562,12 @@
                                 <span id = 'configBox'>
                                     Configuration: <span id = "configStart"> <i>Select Vehicle Model First</i></span>
                                     <div id="btn-group">
-                                        <button id="bt1" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
-                                        <button id="bt2" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
-                                        <button id="bt3" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
-                                        <button id="bt4" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
-                                        <button id="bt5" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
-                                        <button id="bt6" type="button" name = "bt" style = "width: 200px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
+                                        <button id="bt1" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
+                                        <button id="bt2" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
+                                        <button id="bt3" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
+                                        <button id="bt4" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
+                                        <button id="bt5" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
+                                        <button id="bt6" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
                                     </div>
                                 </span>
                             </div> <!-- end col -->
@@ -646,22 +646,45 @@
             </div> <!-- end row -->
 
             <div class="row px-5" style="">
-                <div class="col-4" style="">
+                <div class="col-5" style="">
                     <svg id="barChart"style="width:100%; height: 350px"></svg>
                 </div> <!-- end col -->
-                <div class="col-8" style="">
-                     <!-- <svg id="equivalencies" style="width: 600px;height:250px"></svg> -->
-                    <svg id="equivalencies2" style="width:100%; height: 350px"></svg>
+                <div class="col-7">
+                    <div id=""style="width:100%; height: 40px"></div>
+                    <h4>Lifetime Emissions</h4>
+                        <div id="" style = "width:100%; height: 40px">
+                        <span id="" style ="font-family:Arial, Helvetica, sans-serif; color: #46B5B5"><b>Your Input Vehicle: </b></span>
+                        <span id="input_tot_emi" style ="font-family:Arial, Helvetica, sans-serif">___</span>
+                        </div>
+                    <h5 id = "regionAvgHead">Average by Vehicle Type for Your Region (___)</h5>
+                        <div>
+                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">Internal Combustion Engine Vehicle (ICE): </span>
+                            <span id = "emiICEavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                        </div>
+                        <div>
+                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; Plug-In Hybrid Electric Vehicle  (PHEV): </span>
+                            <span id = "emiPHEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                        </div>
+                        <div>
+                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; &emsp; &emsp; &emsp; Battery-Electric Vehicle  (BEV): </span>
+                            <span id = "emiBEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                        </div>
+
+                        <!-- <p>*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs.</p> -->
+                </div>
+                <div class="col-12" style="">
+                     <svg id="equivalencies" style="width: 100%;height:200px"></svg>
+                    <svg id="equivalencies2" style="width:100%; height: 200px"></svg>
                 </div> <!-- end col -->
                 <div class="col-12">
-                    <p style = "">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs. <br> **Note: Emissions calculations for equivalencies are based on US averages.</p>
+                    <p style = "">*Note: Emissions calculations for equivalencies are based on US averages.</p>
                 </div>
              </div> <!-- end row -->
 
             <!-- PER MILE EMISSIONS -->
              <div class="row px-5 pt-5" style="">
                 <div class="col-12">
-                    <h2>Estimated emissions for corresponding travel distance</h2>
+                    <h2>Estimate emissions for your road trip:</h2>
                         <!-- <div style="width: 1000px;height:70px"> -->
                     <svg id="avg_text" style="width: 1000px;height:50px"></svg>
                         <!-- </div> -->
@@ -670,7 +693,7 @@
                 <div class="col-12">
                     <form>
                         <label for="miles" class="form-label">Enter number of miles:</label>
-                        <input type="text" class="form-control" id="miles" value="0" min="0" max="200000" maxlength="7" oninput="return perMileFunction()"/> 
+                        <input type="text" class="form-control" id="miles" value="0" min="0" max="200000" maxlength="7" style="width:100px" oninput="return perMileFunction()"/> 
                         <div id="miles" class="form-text">Minimum Number of Miles: 1, Maximum: 200,000</div>
                         <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
                     </form>
