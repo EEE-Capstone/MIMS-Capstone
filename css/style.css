@@ -122,35 +122,29 @@ body{ font-family: 'Cardo', serif;}
     margin: auto;
     height: 75px;
 }
-.customCardHover:hover svg {
+/* .customCardHover:hover svg {
     fill:white;
     stroke: white;
-}
-.customCardHover:hover {
+} */
+/* .customCardHover:hover {
     background-image: linear-gradient(to right, #FF485B , #9CF6F0);
     color: white;
-}
+} */
 
-.customCardHoverICE svg {
-    margin: auto;
-    height: 75px;
-}
-.customCardHoverICE:hover svg {
-    fill:white;
-    stroke: white;
-}
-.customCardHoverICE:hover {
-    background-image: linear-gradient(to right, #CCBFD9 , #EED991);
-    color: white;
-}
-
-.customZEVTag {
+.customZEV {
     background-image: linear-gradient(to right, #FF485B , #9CF6F0);
-    font-size: large;
 }
 
-.customICETag {
-    background-image: linear-gradient(to right, #CCBFD9 , #EED991);
-    font-size: large;
+.customICE {
+    background-image: linear-gradient(to left, #CCBFD9 , #EED991);
 }
+
+.vLine {
+border-left: 6px solid green;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+}
+
 
