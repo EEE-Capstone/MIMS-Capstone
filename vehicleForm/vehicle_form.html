@@ -52,7 +52,7 @@
               <div class="container-md" style="max-width: 1050px;">
                 <div class="row pb-5 d-flex align-items-center" style="height: 200px;">
                   <div class="col-12 p-5 customTitleText">
-                    <h1 class="customTitleText" id="header">Our Emissions Explorer Tool</h1>
+                    <h1 class="customTitleText" id="header">Emissions Explorer Tool</h1>
                   </div> <!-- end col -->
                 </div> <!-- end row -->
               </div> <!-- end container -->
@@ -64,54 +64,129 @@
 
             <div class="container-md pb-5 my-5 bg-white shadow" style="max-width: 1050px;">
               <div class="row pt-5">
-                <div class="col-12 pt-3 px-5">
-                  <h3>How we built Emissions Explorer</h3>
+                <div class="col-12 pt-3 px-5 text-center">
+                  <h3>Emissions Explorer estimates the lifetime emissions of a chosen vehicle.</h3>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+
+              <div class="row pt-2">
+                <div class="col-12 pt-5 px-5">
+                <h5><u>Lifetime Emissions</u> is the sum of emissions from all stages of life.</h5> 
+                <div class="text-center pt-3">
+                    <img src="../static/images/LCA/LCALine.png" style="width:90%">
+                </div>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+
+              <div class="row pt-2">
+                <div class="col-12 pt-5 px-5">
+                <h5>How do we <u>estimate</u>?</h5> 
+                <p class="pt-3">
+                    We take your inputs of: vehicle year, make, model, & configuration, ZIP code, and estimated ownership time. 
+                    <br><br>
+                    With this information, we use the GREET® model built by Argonne National Laboratory to calculate the lifetime emissions.
+                    <br>GREET stands for Greenhouse gases, Regulated Emissions, and Energy use in Technologies Model.
+                </p>
                 </div> <!-- end col -->
               </div> <!-- end row -->
 
               <div class="row pt-2">
                 <div class="col-12 pt-3 px-5">
-                  <p>
-                    Use our tool to explore how a chose vehicle, your geographic location, and how much you drive can impact your vehicle’s emissions! 
-                    <br><br>
-                    Our vehicle emissions explorer calculates the emissions of the vehicle you enter based on a variety of factors, taking into account the emissions produced while driving, the emissions produced during vehicle and battery manufacturing, and adjusting for factors like the emissions intensity of your local grid mix (for EVs).
-                    <br><br>
-                    Overview of our Model 
-                    <br><br>
-                    These are the assumptions we made
-                  </p>
+                <h5>What <u>data</u> do we use?</h5> 
+                <ul class="pt-3">
+                    <li>EPA Vehicle Data - tells us information about the range, efficiency, and specification details for a vehicle </li>
+                    <li>EPA Vehicle Test - tells us the EPA adjusted estimated weight of the vehicle</li>
+                    <li>EPA EGrid Power Data - tells us the emissions data for all grid regions in the U.S.</li>
+                    <li>GREET® Model Data - tells us the emissions associated with vehicle manufacturing</li>
+
+                </ul>
                 </div> <!-- end col -->
               </div> <!-- end row -->
 
               <div class="row pt-2">
                 <div class="col-12 pt-3 px-5">
-                    <!-- DESCRIPTION OF THE CHART -->
-                    <hr class="border border-secondary border-1 opacity-100" /> 
-                    <h5>Drag the bar to a year to see lifetime emissions of vehicle models released <br> compared to vehicle models released in 2000. 
-                    </h5>
-                    <hr class="border border-secondary border-1 opacity-100" /> 
-                    <br>
-                    <!-- END -- DESCRIPTION OF THE CHART -->
+                <h5>What makes our tool unique?</h5> 
+                <p>
+                    Compared to other vehicle emission estimators, our tool accounts for the most variables, includes embodied emissions, and shows both contextualized and digestible outputs to the user.
+                </p>
+                <div class="text-center pt-3">
+                    <p>**replace in the future with 2x2</p>
+                    <img src="../static/images/tool_comparison.png" style="width:60%">
+                </div>
                 </div> <!-- end col -->
               </div> <!-- end row -->
-              <div class="row pb-5">
-                <div class="col-12 px-5 text-center" style="">
-                    <div id="observablehq-viewof-chooseYear-a6f4ee39"></div>
-                    <div id="observablehq-chart-a6f4ee39"></div>
-                    <!-- <p>Credit: <a href="https://observablehq.com/d/f6ad9ee9c08fc9bd">LCA Comparison by Year Histogram (with Slider) by Clara Hu</a></p> -->
-                </div> <!-- end col -->
-              </div> <!-- end row -->
+
             </div> <!-- end container -->
 
             <div class="container-md mt-5 pb-5 bg-white shadow" style="max-width: 1050px;">
                 <div class="row pt-5">
                   <div class="col-10 pt-3 px-5">
-                    <h3>Factors to Explore</h3>
-                    <p>
-                        Using the Emissions Explorer, comparisons can be made between vehicles based on different factors. Here are five examples of cars that were compared based on: year, type of vehicle, location, miles driven over a lifetime, and vehicle size.
-                    </p>
+                    <h3>Factors that affect vehicle lifetime emissions</h3>
                   </div> <!-- end col -->
                 </div> <!-- end row -->
+
+                <div class="row pt-2">
+                    <div class="col-12 pt-3 px-5">
+                        <h5>Year
+                        </h5>
+
+                        <!-- DESCRIPTION OF THE CHART -->
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+                        <h5>Drag the bar to a year to see lifetime emissions of vehicle models released <br> compared to vehicle models released in 2000. 
+                        </h5>
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+                        <br>
+                        <!-- END -- DESCRIPTION OF THE CHART -->
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+                  <div class="row pb-5">
+                    <div class="col-12 px-5 text-center" style="">
+                        <div id="observablehq-viewof-chooseYear-a6f4ee39"></div>
+                        <div id="observablehq-chart-a6f4ee39"></div>
+                        <!-- <p>Credit: <a href="https://observablehq.com/d/f6ad9ee9c08fc9bd">LCA Comparison by Year Histogram (with Slider) by Clara Hu</a></p> -->
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+
+
+                <div class="row d-flex">
+                    <div class="col-3 p-1" style="">
+                      <div class="card border-0 pt-1" style="width: 100%;">
+                          <div class="card-body ps-5 pb-3 pt-4">
+                          <h5 class="card-title text-center">Vehicle Type</h5>
+                          <p class="card-text">Is the vehicle gas powered (ICE)? An electric vehicle (EV)? Or a hybrid plug-in electric vehicle (PHEV)?
+                          </p>
+                        </div>
+                      </div> <!-- end card -->
+                    </div>  <!-- end col -->
+                      <div class="col-3 p-1" style="">
+                        <div class="card border-0 pt-1" style="width: 100%;">
+                            <div class="card-body pb-3 pt-4">
+                            <h5 class="card-title text-center">Location</h5>
+                            <p class="card-text">Where is the car driven and charged? Fuel emissions for electric vehicles depend on the electrical grid mix. 
+                            </p>
+                          </div>
+                        </div> <!-- end card -->
+                      </div>  <!-- end col -->
+                      <div class="col-3 p-1" style="">
+                        <div class="card border-0 pt-1" style="width: 100%;">
+                            <div class="card-body pb-3 pt-4">
+                            <h5 class="card-title text-center">Miles Driven</h5>
+                            <p class="card-text">How much is the vehicle being used? Usage emissions decrease if the vehicle is driven less.
+                            </p>
+                          </div>
+                        </div> <!-- end card -->
+                      </div>  <!-- end col -->
+                      <div class="col-3 p-1" style="">
+                        <div class="card border-0 pt-1" style="width: 100%;">
+                            <div class="card-body pe-5 pb-3 pt-4">
+                            <h5 class="card-title text-center">Vehicle Size</h5>
+                            <p class="card-text">How large is the car? Is it a truck, SUV, or compact? Fuel efficiency plays a role in usage emissions.
+                            </p>
+                          </div>
+                        </div> <!-- end card -->
+                      </div>  <!-- end col -->
+                
+                  </div> <!-- end row -->
 
               </div> <!-- end container -->
           </div> <!-- end gradient section -->
@@ -138,7 +213,7 @@
                             </div>
                             <div class="col-3">
                                 <label for="zip" class="form-label">Zip Code:</label>
-                                <input type="text" class="form-control" id="zip" value="00000" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
+                                <input type="text" class="form-control" id="zip" value="94704" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
                                 <!-- <div id="zipHelp" class="form-text">Location is necessary for us to calculate emissions based on your local grid mix.</div> -->
                             </div>
                         </div>
