@@ -311,6 +311,7 @@
                     <!-- <div id = "output" style = "display: None"> -->
                     <h2 id = "vehicleInput">Output Options</h2>
                     <h3 id = "totEmissionsOutput"></h3>
+                    <p id = "vehicleType"></p>
                     <p id = "vehicleConfig"></p>
                 </div> <!-- end col -->
             </div> <!-- end row -->
@@ -914,9 +915,9 @@ function showMilesDrive() {
 function est_battery_capacity_from_vehicle(Vehicle) {
     // return battery capacity in kwh
     var kwh_size = 0
-    if (Vehicle.atvType === 'EV') {
+    if (Vehicle.atvTypeAbbrev === 'EV') {
         var kwh_size = Vehicle.Range*(1/Vehicle.Highway08U)*33.7 // use Range since all EVs have it
-    } else if (Vehicle.atvType === 'PHEV') {
+    } else if (Vehicle.atvTypeAbbrev === 'PHEV') {
         var kwh_size = Vehicle.RangeHwyA*(Vehicle.combE/100) // range*(kWh/100 miles) = kWh estimated
     }
     return kwh_size
@@ -1099,7 +1100,7 @@ function get_CO2e(value, emittant, conversions = emittant_dictionary) {
 function process_vehicle(Vehicle, Manufacturing, Battery, emissions_types, miles_estimated, grid_intensity) {
     var vehicle_fuel_economy = Vehicle.Highway08U * 0.55 + Vehicle.City08U * 0.45 // combined fuel economy (EPA.gov)
     var vehicle_weight = Vehicle.AdjWeight
-    var vehicle_class = Vehicle.atvType
+    var vehicle_class = Vehicle.atvTypeAbbrev
     var vehicle_type = conv_or_lw(vehicle_class)
     var battery_weight = est_battery_weight_from_vehicle(Vehicle)
 
@@ -1146,7 +1147,7 @@ function findICE(full_data) {
     var year_data = year.options[year.selectedIndex].text
     var type_data = "ICE"
     var data = full_data.filter(function (el) {
-        return el.Year === Number(year_data)  && el.atvType === type_data 
+        return el.Year === Number(year_data)  && el.atvTypeAbbrev === type_data 
     })
     return data
 }
@@ -1156,7 +1157,7 @@ function findPHEV(full_data) {
     var year_data = year.options[year.selectedIndex].text
     var type_data = "PHEV"
     var data = full_data.filter(function (el) {
-        return el.Year === Number(year_data)  && el.atvType === type_data 
+        return el.Year === Number(year_data)  && el.atvTypeAbbrev === type_data 
     })
     return data
 }
@@ -1166,7 +1167,7 @@ function findEV(full_data) {
     var year_data = year.options[year.selectedIndex].text
     var type_data = "EV"
     var data = full_data.filter(function (el) {
-        return el.Year === Number(year_data)  && el.atvType === type_data 
+        return el.Year === Number(year_data)  && el.atvTypeAbbrev === type_data 
     })
     return data
 }

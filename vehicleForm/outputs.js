@@ -28,8 +28,9 @@ function getInput() {
    const x = document.getElementById("roundedEmissions").innerHTML
    var formatted_number = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
    //const x = document.getElementById("avg_miles").innerHTML
-   document.getElementById("vehicleInput").innerHTML = `Emissions Estimate for ${document.getElementById("yearmakemodel").innerHTML} (${document.getElementById("type_res").innerHTML})`
+   document.getElementById("vehicleInput").innerHTML = `Emissions Estimate for ${document.getElementById("yearmakemodel").innerHTML}`
    document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${formatted_number} kgCO2e`
+   document.getElementById("vehicleType").innerHTML = `Vehicle Type: ${document.getElementById("type_res").innerHTML}`
    document.getElementById("vehicleConfig").innerHTML = `Configuration: ${document.getElementById("config_res").innerHTML}`
 }
 
@@ -687,6 +688,7 @@ const home_elec_use = data / 5139  // kg homes per year
 const home_elec_use_days = data / (5139/365)  // kg homes per year
 const urban_seedlings_decade = data / 60  //kg carbon sequestered over ten years per urban tree planted
 const acres_us_forests = data / 840  // sequestered annually by one acre of avg US forest 
+const acres_us_forests_lifetime = (data / 840) / life_years // sequestered annually by one acre of avg US forest --> vehicle lifetime
 const propane_cylinders =data / 24  // kg per cylinder 
 const railcars_coal = data / 181100  // railcars coal 
 const trucks_coal = data / 40680  // semi trucks coal burned (assume 45,000 lbs of coal)
@@ -775,13 +777,23 @@ const airplane_image2 = container3.append('image')
   .attr('x', 30)
   .attr('y', 52)//55 - 15 + 10)
 
+  //Forests
+
+  var forest_life = []
+  if (acres_us_forests_lifetime < 1) {
+    forest_life = Math.round(100 * forest_life) / 100
+  } else {
+    forest_life = Math.round(acres_us_forests_lifetime)
+  }
+
 container3.append('text')
   .attr('x', 480)
   .attr('y', 110)
   .style('font', '48px sans-serif')
   .style('fill', '#46B5B5')
   .style("font-weight", 900)
-  .text(`${Math.round(acres_us_forests)} `);
+  // .text(`${Math.round(acres_us_forests)} `);
+  .text(`${forest_life}`);
 
 // container3.append('text')
 //   .attr('x', 480)
@@ -797,7 +809,8 @@ container3.append('text')
   .style('font', '15px sans-serif')
   .style('fill', '#46B5B5')
   .style("font-weight", 100)
-  .text(`years of carbon sequestration`);
+  .text(`acres of US forest sequestering`);
+  // .text(`years of carbon sequestration`);
 
   container3.append('text')
   .attr('x', 480) //30 + 60)
@@ -805,8 +818,8 @@ container3.append('text')
   .style('font', '15px sans-serif')
   .style('fill', '#46B5B5')
   .style("font-weight", 100)
-  // .text(`Emissions from flying`);
-  .text(`by one acre of US forest`);
+  .text(`carbon over vehicle lifetime`);
+  // .text(`by one acre of US forest`);
 
 const forest2 = container3.append('image')
   .attr("href", 'icons/forest_teal.svg')
