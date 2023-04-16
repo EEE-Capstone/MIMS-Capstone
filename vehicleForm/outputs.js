@@ -37,16 +37,20 @@ function getInput() {
 function perMileFunction() {
 
   const life_miles = Number(document.getElementById("avg_miles").innerHTML.split(',').join("")) //Change based on input
-  const data = document.getElementById("totalEmissions").innerHTML
+  const data = Number(document.getElementById("totalEmissions").innerHTML.split(',').join(""))
   const emissions_per_mile = data / life_miles
 
   var x = Number(document.getElementById("miles").value.split(',').join("")); 
   var equi_emissions = x*emissions_per_mile
 
-  if (x > 200000 || x < 0) {
-    document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 200000."
-    document.getElementById("emissions-output").innerHTML = ""
-    document.getElementById("emissions-equi").innerHTML = ""
+  var weeks = 0
+  var days = 0 
+  var hours = 0
+
+  if (x > 9999 || x < 0) {
+    document.getElementById("check_input").innerHTML = "Please enter a number between 0 and 9999."
+    document.getElementById("emissions-output").innerHTML = "Estimated Emissions: <b>0 kgCO2e</b>";
+    // document.getElementById("emissions-equi").innerHTML = "0 weeks        0 days        0 hours"
     // const iso = Math.round(document.getElementById("miles").value * emissions_per_mile / 0.904)
     // const iso_counts = Array.from(Array(iso).keys())
 
@@ -64,37 +68,57 @@ function perMileFunction() {
 
   } else {
   document.getElementById("check_input").innerHTML = ""
-  document.getElementById("emissions-output").innerHTML = `${Math.round(x * emissions_per_mile * 100) / 100} kgCO2e`
+  document.getElementById("emissions-output").innerHTML = `Estimated Emissions: <b>${Math.round(equi_emissions * 100) / 100} kgCO2e</b>`
   
-  if (equi_emissions < 45.2) {
+  // if (equi_emissions < 14.07) {//45.2) {
   
-  document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 0.904)} pounds of coal`
-  var iso = Math.round(x * emissions_per_mile / 0.904)
-  var coalIso = 'icons/coal.svg'
-  var iconSize = 28
+  // document.getElementById("emissions-equi").innerHTML = `${Math.round(equi_emissions / 0.586)} hours`// 0.904)} pounds of coal`
+  // var hours = Math.round(equi_emissions / 0.586)// 0.904)
+  // var houseIso = 'icons/house.svg'
+  // var iconSize = 28
 
-  } else if (equi_emissions < 1356) {
+  // } else if (equi_emissions < 98.55) {//1356) {
 
-    document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 45.2)} fifty-pound bags of coal`
-    var iso = Math.round(x * emissions_per_mile / 45.2)
-    var coalIso = 'icons/coalBag.svg'
+    document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 14.07)} days`//45.2)} fifty-pound bags of coal`
+    weeks = Math.floor(equi_emissions / 98.55)// 45.2)
+    var weeksTot = weeks * 98.55
+    if (equi_emissions - weeksTot > 0) {
+      days = Math.floor((equi_emissions - weeksTot)/ 14.07)
+    }
+    var stepTot = (days*14.07) + (weeks * 98.55)
+    if (equi_emissions - stepTot > 0) {
+      hours = Math.round((equi_emissions - stepTot)/ 0.586)
+    }
+    var houseIso = 'icons/house.svg'
     var iconSize = 30
 
-  } else {
+  // } else {
 
-    document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 1356)} standard pickup trucks of coal`
-    var iso = Math.round(x * emissions_per_mile / 1356)
-    var coalIso = 'icons/coal_pickup.svg'
-    var iconSize = 32
+  //   document.getElementById("emissions-equi").innerHTML = `~${Math.round(x * emissions_per_mile / 98.55)} weeks`/// 1356)} standard pickup trucks of coal`
+  //   var iso = Math.round(x * emissions_per_mile / 98.55)//1356)
+  //   var houseIso = 'icons/house.svg'
+  //   var iconSize = 32
 
-  }
+  // }
   //Isotopes
   
-  var iso_row = Math.ceil(iso / 10 )
-  var last_row = 10 - ((10 * iso_row) - iso)
-  var last_col = last_row - (Math.floor(last_row / 5) * 5)
-  var last_full = Math.floor(last_row / 5)
-  var iso_last_height = (iso_row - 1) * 30
+  var hours_iso_row = Math.ceil(hours / 4 )
+  var days_iso_row = Math.ceil(days / 4 )
+  var weeks_iso_row = Math.ceil(weeks / 4 )
+
+
+  var hours_last_row = 4 - ((4 * hours_iso_row) - hours)
+  var days_last_row = 4 - ((4 * days_iso_row) - days)
+  var weeks_last_row = 4 - ((4 * weeks_iso_row) - weeks)
+  
+
+
+  // var last_col = last_row - (Math.floor(last_row / 5) * 5)
+  // var last_full = Math.floor(last_row / 5)
+  var hours_iso_last_height = (hours_iso_row - 1) * 30
+  var days_iso_last_height = (days_iso_row - 1) * 30
+  var weeks_iso_last_height = (weeks_iso_row - 1) * 30
+
 
   // const xPartScale = d3.scalePoint()
   //     .domain(Array.from(Array(20).keys()))
@@ -111,43 +135,158 @@ function perMileFunction() {
   iso_container
     .insert('rect')
     .attr('width', 1000)
-    .attr('height', 250) // EDIT HEIGHT to height (200)
+    .attr('height', 500) // EDIT HEIGHT to height (200)
     .attr('x', 0)
     .attr('y', 0)
     .attr('fill', "white")
 
-  for (let j = 0; j < iso_row - 1; j++) {
-    for (let i = 0; i < 5; i++) {
-      for (let k = 0; k < 2; k++) {
-        const coals_pile = iso_container.append('image')
-          .attr("href", coalIso)
+/// Weeks
+
+if (weeks > 0) {
+
+  for (let j = 0; j < weeks_iso_row - 1; j++) {
+    for (let i = 0; i < 4; i++) {
+      // for (let k = 0; k < 2; k++) {
+        const weeks_pile = iso_container.append('image')
+          .attr("href",houseIso)
           .attr('width', iconSize)
           .attr('height', iconSize)
-          .attr('x', 10 + (35*i) + (200*k))
-          .attr('y', 0 + (30*j))
-      }
+          .attr('x', 10 + (35*i))// + (200*k))
+          .attr('y', 60 + (30*j))
+      // }
     }
   }
 
-    for (let i = 0; i < last_full; i++) {
-      for (let j = 0; j < 5; j++) {
-        const coals_pile = iso_container.append('image')
-        .attr("href", coalIso)
-        .attr('width', iconSize)
-        .attr('height', iconSize)
-        .attr('x', 10 + (35*j) + (200*i))
-        .attr('y', iso_last_height)
-      }
+  for (let i = 0; i < weeks_last_row; i++) {
+    const weeks_pile = iso_container.append('image')
+    .attr("href", houseIso)
+    .attr('width', iconSize)
+    .attr('height', iconSize)
+    .attr('x', 10 + (35*i))// + (last_full * 200))
+    .attr('y', 60 + weeks_iso_last_height)
+  }
+}
+
+////// Days
+
+if (days > 0) {
+  for (let j = 0; j < days_iso_row - 1; j++) {
+    for (let i = 0; i < 4; i++) {
+      // for (let k = 0; k < 2; k++) {
+        const days_pile = iso_container.append('image')
+          .attr("href",houseIso)
+          .attr('width', iconSize)
+          .attr('height', iconSize)
+          .attr('x', 200 + (35*i))// + (200*k))
+          .attr('y', 60 + (30*j))
+      // }
+    }
   }
 
-  for (let i = 0; i < last_col; i++) {
-      const coals_pile = iso_container.append('image')
-      .attr("href", coalIso)
-      .attr('width', iconSize)
-      .attr('height', iconSize)
-      .attr('x', 10 + (35*i) + (last_full * 200))
-      .attr('y', iso_last_height)
+  for (let i = 0; i < days_last_row; i++) {
+    const days_pile = iso_container.append('image')
+    .attr("href", houseIso)
+    .attr('width', iconSize)
+    .attr('height', iconSize)
+    .attr('x', 200 + (35*i))// + (last_full * 200))
+    .attr('y', 60 + days_iso_last_height)
+  }
 }
+
+if (hours > 0) {
+
+////// Hours
+for (let j = 0; j < hours_iso_row - 1; j++) {
+  for (let i = 0; i < 4; i++) {
+    // for (let k = 0; k < 2; k++) {
+      const hours_pile = iso_container.append('image')
+        .attr("href",houseIso)
+        .attr('width', iconSize)
+        .attr('height', iconSize)
+        .attr('x', 390 + (35*i))// + (200*k))
+        .attr('y', 60 + (30*j))
+    // }
+  }
+}
+
+for (let i = 0; i < hours_last_row; i++) {
+  const hours_pile = iso_container.append('image')
+  .attr("href", houseIso)
+  .attr('width', iconSize)
+  .attr('height', iconSize)
+  .attr('x', 390 + (35*i))// + (last_full * 200))
+  .attr('y', 60 + hours_iso_last_height)
+}
+}
+
+   iso_container.append('text')
+    .attr('x', 30 )
+    .attr('y', 40)
+    .style('font', '18px sans-serif')
+    .style('color', 'black')
+    .style("font-weight", 900)
+    .text(`${weeks} WEEKS`);
+
+  iso_container.append('text')
+    .attr('x', 225 )
+    .attr('y', 40)
+    .style('font', '18px sans-serif')
+    .style('color', 'black')
+    .style("font-weight", 900)
+    .text(`${days} DAYS`);
+
+  iso_container.append('text')
+    .attr('x', 410 )
+    .attr('y', 40)
+    .style('font', '18px sans-serif')
+    .style('color', 'black')
+    .style("font-weight", 900)
+    .text(`${hours} HOURS`);
+
+  iso_container.append('text')
+    .attr('x', 347 )
+    .attr('y', 40)
+    .style('font', '13px sans-serif')
+    .style('color', 'black')
+    .style("font-weight", 100)
+    .text(`and`);
+
+  iso_container.append('text')
+    .attr('x', 162 )
+    .attr('y', 40)
+    .style('font', '13px sans-serif')
+    .style('color', 'black')
+    .style("font-weight", 100)
+    .text(`and`);
+
+  iso_container.append('line')
+    .attr('x1', 170)
+    .attr('x2', 170)
+    .attr('y1', 50)
+    .attr('y2', 1500)
+    .style("stroke", "#D9D9D9")
+    .style("stroke-width", 1)
+
+  iso_container.append('line')
+    .attr('x1', 355)
+    .attr('x2', 355)
+    .attr('y1', 50)
+    .attr('y2', 1500)
+    .style("stroke", "#D9D9D9")
+    .style("stroke-width", 1)
+
+  //   for (let i = 0; i < last_full; i++) {
+  //     for (let j = 0; j < 5; j++) {
+  //       const weeks_pile = iso_container.append('image')
+  //       .attr("href", houseIso)
+  //       .attr('width', iconSize)
+  //       .attr('height', iconSize)
+  //       .attr('x', 10 + (35*j) + (200*i))
+  //       .attr('y', iso_last_height)
+  //     }
+  // }
+
+  
 
   // iso_container.append('text')
   //   .attr('x', 0 )
@@ -163,7 +302,7 @@ function perMileFunction() {
   //   .style('font', '13px sans-serif')
   //   .style('color', 'black')
   //   .style("font-weight", 100)
-  //   .text(`${iso}`);
+  //   .text(`${iconSize}`);
 
   //   iso_container.append('text')
   //   .attr('x', 0 )
@@ -249,13 +388,16 @@ function makeBarchart() {
   const rounded_data = document.getElementById("roundedEmissions").innerHTML
   const format_data = rounded_data.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-  const round_avg = (Math.round(average*100) / 100).toString()
+  // const round_avg = (Math.round(average*100) / 100).toString()
+  const round_avg = (Math.round(average)).toString()
   const format_avg = round_avg.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-  const round_hybrid = (Math.round(hybrid_average*100) / 100).toString()
+  // const round_hybrid = (Math.round(hybrid_average*100) / 100).toString()
+  const round_hybrid = (Math.round(hybrid_average)).toString()
   const format_hybrid = round_hybrid.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-  const round_bev = (Math.round(bev_average*100) / 100).toString()
+  // const round_bev = (Math.round(bev_average*100) / 100).toString()
+  const round_bev = (Math.round(bev_average)).toString()
   const format_bev = round_bev.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 
@@ -554,6 +696,7 @@ const smartphones_charged = data / 0.00822 // smartphones charged
 const hours_airplane = data / 250 //passenger on a plane (source: https://www.carbonindependent.org/22.html)
 const round_trip_plane = data / 1150.58 //passenger on a plane (source: https://www.carbonindependent.org/22.html)
 const food_waste = data / 1.151 // pounds of foodwaste (source: https://www.fao.org/3/i3347e/i3347e.pdf, https://www.newfoodmagazine.com/article/153960/food-waste-climate/#:~:text=Putting%20it%20into%20perspective,more%20potent%20than%20CO2.)
+const pounds_beef = data / 45.3592 // https://ourworldindata.org/carbon-footprint-food-methane
 
 ////////////// LIFETIME EQUIVALENCIES ////////////////
 
@@ -571,7 +714,7 @@ const rectangle2 = container3.append("rect")
   .attr("x", 2) //270
   .attr("y", 15) //30
   .attr("fill", "white")
-  .attr("stroke", "#FFB51A")
+  .attr("stroke", "#46B5B5")
   .attr("stroke-width", 1.5)
   .attr('rx', 20);
 
@@ -580,107 +723,97 @@ const rectangle2 = container3.append("rect")
  .attr('x', 20)
  .attr('y', 30 + 15)
  .style('font', '16px sans-serif')
- .style('color', 'black')
+ .style('fill', 'black')
  .style("font-weight", 900)
 //  .text(`Lifetime emissions from ${input} are equivalent to:`);
 .text(`Lifetime vehicle emissions equals:`);
 
   ///Airplane hours // Round Trip Plane
 
-container3.append('text')
-  .attr('x', 135) //30 + 60)
-  .attr('y', 75)//55 + 15 + 10)
-  .style('font', '15px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  // .text(`Emissions from flying`);
-  .text(`Carbon emissions from`);
+// container3.append('text')
+//   .attr('x', 135) //30 + 60)
+//   .attr('y', 75)//55 + 15 + 10)
+//   .style('font', '15px sans-serif')
+//   .style('fill', '#46B5B5')
+//   .style("font-weight", 100)
+//   // .text(`Emissions from flying`);
+//   .text(`Emissions from taking`);
 
 container3.append('text')
   .attr('x', 135) //30 + 60)
-  .attr('y', 145)//55 + 15 + 10)
+  .attr('y', 135)//55 + 15 + 10)
   .style('font', '15px sans-serif')
-  .style('color', 'black')
+  .style('fill', '#46B5B5')
   .style("font-weight", 100)
   // .text(`Emissions from flying`);
   .text(`round trip flights from`);
 
   container3.append('text')
   .attr('x', 135) //30 + 60)
-  .attr('y', 162)//55 + 15 + 10)
+  .attr('y', 152)//55 + 15 + 10)
   .style('font', '15px sans-serif')
-  .style('color', 'black')
+  .style('fill', '#46B5B5')
   .style("font-weight", 100)
   // .text(`Emissions from flying`);
   .text(`San Francisco to New York`);
 
 container3.append('text')
   .attr('x', 135)// 30 + 60 + 160)
-  .attr('y', 120)//55 + 15 + 10)
+  .attr('y', 110)//55 + 15 + 10)
   .style('font', '48px sans-serif')//'15px sans-serif')
-  // .style('fill', '#46B5B5')
+  .style('fill', '#46B5B5')
   .style("font-weight", 900)
   // .text(`~${Math.round(hours_airplane)} `);
   .text(`${Math.round(round_trip_plane)} `);
   
 
-// container3.append('text')
-//   .attr('x', 30 + 60 + 240)
-//   .attr('y', 55 + 15 + 10)
-//   .style('font', '13px sans-serif')
-//   .style('color', 'black')
-//   .style("font-weight", 100)
-//   .text(`hours on an international flight`);
-
 const airplane_image2 = container3.append('image')
-  // .attr("href", './icons/plane.svg')
-  .attr("href", './icons/plane2.svg')
+  // .attr("href", './icons/plane_yellow.svg')
+  .attr("href", './icons/plane_teal.svg')
   .attr('width', 80)//50)
   .attr('height', 80)//50)
   .attr('x', 30)
-  .attr('y', 62)//55 - 15 + 10)
+  .attr('y', 52)//55 - 15 + 10)
 
-  ///Pickup Trucks coal
+container3.append('text')
+  .attr('x', 480)
+  .attr('y', 110)
+  .style('font', '48px sans-serif')
+  .style('fill', '#46B5B5')
+  .style("font-weight", 900)
+  .text(`${Math.round(acres_us_forests)} `);
 
 // container3.append('text')
-//   .attr('x', 30 + 60)
-//   .attr('y', 90 + 15 + 10)
-//   .style('font', '13px sans-serif')
-//   .style('color', 'black')
+//   .attr('x', 480)
+//   .attr('y', 75)
+//   .style('font', '16px sans-serif')
+//   .style('fill', '#46B5B5')
 //   .style("font-weight", 100)
-//   .text(`Emissions from burning`);
+//   .text(`Carbon sequestered by`);
 
-container3.append('text')
-.attr('x', 480) //30 + 60)
-.attr('y', 75)//55 + 15 + 10)
-.style('font', '15px sans-serif')
-.style('color', 'black')
-.style("font-weight", 100)
-// .text(`Emissions from flying`);
-.text(`Carbon emissions from`);
-
-container3.append('text')
+  container3.append('text')
   .attr('x', 480)
-  .attr('y', 120)
-  .style('font', '48px sans-serif')
-  // .style('fill/', '#481A77')
-  .style("font-weight", 900)
-  .text(`${Math.round(pickup_coal)} `);
-
-container3.append('text')
-  .attr('x', 480)
-  .attr('y', 145)
-  .style('font', '16px sans-serif')
-  .style('color', 'black')
+  .attr('y', 135)
+  .style('font', '15px sans-serif')
+  .style('fill', '#46B5B5')
   .style("font-weight", 100)
-  .text(`Placeholder`);
+  .text(`years of carbon sequestration`);
 
-const coal_image2 = container3.append('image')
-  .attr("href", 'icons/coal_pickup.svg')
+  container3.append('text')
+  .attr('x', 480) //30 + 60)
+  .attr('y', 152)//55 + 15 + 10)
+  .style('font', '15px sans-serif')
+  .style('fill', '#46B5B5')
+  .style("font-weight", 100)
+  // .text(`Emissions from flying`);
+  .text(`by one acre of US forest`);
+
+const forest2 = container3.append('image')
+  .attr("href", 'icons/forest_teal.svg')
   .attr('width', 80)
   .attr('height', 80)
   .attr('x', 375)
-  .attr('y', 62)
+  .attr('y', 52)
 
 ///////Annual Euivalencies//////////////
 
@@ -712,36 +845,36 @@ const rectangle3 = container4.append("rect")
 
   ///days electricity use
 
-  container4.append('text')
-  .attr('x', 135) //30 + 60)
-  .attr('y', 75)//55 + 15 + 10)
-  .style('font', '15px sans-serif')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  // .text(`Emissions from flying`);
-  .text(`Carbon emissions from`);
+  // container4.append('text')
+  // .attr('x', 135) //30 + 60)
+  // .attr('y', 75)//55 + 15 + 10)
+  // .style('font', '15px sans-serif')
+  // .style('fill', '#481A77')
+  // .style("font-weight", 100)
+  // // .text(`Emissions from flying`);
+  // .text(`Emissions from`);
 
   container4.append('text')
   .attr('x', 135) //30 + 60)
-  .attr('y', 145)//55 + 15 + 10)
+  .attr('y', 135)//55 + 15 + 10)
   .style('font', '15px sans-serif')
-  .style('color', '#481A77')
+  .style('fill', '#481A77')
   .style("font-weight", 100)
   // .text(`Emissions from flying`);
   .text(`days of electricity use in an`);
 
   container4.append('text')
   .attr('x', 135) //30 + 60)
-  .attr('y', 162)//55 + 15 + 10)
+  .attr('y', 152)//55 + 15 + 10)
   .style('font', '15px sans-serif')
-  .style('color', '#481A77')
+  .style('fill', '#481A77')
   .style("font-weight", 100)
   // .text(`Emissions from flying`);
   .text(`average American household`);
 
 container4.append('text')
   .attr('x', 135)// 30 + 60 + 160)
-  .attr('y', 120)//55 + 15 + 10)
+  .attr('y', 110)//55 + 15 + 10)
   .style('font', '48px sans-serif')//'15px sans-serif')
   .style('fill', '#481A77')
   .style("font-weight", 900)
@@ -755,40 +888,83 @@ const house2 = container4.append('image')
   .attr('width', 75)//50)
   .attr('height', 75)//50)
   .attr('x', 30)
-  .attr('y', 62)//55 - 15 + 10)
+  .attr('y', 52)//55 - 15 + 10)
+
+  ///Beef
+
+  // container4.append('text')
+  // .attr('x', 480) //30 + 60)
+  // .attr('y', 75)//55 + 15 + 10)
+  // .style('font', '15px sans-serif')
+  // .style('fill', '#340068')
+  // .style("font-weight", 100)
+  // // .text(`Emissions from flying`);
+  // .text(`Emissions from producing`);
+  
+  container4.append('text')
+    .attr('x', 480)
+    .attr('y', 110)
+    .style('font', '48px sans-serif')
+    .style('fill', '#340068')
+    .style("font-weight", 900)
+    .text(`${Math.round(pounds_beef / life_years)} `);
+  
+  container4.append('text')
+    .attr('x', 480)
+    .attr('y', 135)
+    .style('font', '15px sans-serif')
+    .style('fill', '#340068')
+    .style("font-weight", 100)
+    .text(`pounds of beef from`);
+
+  container4.append('text')
+  .attr('x', 480) //30 + 60)
+  .attr('y', 152)//55 + 15 + 10)
+  .style('font', '15px sans-serif')
+  .style('fill', '#481A77')
+  .style("font-weight", 100)
+  // .text(`Emissions from flying`);
+  .text(`cattle raised for meat`);
+  
+  const beef_image = container4.append('image')
+    .attr("href", 'icons/cattle_purple.svg')
+    .attr('width', 80)
+    .attr('height', 80)
+    .attr('x', 375)
+    .attr('y', 52)
 
   ///Forest
 
-container4.append('text')
-  .attr('x', 480)
-  .attr('y', 120)
-  .style('font', '48px sans-serif')
-  .style('fill', '#481A77')
-  .style("font-weight", 900)
-  .text(`${Math.round(100 * acres_us_forests/life_years) / 100} `);
+// container4.append('text')
+//   .attr('x', 480)
+//   .attr('y', 120)
+//   .style('font', '48px sans-serif')
+//   .style('fill', '#481A77')
+//   .style("font-weight", 900)
+//   .text(`${Math.round(acres_us_forests/life_years)} `);
 
-container4.append('text')
-  .attr('x', 480)
-  .attr('y', 75)
-  .style('font', '16px sans-serif')
-  .style('color', '#481A77')
-  .style("font-weight", 100)
-  .text(`Carbon sequestered by`);
+// container4.append('text')
+//   .attr('x', 480)
+//   .attr('y', 75)
+//   .style('font', '16px sans-serif')
+//   .style('fill', '#481A77')
+//   .style("font-weight", 100)
+//   .text(`Carbon sequestered by`);
 
-  container4.append('text')
-  .attr('x', 480)
-  .attr('y', 145)
-  .style('font', '16px sans-serif')
-  .style('color', '#481A77')
-  .style("font-weight", 100)
-  .text(`acres of US forest in a year`);
+//   container4.append('text')
+//   .attr('x', 480)
+//   .attr('y', 145)
+//   .style('font', '16px sans-serif')
+//   .style('fill', '#481A77')
+//   .style("font-weight", 100)
+//   .text(`acres of US forest in a year`);
 
-const forest2 = container4.append('image')
-  .attr("href", 'icons/forest.svg')
-  .attr('width', 80)
-  .attr('height', 80)
-  .attr('x', 375)
-  .attr('y', 62)
+// const forest2 = container4.append('image')
+//   .attr("href", 'icons/forest_purple.svg')
+//   .attr('width', 80)
+//   .attr('height', 80)
+//   .attr('x', 375)
+//   .attr('y', 62)
 
 // ////// ///Equivalency texts -- PER YEAR //////////
 // container3.append('text')
