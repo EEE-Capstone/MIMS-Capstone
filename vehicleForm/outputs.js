@@ -408,8 +408,16 @@ function makeBarchart() {
   document.getElementById("input_tot_emi").innerHTML = `${format_data} kgCO2e`
   // document.getElementById("emiICEAvg").innerHTML = `Internal Combustion Engine Vehicle (ICE): ${format_avg} kgCO2e` +  `<br>`  + `Plug-In Hybrid Electric Vehicle (PHEV): ${format_hybrid} kgCO2e ` +  `<br>`  + `Battery-Electric Vehicle (BEV): ${format_bev} kgCO2e`
   document.getElementById("emiICEavg").innerHTML = `${format_avg} kgCO2e`
-  document.getElementById("emiPHEVavg").innerHTML = `${format_hybrid} kgCO2e `
-  document.getElementById("emiBEVavg").innerHTML = `${format_bev} kgCO2e`
+  if (format_hybrid === "0") {
+    document.getElementById("emiPHEVavg").innerHTML = `NA `
+  } else {
+    document.getElementById("emiPHEVavg").innerHTML = `${format_hybrid} kgCO2e `
+  }
+  if (format_bev === "0") {
+    document.getElementById("emiBEVavg").innerHTML = `NA`
+  } else {
+    document.getElementById("emiBEVavg").innerHTML = `${format_bev} kgCO2e`
+  }
 
 
 

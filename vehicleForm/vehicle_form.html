@@ -263,7 +263,7 @@
                                     <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
                                     <p id = "warningmessage" style = "font-size:11px; color:red"></p>
                             <br>
-                                    <div id = "responses" style = "display:None">
+                                    <div id = "responses" style = "">
                                         <!-- style = "display:None" -->
                                         Responses:<br>
                                         <ol id = "zip_res"></ol>
@@ -693,7 +693,9 @@ function showVehicle(full_data) {
     })
     for (let i = 0; i < data.length; i++) {
   // populate select element with json.
+      if (data[i].atvTypeAbbrev !== "CNG" && data[i].atvTypeAbbrev !== "LPG") {
       types.push(data[i].atvType)
+      }
     }
     var uniqueTypes = types.filter((value, index, self) => self.indexOf(value) === index);
     uniqueTypes.sort();
@@ -1052,7 +1054,7 @@ function conv_or_lw(vehicle_class, lightweight = false) {
     // 'FCV: Conventional Material', 'FCV: Lightweight Material']
 
     const possible_columns = ["ICE_conv", "ICE_lw", "HEV_conv", "HEV_lw", "PHEV_conv",
-     "PHEV_lw", "EV_conv", "EV_lw", "FCV_conv", "FCV_lw"]
+     "PHEV_lw", "EV_conv", "EV_lw", "FCV_conv", "FCV_lw", "CNG_conv", "CNG_lw", "LPG_conv", "LPG_lw"]
 
     if (lightweight !== true) {
         if (vehicle_class === 'ICE') {
@@ -1063,8 +1065,12 @@ function conv_or_lw(vehicle_class, lightweight = false) {
             return possible_columns[4]
         } else if (vehicle_class === 'EV') {
             return possible_columns[6]
-        } else {
+        } else if (vehicle_class === 'FCV') {
             return possible_columns[8]
+        } else if (vehicle_class === 'CNG') {
+            return possible_columns[10]
+        } else {
+            return possible_columns[12]
         }
     } else if (lightweight === true) {
         if (vehicle_class === 'ICE') {
@@ -1075,8 +1081,12 @@ function conv_or_lw(vehicle_class, lightweight = false) {
             return possible_columns[5]
         } else if (vehicle_class === 'EV') {
             return possible_columns[7]
-        } else {
+        } else if (vehicle_class === 'FCV') {
             return possible_columns[9]
+        } else if (vehicle_class === 'CNG') {
+            return possible_columns[11]
+        } else {
+            return possible_columns[13]
         }
     // } else {
     //     print("there was an error with get_emissions_weights lightweight parameter")
@@ -1182,6 +1192,9 @@ function getAvg(data) {
         var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate)
         emissionsList.push(cur_emission[4])
     }
+    if (emissionsList.length < 1) {
+        return 0
+    }
     var avgEmissions = emissionsList.reduce((a, b) => a + b) / emissionsList.length
     return avgEmissions
 }
@@ -1192,6 +1205,9 @@ function getUSAvg(data) {
         var cur_vehicle = data[i]
         var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, US_CO2Rate_avg)
         emissionsList.push(cur_emission[4])
+    }
+    if (emissionsList.length < 1) {
+        return 0
     }
     var avgEmissions = emissionsList.reduce((a, b) => a + b) / emissionsList.length
     return avgEmissions
