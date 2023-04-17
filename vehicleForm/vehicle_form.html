@@ -132,7 +132,7 @@
 
                         <!-- DESCRIPTION OF THE CHART -->
                         <hr class="border border-secondary border-1 opacity-100" /> 
-                        <h5>Drag the bar to a year to see lifetime emissions of vehicle models released <br> compared to vehicle models released in 2000. 
+                        <h5>Drag the slider to a year to see lifetime emissions of vehicle models released <br> that year compared to vehicle models released in 2000. 
                         </h5>
                         <hr class="border border-secondary border-1 opacity-100" /> 
                         <br>
@@ -307,12 +307,12 @@
                                 <span id = 'configBox'>
                                     Configuration: <span id = "configStart"> <i>Select Vehicle Model First</i></span>
                                     <div id="btn-group">
-                                        <button id="bt1" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
-                                        <button id="bt2" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
-                                        <button id="bt3" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
-                                        <button id="bt4" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
-                                        <button id="bt5" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
-                                        <button id="bt6" type="button" name = "bt" style = "width: 250px; background: whitesmoke;" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
+                                        <button id="bt1" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt1'))" disabled>Config 1</button><br>
+                                        <button id="bt2" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt2'))" disabled>Config 2</button><br>
+                                        <button id="bt3" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt3'))" disabled>Config 3</button><br>
+                                        <button id="bt4" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt4'))" disabled>Config 4</button><br>
+                                        <button id="bt5" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt5'))" disabled>Config 5</button><br>
+                                        <button id="bt6" type="button" name = "bt" style = "width: 250px; background: whitesmoke; display:none" onclick = "showConfig(document.getElementById('bt6'))" disabled>Config 6</button><br>
                                     </div>
                                 </span>
                             </div> <!-- end col -->
@@ -341,7 +341,7 @@
                                     <div id = "responses" style = "display:none">
                                         <!-- style = "display:None" -->
                                         Responses:<br>
-                                        <ol id = "zip_res"></ol>
+                                        <ol id = "zip_res">94704</ol>
                                         <ol id = "yearsOwn_res">17</ol>
                                         <ol id = "avg_miles">178000</ol>
                                         <ol id = "subregion"></ol>
@@ -590,6 +590,7 @@
              $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
             $('button[name = "bt"]').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("display", 'none');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
@@ -610,6 +611,7 @@
             $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
             $('button[name = "bt"]').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("display", 'none');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
@@ -629,12 +631,14 @@
             $('button[name = "bt"]').attr("disabled", true);
             $('#submitbtn').attr("disabled", true);
             $('button[name = "bt"]').css("background-color", 'whitesmoke');
+            $('button[name = "bt"]').css("display", 'none');
             $('#configStart').show();
             $('#secondSubmit').hide();
             $('#output').hide()
         });
 
         $('#selModel').on('change', function() {
+            $('button[name = "bt"]').css("display", 'none');
             $.ajax({
             method:"GET",
             url:'./json/vehicle_data_2023.json',
@@ -867,6 +871,7 @@ for (let i = 0; i < data.length; i++) {
 // var uniqueConfigs = configs.filter((value, index, self) => self.indexOf(value) === index);
 for (let i = 0; i < configs.length; i++) {
     let ele = document.getElementById(`bt${i+1}`)
+    ele.style.display = "inline-grid"
     ele.value = configs[i];
     ele.innerHTML = configs[i];
     ele.disabled = false;
