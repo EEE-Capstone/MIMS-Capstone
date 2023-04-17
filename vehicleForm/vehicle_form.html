@@ -260,15 +260,15 @@
                             <div class="col-auto">
                                 <label for="selYear" class="form-label">Vehicle Year</label>
                                 <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
-                                    <option value="" selected = "selected"> -- Select a Year --</option>
+                                    <option value="2023" selected = "selected">2023</option>
                                 </select>
-                                <!-- <div id="selYearHelp" class="form-text">Text Help</div> -->
+                                <!-- <div id="selYearHelp" class="form-text">Text Help -- Select a Year --</div> -->
                             </div> <!-- end col -->
 
                             <div class="col-auto">
                                 <label for="selType" class="form-label">Vehicle Type</label>
                                 <select name = "Selected Type" id="selType" onchange = "showType()" required>
-                                    <option value="" selected = "selected"> -- Select a Year First --</option>
+                                    <option value="Internal Combustion Vehicles (ICE)" selected = "selected">Internal Combustion Vehicles (ICE)</option>
                                 </select>                                 
                                 <!-- <div id="selTypeHelp" class="form-text">ICE, PHEV, BEV</div> -->
                             </div> <!-- end col -->
@@ -346,8 +346,8 @@
                                         <ol id = "avg_miles">178000</ol>
                                         <ol id = "subregion"></ol>
                                         <ol id = "CO2eRate"></ol>
-                                        <ol id = "year_res"></ol>
-                                        <ol id = "type_res"></ol>
+                                        <ol id = "year_res">2023</ol>
+                                        <ol id = "type_res">Internal Combustion Vehicles (ICE)</ol>
                                         <ol id = "make_res"></ol>
                                         <ol id = "model_res"></ol>
                                         <ol id = "config_res"></ol>
@@ -517,6 +517,8 @@
                 myArray = response
                 // buildTable(myArray)
                 populateSelectYear(myArray)
+                populateSelectType(myArray)
+                populateSelectMake(myArray)
             }
         });
 
@@ -585,6 +587,7 @@
                 clearSelectConfig();
                 document.getElementById("type_res").innerHTML = "";
                 populateSelectType(response)
+                populateSelectMake(response)
             }
         })
              $('button[name = "bt"]').attr("disabled", true);
@@ -749,11 +752,9 @@ function showVehicle(full_data) {
     var uniqueYears = years.filter((value, index, self) => self.indexOf(value) === index);
     uniqueYears.sort();
     uniqueYears.reverse();
-    for (let i = 0; i < uniqueYears.length; i++) {
+    for (let i = 1; i < uniqueYears.length; i++) {
         ele.innerHTML = ele.innerHTML +
-        //  '<option value="' + data[i].id + '">' + data[i].Year + '</option>';
         '<option>' + uniqueYears[i] + '</option>';
-       // '<option value="' + data[i].id + '">' + uniqueYears[i] + '</option>';
     }
   }
 
@@ -763,7 +764,7 @@ function showVehicle(full_data) {
   function populateSelectType(full_data) {
 
     let ele = document.getElementById('selType');
-    ele.innerHTML = '<option>' + "-- Select Vehicle Type --" + '</option>';
+    ele.innerHTML = '<option>' + "Internal Combustion Vehicles (ICE)" + '</option>';
     var types = []
     let year = document.getElementById('selYear')
     var year_data = year.options[year.selectedIndex].text
@@ -772,7 +773,7 @@ function showVehicle(full_data) {
     })
     for (let i = 0; i < data.length; i++) {
   // populate select element with json.
-      if (data[i].atvTypeAbbrev !== "CNG" && data[i].atvTypeAbbrev !== "LPG") {
+      if (data[i].atvTypeAbbrev !== "CNG" && data[i].atvTypeAbbrev !== "LPG" && data[i].atvTypeAbbrev !== "ICE") {
       types.push(data[i].atvType)
       }
     }
