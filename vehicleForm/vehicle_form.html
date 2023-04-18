@@ -338,14 +338,14 @@
                                     <!-- </button>onclick="return calculateEmissions()">Submit  </button> -->
                                     <p id = "warningmessage" style = "font-size:11px; color:red"></p>
                             <br>
-                                    <div id = "responses" style = "display:none">
+                                    <div id = "responses" style = "display:None">
                                         <!-- style = "display:None" -->
                                         Responses:<br>
                                         <ol id = "zip_res">94704</ol>
                                         <ol id = "yearsOwn_res">17</ol>
                                         <ol id = "avg_miles">178000</ol>
-                                        <ol id = "subregion"></ol>
-                                        <ol id = "CO2eRate"></ol>
+                                        <ol id = "subregion">CAMX</ol>
+                                        <ol id = "CO2eRate">206.498211592</ol>
                                         <ol id = "year_res">2023</ol>
                                         <ol id = "type_res">Internal Combustion Vehicles (ICE)</ol>
                                         <ol id = "make_res"></ol>
@@ -360,6 +360,10 @@
                                         <ol id = "totalUsage"></ol>
                                         <ol id = "totalDisposal"></ol>
                                         <ol id = "totalEmbodied"></ol>
+                                        Phase Percent:
+                                        <ol id = "productionPercent"></ol>
+                                        <ol id = "usagePercent"></ol>
+                                        <ol id = "eolPercent"></ol>
                                         Averages:
                                         <ol id = "ICEemissionAvg"></ol>
                                         <ol id = "PHEVemissionAvg"></ol>
@@ -386,9 +390,10 @@
                 <div class="col-12">
                     <!-- <div id = "output" style = "display: None"> -->
                     <h2 id = "vehicleInput">Output Options</h2>
-                    <h3 id = "totEmissionsOutput"></h3>
-                    <p id = "vehicleType"></p>
-                    <p id = "vehicleConfig"></p>
+                    <!-- <h3 id = "totEmissionsOutput"></h3> -->
+                    <h6 id = "vehicleType"></h6>
+                    <h6 id = "vehicleConfig"></h6>
+                    <!-- <h6 id = "regionAvgHead"></h6> -->
                 </div> <!-- end col -->
             </div> <!-- end row -->
 
@@ -397,13 +402,13 @@
                     <svg id="barChart"style="width:100%; height: 350px"></svg>
                 </div> <!-- end col -->
                 <div class="col-7">
-                    <div id=""style="width:100%; height: 40px"></div>
-                    <h4>Lifetime Emissions</h4>
-                        <div id="" style = "width:100%; height: 40px">
-                        <span id="" style ="font-family:Arial, Helvetica, sans-serif; color: #46B5B5"><b>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &ensp;Your Input Vehicle: </b></span>
-                        <span id="input_tot_emi" style ="font-family:Arial, Helvetica, sans-serif">___</span>
+                    <div id=""style="width:100%; height: 80px"></div>
+                    <h3>Lifetime Emissions</h3>
+                        <div id="" style = "width:100%; height: 30px">
+                        <span id="" style ="font-family:Arial, Helvetica, sans-serif; font-size: 20px; color: #46B5B5"><b>Input Vehicle: </b></span>
+                        <span id="input_tot_emi" style ="font-family:Arial, Helvetica, sans-serif; font-size: 20px;">___</span>
                         </div>
-                    <h5 id = "regionAvgHead">Average by Vehicle Type for Your Region (___)</h5>
+                    <!-- <h5 id = "regionAvgHead">Average by Vehicle Type for Your Region (___)</h5>
                         <div>
                             <span style="font-family:Arial, Helvetica, sans-serif; color:gray">Internal Combustion Engine Vehicle (ICE): </span>
                             <span id = "emiICEavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
@@ -415,16 +420,47 @@
                         <div>
                             <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; &emsp; &emsp; &emsp; Battery-Electric Vehicle  (BEV): </span>
                             <span id = "emiBEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
-                        </div>
+                        </div> -->
 
-                        <!-- <p>*Note: Averages shown in bar chart are based on zip code, model year, and planned number of years for driving from user inputs.</p> -->
+                        <div class="col-7"> <!-- begin-->
+                            <button class="btn btn-light btn-sm" type="button">
+                                Click to see breakdown by stage
+                              </button>
+                            <div class="" id="">
+                              <div class="card">
+                                <!-- <h6 class="card-header">Sources</h6> -->
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Stage</th>
+                                            <th>Percent Emissions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Production</td>
+                                            <td id = 'prodTablePer'></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Use</td>
+                                            <td id = 'useTablePer'></td>
+                                        </tr>
+                                        <tr>
+                                            <td>End of Life</td>
+                                            <td id = 'eolTablePer'></td>
+                                        </tr>
+                                </table>
+                              </div> <!-- end card -->
+                            </div> <!-- end collapse of drop down -->
+                          </div> <!-- end -->
                 </div>
+                <p style="font-size: 11px;">*Note: Averages shown in bar chart are based on zip code, model year, <br>and planned number of miles for driving from user inputs.</p>
                 <div class="col-12" style="">
                      <svg id="equivalencies" style="width: 100%;height:200px"></svg>
                     <svg id="equivalencies2" style="width:100%; height: 200px"></svg>
                 </div> <!-- end col -->
                 <div class="col-12">
-                    <p style = "">*Note: Emissions calculations for equivalencies are based on US averages.</p>
+                    <p style = "font-size: 11px;">*Note: Emissions calculations for equivalencies are based on US averages.</p>
                 </div>
              </div> <!-- end row -->
 
@@ -508,7 +544,7 @@
     <script>
      
     var myArray = []
-    var avg_CO2eRate = []
+    var avg_CO2eRate = 206.498211592
     var avg_miles = 178000
 
         $.ajax({
@@ -1007,9 +1043,31 @@ function est_battery_capacity_from_vehicle(Vehicle) {
     return kwh_size
 }
 
+function get_HEV_battery_weight(vehicle_weight, vehicle_year) {
+    if (vehicle_year < 2020) { // for vehicles before 2020, assume NIMH, after assume Li-ion (lighter weight)
+        var weight_factor = 1
+    } else {
+        var weight_factor = 0.485 // From GREET 2 NIMH/LI-ion battery weight estimates
+    }
+    //simple clustering by vehicle weight 
+    // estimated from HEV battery replacement data at https://www.besthybridbatteries.com
+    // adjust by weight factor 2020 model year and after
+    if (vehicle_weight < 3300) {
+        return 75 * weight_factor
+    } else if (vehicle_weight > 3300 && vehicle_weight < 4000) {
+        return 120 * weight_factor
+    } else {
+        return 150 * weight_factor
+    }
+}
+
 function est_battery_weight_from_vehicle(Vehicle) {
     //return battery weight in lbs
-    var battery_weight = est_battery_capacity_from_vehicle(Vehicle)*1/(.2)*2.204 // assume 0.2 kWh/Kg energy density
+    if (Vehicle.atvTypeAbbrev === "HEV") {
+        var battery_weight = get_HEV_battery_weight(Vehicle.AdjWeight, Vehicle.Year)
+    } else { 
+        var battery_weight = est_battery_capacity_from_vehicle(Vehicle) * 1 / (0.2) * 2.204 // assume 0.2 kWh/Kg energy density
+    }
     return battery_weight
 }
 
@@ -1041,6 +1099,28 @@ function weighted_emissions_calc(vehicle_weight, mass_fractions, emissions_vecto
     var weighted_emissions_array = emissionsCalc(mass_fractions, emissions_vector)
     var weighted_emissions = weighted_emissions_array.reduce((partialSum, a) => partialSum + a, 0)
     return weighted_emissions
+}
+
+function get_HEV_battery_emissions(battery_weight, LI_emissions_manufacturing, NIMH_emissions_manufacturing, emissions_type, vehicle_type) {
+    var batt_mass_fraction = []
+    var batt_emissions_vector = []
+    if (battery_weight > 75) { // then it is a NIMH battery based on grouping and scaling factor
+
+        for (let i = 0; i < NIMH_emissions_manufacturing.length; i++) {
+            batt_mass_fraction.push(NIMH_emissions_manufacturing[i][emissions_type])
+            batt_emissions_vector.push(NIMH_emissions_manufacturing[i][vehicle_type])
+        }
+
+        return weighted_emissions_calc(battery_weight, batt_mass_fraction, batt_emissions_vector)
+
+    } else {
+        for (let i = 0; i < LI_emissions_manufacturing.length; i++) {
+            batt_mass_fraction.push(LI_emissions_manufacturing[i][emissions_type])
+            batt_emissions_vector.push(LI_emissions_manufacturing[i][vehicle_type])
+        }
+
+        return weighted_emissions_calc(battery_weight, batt_mass_fraction, batt_emissions_vector)
+    }
 }
 
 function get_fuel_carbon() {
@@ -1076,7 +1156,7 @@ function get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) {
 
 
 function get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type, 
-    emissions_type, vehicle_emissions_manufacturing, battery_emissions_manufacturing) {
+    emissions_type, vehicle_emissions_manufacturing, LI_battery_emissions_manufacturing, NIMH_battery_emissions_manufacturing) {
         
     var veh_mass_fraction = []
     var veh_emissions_vector = []
@@ -1086,15 +1166,19 @@ function get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type,
         veh_mass_fraction.push(vehicle_emissions_manufacturing[i][emissions_type])
         veh_emissions_vector.push(vehicle_emissions_manufacturing[i][vehicle_type])
     }
-    for (let i = 0; i < battery_emissions_manufacturing.length; i++) {
-        batt_emissions_vector.push(battery_emissions_manufacturing[i][vehicle_type])
-        batt_mass_fraction.push(battery_emissions_manufacturing[i][emissions_type])
+    for (let i = 0; i < LI_battery_emissions_manufacturing.length; i++) {
+        batt_emissions_vector.push(LI_battery_emissions_manufacturing[i][vehicle_type])
+        batt_mass_fraction.push(LI_battery_emissions_manufacturing[i][emissions_type])
     }
 
     var vehi_sum = weighted_emissions_calc(vehicle_weight, veh_mass_fraction, veh_emissions_vector)     
     
-    if (vehicle_type === 'ICE_conv' || vehicle_type === 'HEV_conv') {
+    if (vehicle_type === 'ICE_conv') {
         var battery_sum = 0
+        var fluids = 634200
+
+    } else if (vehicle_type === 'HEV_conv') {
+        var battery_sum = get_HEV_battery_emissions(battery_weight, LI_battery_emissions_manufacturing, NIMH_battery_emissions_manufacturing, emissions_type, vehicle_type)
         var fluids = 634200
 
     } else if (vehicle_type === 'PHEV_conv') {
@@ -1124,11 +1208,11 @@ function get_usage_emissions(Vehicle, vehicle_fuel_economy, vehicle_class, miles
     if (vehicle_class === 'ICE' || vehicle_class === 'HEV') {
         var usage_emissions =  (vehicle_fuel_economy ** -1) * miles_estimated * get_fuel_carbon() // (g/mile*miles*8900gCo2/gallon)
         return usage_emissions
-    } else if (vehicle_class === 'EV') {
+    } else if (vehicle_class === "EV") {
         var grid_carbon = grid_intensity * ((vehicle_fuel_economy / 33.7) ** -1) * miles_estimated 
         //convert mpge to kwh/mile, return gC
         return grid_carbon //carbon per kwh*kwh/gallon
-    } else if (vehicle_class === 'PHEV') { //assume vehicle is driven in combined cycle (battery and engine)
+    } else if (vehicle_class === "PHEV") { //assume vehicle is driven in combined cycle (battery and engine)
         return get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) // 8.9 kgC02 per gallon
     } else {
         return 0
@@ -1199,7 +1283,7 @@ function get_CO2e(value, emittant, conversions = emittant_dictionary) {
 }
 
 
-function process_vehicle(Vehicle, Manufacturing, Battery, emissions_types, miles_estimated, grid_intensity) {
+function process_vehicle(Vehicle, Manufacturing, LI_Battery, NIMH_Battery, emissions_types, miles_estimated, grid_intensity) {
     var vehicle_fuel_economy = Vehicle.Highway08U * 0.55 + Vehicle.City08U * 0.45 // combined fuel economy (EPA.gov)
     var vehicle_weight = Vehicle.AdjWeight
     var vehicle_class = Vehicle.atvTypeAbbrev
@@ -1214,7 +1298,7 @@ function process_vehicle(Vehicle, Manufacturing, Battery, emissions_types, miles
     for (let i = 0; i < emissions_types.length; i++) {
         var emittant = emissions_types[i]
         var embodied_array = get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type, 
-            emittant, Manufacturing, Battery)
+            emittant, Manufacturing, LI_Battery, NIMH_Battery)
 
         var battery = embodied_array[0]
         var vehicle = embodied_array[1]            
@@ -1281,7 +1365,7 @@ function getAvg(data) {
     var emissionsList = []
     for (let i = 0; i < data.length; i++) {
         var cur_vehicle = data[i]
-        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate)
+        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data_LI, battery_data_NIMH, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate)
         emissionsList.push(cur_emission[4])
     }
     if (emissionsList.length < 1) {
@@ -1295,7 +1379,7 @@ function getUSAvg(data) {
     var emissionsList = []
     for (let i = 0; i < data.length; i++) {
         var cur_vehicle = data[i]
-        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, US_CO2Rate_avg)
+        var cur_emission = process_vehicle(cur_vehicle, manufacturing_data, battery_data_LI, battery_data_NIMH, ['CO2', 'CH4', 'N2O'], avg_miles, US_CO2Rate_avg)
         emissionsList.push(cur_emission[4])
     }
     if (emissionsList.length < 1) {
@@ -1329,6 +1413,10 @@ function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change 
     document.getElementById("totalDisposal").innerHTML = data[3] / 1000
     document.getElementById("totalEmbodied").innerHTML = data[5] / 1000
     document.getElementById("roundedEmissions").innerHTML = Math.round((data[4] / 1000)) //Math.round((data[4] / 1000) * 100) / 100
+    document.getElementById("productionPercent").innerHTML = Math.round(((data[0] + data[1]) / data[4]) * 10000) / 100
+    document.getElementById("usagePercent").innerHTML = Math.round((data[2] / data[4]) * 10000) / 100
+    document.getElementById("eolPercent").innerHTML = Math.round((data[3] / data[4]) * 10000) / 100
+
     document.getElementById("ICEemissionAvg").innerHTML = ice / 1000
     document.getElementById("PHEVemissionAvg").innerHTML = phev / 1000
     document.getElementById("BEVemissionAvg").innerHTML = bev / 1000
@@ -1366,10 +1454,20 @@ function ajaxCall2(){
 function ajaxCall3(){
     $.ajax({
         method: "GET",
+        url: './json/NIMH_emissions_data.json',
+        success: function(response){
+            battery_data_NIMH = response
+            ajaxCall4();
+        }
+    });
+}
+function ajaxCall4(){
+    $.ajax({
+        method: "GET",
         url: './json/LI_emissions_data.json',
         success: function(response){
-            battery_data = response
-            vehicle_emissions_array = process_vehicle(vehicle_data, manufacturing_data, battery_data, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate);
+            battery_data_LI = response
+            vehicle_emissions_array = process_vehicle(vehicle_data, manufacturing_data, battery_data_LI, battery_data_NIMH, ['CO2', 'CH4', 'N2O'], avg_miles, avg_CO2eRate);
             avgICE = getAvg(iceList);
             avgPHEV = getAvg(phevList);
             avgBEV = getAvg(bevList);

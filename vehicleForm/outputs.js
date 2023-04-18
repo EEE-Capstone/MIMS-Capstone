@@ -29,9 +29,10 @@ function getInput() {
    var formatted_number = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
    //const x = document.getElementById("avg_miles").innerHTML
    document.getElementById("vehicleInput").innerHTML = `Emissions Estimate for ${document.getElementById("yearmakemodel").innerHTML}`
-   document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${formatted_number} kgCO2e`
+  //  document.getElementById("totEmissionsOutput").innerHTML = `Lifetime Emissions: ${formatted_number} kgCO2e`
    document.getElementById("vehicleType").innerHTML = `Vehicle Type: ${document.getElementById("type_res").innerHTML}`
    document.getElementById("vehicleConfig").innerHTML = `Configuration: ${document.getElementById("config_res").innerHTML}`
+  //  document.getElementById("regionAvgHead").innerHTML = `Your Region: ${document.getElementById("zip_res").innerHTML}`
 }
 
 /// function for per mile
@@ -404,20 +405,21 @@ function makeBarchart() {
 
   const maxValue = Math.max(average, hybrid_average, bev_average, data, usbev_avg, usphev_avg)
 
-  document.getElementById("regionAvgHead").innerHTML = `Average by Vehicle Type for Your Region (${document.getElementById("zip_res").innerHTML})`
   document.getElementById("input_tot_emi").innerHTML = `${format_data} kgCO2e`
   // document.getElementById("emiICEAvg").innerHTML = `Internal Combustion Engine Vehicle (ICE): ${format_avg} kgCO2e` +  `<br>`  + `Plug-In Hybrid Electric Vehicle (PHEV): ${format_hybrid} kgCO2e ` +  `<br>`  + `Battery-Electric Vehicle (BEV): ${format_bev} kgCO2e`
-  document.getElementById("emiICEavg").innerHTML = `${format_avg} kgCO2e`
-  if (format_hybrid === "0") {
-    document.getElementById("emiPHEVavg").innerHTML = `NA `
-  } else {
-    document.getElementById("emiPHEVavg").innerHTML = `${format_hybrid} kgCO2e `
-  }
-  if (format_bev === "0") {
-    document.getElementById("emiBEVavg").innerHTML = `NA`
-  } else {
-    document.getElementById("emiBEVavg").innerHTML = `${format_bev} kgCO2e`
-  }
+  document.getElementById("prodTablePer").innerHTML = `${document.getElementById("productionPercent").innerHTML} %`
+  document.getElementById("useTablePer").innerHTML = `${document.getElementById("usagePercent").innerHTML} %`
+  document.getElementById("eolTablePer").innerHTML = `${document.getElementById("eolPercent").innerHTML} %`
+  // if (format_hybrid === "0") {
+  //   document.getElementById("emiPHEVavg").innerHTML = `NA `
+  // } else {
+  //   document.getElementById("emiPHEVavg").innerHTML = `${format_hybrid} kgCO2e `
+  // }
+  // if (format_bev === "0") {
+  //   document.getElementById("emiBEVavg").innerHTML = `NA`
+  // } else {
+  //   document.getElementById("emiBEVavg").innerHTML = `${format_bev} kgCO2e`
+  // }
 
 
 
@@ -719,10 +721,10 @@ const container3 = d3.select("#equivalencies")
 const rectangle2 = container3.append("rect")
   .attr("width", 700)
   // .attr("width", 300)
-  .attr("height", 160)
+  .attr("height", 130)
   // .attr("height", 280)
   .attr("x", 2) //270
-  .attr("y", 15) //30
+  .attr("y", 45) //30
   .attr("fill", "white")
   .attr("stroke", "#46B5B5")
   .attr("stroke-width", 1.5)
@@ -731,9 +733,9 @@ const rectangle2 = container3.append("rect")
  ////// ///Equivalency texts //////////
  container3.append('text')
  .attr('x', 20)
- .attr('y', 30 + 15)
- .style('font', '16px sans-serif')
- .style('fill', 'black')
+ .attr('y', 30)
+ .style('font', '28px sans-serif')
+ .style('fill', '#46B5B5')
  .style("font-weight", 900)
 //  .text(`Lifetime emissions from ${input} are equivalent to:`);
 .text(`Lifetime vehicle emissions equals:`);
@@ -845,10 +847,10 @@ const forest2 = container3.append('image')
 const rectangle3 = container4.append("rect")
   .attr("width", 700)
   // .attr("width", 300)
-  .attr("height", 160)
+  .attr("height", 140)
   // .attr("height", 280)
   .attr("x", 2) //270
-  .attr("y", 15) //30
+  .attr("y", 45) //30
   .attr("fill", "white")
   .attr("stroke", "#340068")
   .attr("stroke-width", 1.5)
@@ -857,9 +859,9 @@ const rectangle3 = container4.append("rect")
  ////// ///Equivalency texts //////////
  container4.append('text')
  .attr('x', 20)
- .attr('y', 30 + 15)
- .style('font', '16px sans-serif')
- .style('color', 'black')
+ .attr('y', 30)
+ .style('font', '28px sans-serif')
+ .style('fill', '#340068')
  .style("font-weight", 900)
 //  .text(`Lifetime emissions from ${input} are equivalent to:`);
 .text(`Annual vehicle emissions equals:`);
