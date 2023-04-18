@@ -51,7 +51,7 @@
   border-radius: 100px; */
 }
 .customCarousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
-  background: #46B5B5;
+  background: #FF6978;
   color: white;
   /* box-shadow: 0px 0px 0px 3px #CCF7F4;
   border-radius: 100px; */
@@ -147,10 +147,10 @@
 }
 
 .customBlue{
-  border-color: #46B5B5; border-style: solid; border-width: 2px;
+  border-color: #FF6978; border-style: solid; border-width: 2px;
 }
 .customBlue:hover{
-  background: #CDF7F4;
+  background: #FFD0D5;
 }
 
 /*# sourceMappingURL=scroll.css.map */
