@@ -359,6 +359,7 @@
                                         <ol id = "totalVehicle"></ol>
                                         <ol id = "totalUsage"></ol>
                                         <ol id = "totalDisposal"></ol>
+                                        <ol id = "totalEmbodied"></ol>
                                         Averages:
                                         <ol id = "ICEemissionAvg"></ol>
                                         <ol id = "PHEVemissionAvg"></ol>
@@ -1042,6 +1043,16 @@ function weighted_emissions_calc(vehicle_weight, mass_fractions, emissions_vecto
     return weighted_emissions
 }
 
+function get_fuel_carbon() {
+    //  future option: 
+    //     np.sum(total_fuel*(np.array(fuel_import_region_weights)*np.array(upstream_ghg_intensities)))
+    // 
+    const carbon_per_MJ = 90.5432 // gCO2e/MJ from GREET WTW calculator US average
+    const energy_per_gallon = 118227 // BTU/gallon averaged from https://afdc.energy.gov/files/u/publication/fuel_comparison_chart.pdf
+    // now convert from carbon per MJ to carbon per gallon (.001055 btu per MJ)
+    return carbon_per_MJ * energy_per_gallon * 0.001055  // from GREET WTW calculator, GREET1 model with US fuel mix
+}
+
 function get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) {
     //implement PHEV emissions calculation using EPA utility factor
     var utility_factor = Vehicle.combinedUF
@@ -1050,7 +1061,7 @@ function get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) {
     var combined_mpge = Vehicle.comb08
 
     var grid_carbon = grid_intensity * permile_electric_eff * miles_estimated 
-    var fuel_carbon = (combined_mpge ** -1) * miles_estimated * 8900 
+    var fuel_carbon = (combined_mpge ** -1) * miles_estimated * get_fuel_carbon() 
     // consumption in hybrid mode (EV mode is zero fuel)
 
     var PHEV_usage_emissions = 1 / ((1 / grid_carbon) + (1 - utility_factor) / fuel_carbon) 
@@ -1111,7 +1122,7 @@ function get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type,
 
 function get_usage_emissions(Vehicle, vehicle_fuel_economy, vehicle_class, miles_estimated, grid_intensity) {
     if (vehicle_class === 'ICE' || vehicle_class === 'HEV') {
-        var usage_emissions =  (vehicle_fuel_economy ** -1) * miles_estimated * 8900 // (g/mile*miles*8900gCo2/gallon)
+        var usage_emissions =  (vehicle_fuel_economy ** -1) * miles_estimated * get_fuel_carbon() // (g/mile*miles*8900gCo2/gallon)
         return usage_emissions
     } else if (vehicle_class === 'EV') {
         var grid_carbon = grid_intensity * ((vehicle_fuel_economy / 33.7) ** -1) * miles_estimated 
@@ -1228,7 +1239,7 @@ function process_vehicle(Vehicle, Manufacturing, Battery, emissions_types, miles
     var usage = get_usage_emissions(Vehicle, vehicle_fuel_economy, vehicle_class, miles_estimated, grid_intensity)
     var total_emissions = total_embodied + usage
     var disposal = total_embodied - (total_battery + total_vehicle)
-    var lifetime_emissions = [total_battery, total_vehicle, usage, disposal, total_emissions]
+    var lifetime_emissions = [total_battery, total_vehicle, usage, disposal, total_emissions, total_embodied]
 
     return lifetime_emissions
 }
@@ -1316,6 +1327,7 @@ function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change 
     document.getElementById("totalVehicle").innerHTML = data[1] / 1000
     document.getElementById("totalUsage").innerHTML = data[2] / 1000
     document.getElementById("totalDisposal").innerHTML = data[3] / 1000
+    document.getElementById("totalEmbodied").innerHTML = data[5] / 1000
     document.getElementById("roundedEmissions").innerHTML = Math.round((data[4] / 1000)) //Math.round((data[4] / 1000) * 100) / 100
     document.getElementById("ICEemissionAvg").innerHTML = ice / 1000
     document.getElementById("PHEVemissionAvg").innerHTML = phev / 1000
