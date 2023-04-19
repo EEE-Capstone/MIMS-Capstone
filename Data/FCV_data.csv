@@ -1,0 +1,24 @@
+Model,Make,Year,atvType,cylinders,displ,trany,VehicleID,AdjWeight,comb08,combinedUF,combE,highway08,rangeHwyA,RangeHwy,Range,city08,UCity,UHighway
+FCX_Clarity,Honda,2008,FCV,0,0.0,Automatic (A1),0,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2009,FCV,0,0.0,Automatic (A1),1,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2010,FCV,0,0.0,Automatic (A1),2,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2011,FCV,0,0.0,Automatic (A1),3,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2012,FCV,0,0.0,Automatic (A1),4,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2013,FCV,0,0.0,Automatic (A1),5,3500,59,0,0,60,0,231,0,58,0,0
+FCX_Clarity,Honda,2014,FCV,0,0.0,Automatic (A1),6,3500,59,0,0,60,0,231,0,58,0,0
+Clarity_FCV,Honda,2017,FCV,0,0.0,Automatic (A1),7,4000,68,0,0,67,0,366,0,69,0,0
+Clarity_FCV,Honda,2018,FCV,0,0.0,Automatic (A1),8,4000,68,0,0,67,0,366,0,69,0,0
+Clarity_FCV,Honda,2019,FCV,0,0.0,Automatic (A1),9,4000,68,0,0,67,0,366,0,69,0,0
+Mirai XLE,Toyota,2016,FCV,0,0.0,Automatic (A1),10,4000,59,0,0,60,0,312,0,58,0,0
+Mirai XLE,Toyota,2017,FCV,0,0.0,Automatic (A1),11,4000,59,0,0,60,0,312,0,58,0,0
+Mirai XLE,Toyota,2018,FCV,0,0.0,Automatic (A1),12,4000,59,0,0,60,0,312,0,58,0,0
+Mirai XLE,Toyota,2019,FCV,0,0.0,Automatic (A1),13,4000,59,0,0,60,0,312,0,58,0,0
+Mirai XLE,Toyota,2020,FCV,0,0.0,Automatic (A1),14,4000,59,0,0,60,0,312,0,58,0,0
+Mirai XLE,Toyota,2021,FCV,0,0.0,Automatic (A1),15,4250,74,0,0,76,0,402,0,71,0,0
+Mirai XLE,Toyota,2022,FCV,0,0.0,Automatic (A1),16,4250,74,0,0,76,0,402,0,71,0,0
+Mirai XLE,Toyota,2023,FCV,0,0.0,Automatic (A1),17,4250,74,0,0,76,0,402,0,71,0,0
+Nexo Blue,Hyundai,2019,FCV,0,0.0,Automatic (A1),18,4000,61,0,0,65,0,380,0,58,0,0
+Nexo Blue,Hyundai,2020,FCV,0,0.0,Automatic (A1),19,4000,61,0,0,65,0,380,0,58,0,0
+Nexo Blue,Hyundai,2021,FCV,0,0.0,Automatic (A1),20,4000,61,0,0,65,0,380,0,58,0,0
+Nexo Blue,Hyundai,2022,FCV,0,0.0,Automatic (A1),21,4000,61,0,0,65,0,380,0,58,0,0
+Nexo Blue,Hyundai,2023,FCV,0,0.0,Automatic (A1),22,4000,61,0,0,65,0,380,0,58,0,0
