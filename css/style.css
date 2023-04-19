@@ -1,13 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
-h1, h2 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 600;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&family=Poppins:wght@200;300;400;500;600;700;800&family=Roboto+Slab:wght@300;400;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+  h1, h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1 px; 
+    color: #39343A;
 }
 
-h3, h4, h5, h6 {font-family: 'Josefin Sans', sans-serif; font-weight: 400;}
+h3, h4, h5, h6 {font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1 px; 
+    color: #39343A;}
 
-body{ font-family: 'Cardo', serif;}
+body{ font-family: 'Open Sans', sans-serif; font-weight: 400; letter-spacing: 0.1px; color: #39343A;
+}
+
+.customHomeGradient {
+    background-image: linear-gradient(#FCF8EA, #ffffff,  #EED991);
+}
 
 .customGradient {
     background-image: linear-gradient(#CCF7F4, #ffffff,  #EED991);
@@ -26,54 +38,68 @@ body{ font-family: 'Cardo', serif;}
 }
 
 .customTitleImage {
-    background-image: url("../static/images/background6.png");
+    /* background-image: url("../static/images/background6.png");
     background-position: left top;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background-color: #FCF8EA;
 }
 .customTitleAboutImage {
-    background-image: url("../static/images/background6.png");
+    /* background-image: url("../static/images/background6.png");
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background-color: #FCF8EA;
+
 }
 .customTitleEquityImage {
-    background-image: url("../static/images/background7.jpg");
+    /* background-image: url("../static/images/background7.jpg");
     background-position: bottom;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background-color: #FCF8EA;
 }
 
 .customHomeTitleText {
-    font-size: 70px;
-    color: #ffffff;
-    text-shadow: #FAFAFA 1px 0 5px;
+    font-size: 50px;
+    color: #39343A;
+    /* text-shadow: #FAFAFA 1px 0 5px; */
 }
 
 .customTitleText {
-    color: #ffffff;
-    text-shadow: #FAFAFA 1px 0 5px;
+    color: #39343A;
+    font-size: 40px;
+    /* text-shadow: #FAFAFA 1px 0 5px;  */
+    font-weight: 600;
+}
+
+.customSubTitleText {
+    color: #726E73;
+    /* text-shadow: #FAFAFA 1px 0 5px;  */
+    font-weight: 500;
 }
 
 .customNavItem {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 500;
-    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    color: #39343A;
     letter-spacing: 0.75px;
+    text-transform: uppercase;
+    font-size: small;
     /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
-    text-shadow: #FAFAFA 1px 0 5px;
+    /* text-shadow: #FAFAFA 1px 0 5px; */
 }
 .customNavItem:hover {
     color: #000;
     letter-spacing: 0.75px;
     /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
-    text-shadow: #fafafa 1px 0 5px;
+    /* text-shadow: #fafafa 1px 0 5px; */
     text-decoration: underline;
 }
 
 .customFooter {
-    background-color: #340068;
-    color: #ffffff;
+    background-color: #FCF8EA;
+    color: #39343A;
 }
 
 .carImage {
@@ -95,33 +121,38 @@ body{ font-family: 'Cardo', serif;}
 }
 
 .customTitleButton {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;    
+    font-weight: 600;
     background-color: #FFB51A;
     border-color: #FFB51A;
     color: #ffff; 
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: medium;
+
 }
 .customTitleButton:hover {
-    background-color: #ffffff;
+    background-color: #FCF8EA;
     border-color: #FFB51A;
     color: #FFB51A; 
+
 }
 .customTitleButtonOutline {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    border-color: #ffffff;
-    color: #ffffff; 
-}
-.customTitleButtonOutline:hover {
-    background-color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
     border-color: #FFB51A;
     color: #FFB51A; 
 }
+.customTitleButtonOutline:hover {
+    background-color: #FFB51A;
+    border-color: #FFB51A;
+    color: #ffffff; 
+}
 
-.customCardHover svg {
+/* .customCardHover svg {
     margin: auto;
     height: 75px;
-}
+} */
 /* .customCardHover:hover svg {
     fill:white;
     stroke: white;
@@ -137,14 +168,6 @@ body{ font-family: 'Cardo', serif;}
 
 .customICE {
     background-image: linear-gradient(to left, #CCBFD9 , #EED991);
-}
-
-.vLine {
-border-left: 6px solid green;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  margin-left: -3px;
 }
 
 
