@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
         <!-- AJAX -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+        </script>
     </head>
 
     <body>
@@ -56,11 +58,11 @@
                   </div> <!-- end col -->
                 </div> <!-- end row -->
               </div> <!-- end container -->
-
+              <hr class="border border-secondary border-4 opacity-100 p-0 m-0" /> 
         </div> <!-- end header section -->      
         <!-- <h1 id = "header"> Vehicle Emissions Form</h1> -->
 
-        <div class="customGradient py-5">
+        <div class="customBackgroundNeutral py-5">
 
             <div class="container-md pb-5 my-5 bg-white shadow" style="max-width: 1050px;">
               <div class="row pt-5">
@@ -117,36 +119,15 @@
               </div> <!-- end row -->
 
             </div> <!-- end container -->
+        </div> <!-- end section -->
 
-            <div class="container-md mt-5 pb-5 bg-white shadow" style="max-width: 1050px;">
+        <div class="customBackgroundNeutral pb-5">
+            <div class="container-md mb-5 pb-5 bg-white shadow" style="max-width: 1050px;">
                 <div class="row pt-5">
                   <div class="col-10 pt-3 px-5">
                     <h3>Factors that affect vehicle lifetime emissions</h3>
                   </div> <!-- end col -->
                 </div> <!-- end row -->
-
-                <div class="row pt-2">
-                    <div class="col-12 pt-3 px-5">
-                        <h5>Year
-                        </h5>
-
-                        <!-- DESCRIPTION OF THE CHART -->
-                        <hr class="border border-secondary border-1 opacity-100" /> 
-                        <h5>Drag the slider to a year to see lifetime emissions of vehicle models released <br> that year compared to vehicle models released in 2000. 
-                        </h5>
-                        <hr class="border border-secondary border-1 opacity-100" /> 
-                        <br>
-                        <!-- END -- DESCRIPTION OF THE CHART -->
-                    </div> <!-- end col -->
-                  </div> <!-- end row -->
-                  <div class="row pb-5">
-                    <div class="col-12 px-5 text-center" style="">
-                        <div id="observablehq-viewof-chooseYear-a6f4ee39"></div>
-                        <div id="observablehq-chart-a6f4ee39"></div>
-                        <!-- <p>Credit: <a href="https://observablehq.com/d/f6ad9ee9c08fc9bd">LCA Comparison by Year Histogram (with Slider) by Clara Hu</a></p> -->
-                    </div> <!-- end col -->
-                  </div> <!-- end row -->
-
 
                 <div class="row d-flex">
                     <div class="col-3 p-1" style="">
@@ -188,11 +169,34 @@
                 
                   </div> <!-- end row -->
 
+                <div class="row pt-2">
+                    <div class="col-12 pt-3 px-5">
+                        <div class="text-center">
+                            <h5>Year</h5>
+                        </div>
+                        
+                        <!-- DESCRIPTION OF THE CHART -->
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+                        <h5>Drag the slider to a year to see lifetime emissions of vehicle models released <br> that year compared to vehicle models released in 2000. 
+                        </h5>
+                        <hr class="border border-secondary border-1 opacity-100" /> 
+                        <br>
+                        <!-- END -- DESCRIPTION OF THE CHART -->
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+                  <div class="row pb-5">
+                    <div class="col-12 px-5 text-center" style="">
+                        <div id="observablehq-viewof-chooseYear-a6f4ee39"></div>
+                        <div id="observablehq-chart-a6f4ee39"></div>
+                        <!-- <p>Credit: <a href="https://observablehq.com/d/f6ad9ee9c08fc9bd">LCA Comparison by Year Histogram (with Slider) by Clara Hu</a></p> -->
+                    </div> <!-- end col -->
+                  </div> <!-- end row -->
+
               </div> <!-- end container -->
           </div> <!-- end gradient section -->
 
 
-        <div class="customGradientReverse pb-5">
+        <div class="customBackgroundNeutral pb-5">
             <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
               <div class="row pb-1">
                 <div class="col-12 px-5 pt-5 text-center">
@@ -200,47 +204,51 @@
                   <!-- <p><br>Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.</p> -->
                 </div> <!-- end col -->
               </div> <!-- end row -->
-              <div class="row pb-5">
+              <div class="row">
                 <div class="col-12 p-5" style="">
                     <form>
                         <!-- <form  onsubmit="showOutput()"> -->
-                        <div class="row pb-5">
-                            <div class="col-auto">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center ">
                                 <div class="d-flex h-100 align-items-center">
-                                    <h5 class="p-3 rounded-pill text-white" style="background: #481A77">1: Location</h5>
+                                    <h5 class=" btn-lg rounded-3 py-2 px-3 customCategoryLabel">1. Where do you live?</h5>
                                 </div>
                                 <!-- <img src="../static/images/emissionsExplorer/1.png" class="" style="width: 50px; height: 50px"> -->
                             </div>
-                            <div class="col-3">
+                        </div> <!-- end row -->
+                        <div class="row d-flex justify-content-center align-items-end pt-4">
+                            <div class="col-auto">
                                 <label for="zip" class="form-label">Zip Code:</label>
-                                <input type="text" class="form-control" id="zip" value="94704" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control text-center" id="zip" value="94704" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
                                 <!-- <div id="zipHelp" class="form-text">Location is necessary for us to calculate emissions based on your local grid mix.</div> -->
                             </div>
-                        </div>
+                        </div> <!-- end row -->
                         <!-- <span>
                             Zip Code: <input type="text" id="zip" value="00000" min="00000" max="99999" minlength = "5" maxlength="5" required pattern="\d{5,5}" oninput = "showZip()"/> 
                         </span> -->
-                        <div class=" row pb-2">
-                            <div class="col-12">
+                        <div class="row pt-5 mt-3">
+                            <div class="col-12 d-flex justify-content-center ">
                                 <div class="d-flex h-100 align-items-center">
-                                    <h5 class="p-3 rounded-pill text-white" style="background: #481A77">2: Ownership</h5>
+                                    <h5 class=" btn-lg rounded-3 py-2 px-3 customCategoryLabel">2. Length of Ownership</h5>
                                 </div>
-                                <!-- <img src="../static/images/emissionsExplorer/2.png" class="" style="width: 50px; height: 50px"> -->
+                                <!-- <img src="../static/images/emissionsExplorer/1.png" class="" style="width: 50px; height: 50px"> -->
                             </div>
                         </div> <!-- end row -->
-                        <div class=" row mb-5 d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center pt-4">
                             <div class="col-auto">
                                 <label for="yearsOwn" class="form-label">Total years planned on driving:</label>
-                                <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
+                                <input type="number" id="yearsOwn" class="text-center" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
                                 <div id="yearsOwnHelp" class="form-text">US average of vehicle ownership is 17 years.</div>
                             </div> <!-- end col -->
                             <div class="col-auto">and</div>
                             <div class="col-auto">
                                 <label for="milesDrive" class="form-label">Total lifetime miles planned on driving:</label>
-                                <input type="text" id="milesDrive" value="178,000" min="0.1" oninput = "showMilesDrive()"/> 
+                                <input type="text" id="milesDrive" class="text-center" value="178,000" min="0.1" oninput = "showMilesDrive()"/> 
                                 <div id="milesDriveHelp" class="form-text">US average of lifetime miles of a vehicle is 178,000.</div>
                             </div> <!-- end col -->
-                        </div> <!-- end row -->
+                        </div> <!-- end row -->                     
                         <!-- <span>
                             Number of years planned on driving: <input type="number" id="yearsOwn" value="17" min="0.1" max="100" oninput = "showYearsown()"/> 
                         </span> -->
@@ -248,26 +256,26 @@
                             Number of miles planned on driving: <input type="number" id="milesDrive" value="178000" min="0.1" oninput = "showMilesDrive()"/> 
                             <p style = "font-size:11px">US average is 17 years and 178000 miles driven.</p>
                         </span> -->
-                        <div class=" row">
-                            <div class="col-12">
+                        <div class="row pt-5 mt-3">
+                            <div class="col-12 d-flex justify-content-center ">
                                 <div class="d-flex h-100 align-items-center">
-                                    <h5 class="p-3 rounded-pill text-white" style="background: #481A77">3: Vehicle</h5>
+                                    <h5 class=" btn-lg rounded-3 py-2 px-3 customCategoryLabel">3. Pick a Vehicle</h5>
                                 </div>
-                                <!-- <img src="../static/images/emissionsExplorer/3.png" class="" style="width: 50px; height: 50px"> -->
+                                <!-- <img src="../static/images/emissionsExplorer/1.png" class="" style="width: 50px; height: 50px"> -->
                             </div>
                         </div> <!-- end row -->
-                        <div class=" row mb-3 d-flex justify-content-center">
-                            <div class="col-auto">
+                        <div class=" row pt-4 d-flex justify-content-start">
+                            <div class="col-4">
                                 <label for="selYear" class="form-label">Vehicle Year</label>
-                                <select name = "Selected Year" id="selYear" onchange = "showYear()" required>
-                                    <option value="2023" selected = "selected">2023</option>
+                                <select name = "Selected Year" id="selYear" onchange = "showYear()" required class="w-50">
+                                    <option value="2023" selected = "selected" class="text-center">2023</option>
                                 </select>
                                 <!-- <div id="selYearHelp" class="form-text">Text Help -- Select a Year --</div> -->
                             </div> <!-- end col -->
 
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <label for="selType" class="form-label">Vehicle Type</label>
-                                <select name = "Selected Type" id="selType" onchange = "showType()" required>
+                                <select name = "Selected Type" id="selType" onchange = "showType()" required class="w-75">
                                     <option value="Internal Combustion Vehicles (ICE)" selected = "selected">Internal Combustion Vehicles (ICE)</option>
                                 </select>                                 
                                 <!-- <div id="selTypeHelp" class="form-text">ICE, PHEV, BEV</div> -->
@@ -283,14 +291,11 @@
                                     <option value="" selected = "selected"> -- Select a Year First --</option>
                             </select> 
                         </span> -->
-
-                        <div class="row">
-                            <div class="col-auto ps-5">
-                            </div>
-                            <div class="col-auto ps-4">
+                        <div class="row pt-4">
+                            <div class="col-auto">
                                 <label for="selMake" class="form-label">Make</label>
                                 <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
-                                    <option value="" selected = "selected"> -- Select a Type First --</option>
+                                    <option value="" selected = "selected" > -- Select a Type First --</option>
                                 </select>
                                 <!-- <div id="selMakeHelp" class="form-text">Text Help</div> -->
                             </div> <!-- end col -->
@@ -298,7 +303,7 @@
                             <div class="col-auto">
                                 <label for="selModel" class="form-label">Model</label>
                                 <select name = "Selected Make" id="selModel" onchange = "showModel()" required>
-                                    <option value="" selected = "selected"> -- Select a Make First --</option>
+                                    <option value="" selected = "selected" > -- Select a Make First --</option>
                                 </select>                                 
                                 <!-- <div id="selModelHelp" class="form-text">Make Help</div> -->
                             </div> <!-- end col -->
@@ -330,7 +335,7 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <div id = "firstSubmit">
-                                    <button id = "submitbtn" class="btn btn-primary btn-lg mt-4 mx-3 rounded-pill px-5" type="button"  onclick = "showResult()" disabled>Submit</button>
+                                    <button id = "submitbtn" class="btn btn-primary btn-lg mt-4 rounded-3 px-3 customTitleButton w-50" type="button"  onclick = "showResult()" disabled>Submit</button>
                                 </div>
                                 <!-- <div id = "secondSubmit" style="display:None">
                                     <button id = "resultsbtn" type="button"  onclick = "showOutput()">View Results</button>
@@ -382,12 +387,12 @@
             </div> <!-- end container -->
         </div> <!-- end container -->
 
-        <div class="customGradient pb-5" id = "output" style = "display: None">
-            <div class="container-md bg-white shadow" style="max-width: 1050px;">
+        <div class="customBackgroundNeutral pb-5" id = "output" style = "display: None">
+            <div class="container-md mb-5 pb-5 bg-white shadow" style="max-width: 1050px;">
 
             <!-- OUTPUTS!! -->
             <div class="row py-5 px-5">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <!-- <div id = "output" style = "display: None"> -->
                     <h2 id = "vehicleInput">Output Options</h2>
                     <!-- <h3 id = "totEmissionsOutput"></h3> -->
@@ -397,39 +402,33 @@
                 </div> <!-- end col -->
             </div> <!-- end row -->
 
-            <div class="row px-5" style="">
-                <div class="col-5" style="">
+        <div class="row px-5" style="">
+            <div class="col-6 d-flex flex-column" style="">
+                <div>
                     <svg id="barChart"style="width:100%; height: 350px"></svg>
-                </div> <!-- end col -->
-                <div class="col-7">
-                    <div id=""style="width:100%; height: 80px"></div>
-                    <h3>Lifetime Emissions</h3>
-                        <div id="" style = "width:100%; height: 30px">
-                        <span id="" style ="font-family:Arial, Helvetica, sans-serif; font-size: 20px; color: #46B5B5"><b>Input Vehicle: </b></span>
-                        <span id="input_tot_emi" style ="font-family:Arial, Helvetica, sans-serif; font-size: 20px;">___</span>
-                        </div>
-                    <!-- <h5 id = "regionAvgHead">Average by Vehicle Type for Your Region (___)</h5>
-                        <div>
-                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">Internal Combustion Engine Vehicle (ICE): </span>
-                            <span id = "emiICEavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
-                        </div>
-                        <div>
-                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; Plug-In Hybrid Electric Vehicle  (PHEV): </span>
-                            <span id = "emiPHEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
-                        </div>
-                        <div>
-                            <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; &emsp; &emsp; &emsp; Battery-Electric Vehicle  (BEV): </span>
-                            <span id = "emiBEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
-                        </div> -->
-
-                        <div class="col-7"> <!-- begin-->
-                            <button class="btn btn-light btn-sm" type="button">
-                                Click to see breakdown by stage
-                              </button>
-                            <div class="" id="">
-                              <div class="card">
-                                <table>
-                                <!-- <h6 class="card-header">Sources</h6> -->
+                </div>
+                <div>
+                    <p style="font-size: 11px;">*Note: Averages shown in bar chart are based on zip code, model year, <br>and planned number of miles for driving from user inputs.</p>
+                </div>
+            </div> <!-- end col -->
+            <div class="col-6 d-flex flex-column">
+                <!-- <div id=""style="height: 80px"></div> -->
+                <div >
+                    <h3 style="color: #46B5B5;">Lifetime Emissions of your Input Vehicle:</h3>
+                    <h3 style="color: #46B5B5;" class="text-center">
+                        <span id="input_tot_emi" style ="">___</span>
+                    </h3>
+                </div>
+                <div>
+                    <p>
+                        <button class="btn btn-primary btn-lg mt-4 rounded-3 px-3 customTitleButton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            ↓ Breakdown of Emissions by Stage
+                        </button>
+                      </p>
+                      <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <table>
+                                <h6 class="card-header">Sources</h6> 
                                     <thead class="card-header">
                                         <tr>
                                             <th>Stage</th>
@@ -454,24 +453,40 @@
                                             <td><b>100%</b></td>
                                         </tr>
                                 </table>
-                              </div> <!-- end card -->
-                            </div> <!-- end collapse of drop down -->
-                          </div> <!-- end -->
+                        </div>
+                      </div>
                 </div>
-                <p style="font-size: 11px;">*Note: Averages shown in bar chart are based on zip code, model year, <br>and planned number of miles for driving from user inputs.</p>
-                <div class="col-12" style="">
-                     <svg id="equivalencies" style="width: 100%;height:200px"></svg>
-                    <svg id="equivalencies2" style="width:100%; height: 200px"></svg>
+                <div>
+                </div>
+                <!-- <h5 id = "regionAvgHead">Average by Vehicle Type for Your Region (___)</h5>
+                    <div>
+                        <span style="font-family:Arial, Helvetica, sans-serif; color:gray">Internal Combustion Engine Vehicle (ICE): </span>
+                        <span id = "emiICEavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                    </div>
+                    <div>
+                        <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; Plug-In Hybrid Electric Vehicle  (PHEV): </span>
+                        <span id = "emiPHEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                    </div>
+                    <div>
+                        <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; &emsp; &emsp; &emsp; Battery-Electric Vehicle  (BEV): </span>
+                        <span id = "emiBEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
+                    </div> -->
                 </div> <!-- end col -->
-                <div class="col-12">
+            </div> <!-- end row -->
+            <div class="row px-5" style="">
+                <div class="col-12" style="">
+                    <svg id="equivalencies" style="width: 100%;height:200px"></svg>
+                    <svg id="equivalencies2" style="width:100%; height: 200px"></svg>
                     <p style = "font-size: 11px;">*Note: Emissions calculations for equivalencies are based on US averages.</p>
-                </div>
-             </div> <!-- end row -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+
+            <hr class="border border-secondary border-4 opacity-100 p-0 m-0" /> 
 
             <!-- PER MILE EMISSIONS -->
              <div class="row px-5 pt-5" style="">
                 <div class="col-12">
-                    <h2>Estimate emissions for your road trip:</h2>
+                    <h2>Going on a Road Trip? Estimate the Emissions</h2>
                         <!-- <div style="width: 1000px;height:70px"> -->
                     <svg id="avg_text" style="width: 1000px;height:50px"></svg>
                         <!-- </div> -->
@@ -491,20 +506,16 @@
 
                 <div class="col-12 pt-4">
                     <h5>Estimated Emissions</h5>
-
                     <span id="emissions-output"> Estimated Emissions: 0 kgCO2e</span> <span><br><br></span>
                     <span id="emissions-equi" style="Display:none"></span>
-                    <div style="font-family: Arial, Helvetica, sans-serif;">
+                    <div style="">
                         This is equivalent to emissions from an average American household using electricity for:
                     </div>
                     <!-- ISOTOPES -->
                     <div style="width: 1000px;height:500px">
                         <svg id="isotopes" style="width: 1000px;height:500px"></svg>
                     </div>
-
                     <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variety of factors including road condition, weather, speed, etc.</p>
-                    
-
                 </div> <!-- end col -->
              </div> <!-- end row -->
 
@@ -512,6 +523,7 @@
         </div> <!-- end reverse gradient -->
 
         <div class="customFooter">
+            <hr class="border border-secondary border-4 opacity-100 p-0 m-0" /> 
             <div class="container-md" style="max-width: 1050px;">
               <div class="row">
                 <div class="col-8 p-5">

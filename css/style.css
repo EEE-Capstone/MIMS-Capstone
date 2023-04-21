@@ -14,7 +14,7 @@ h3, h4, h5, h6 {font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 1 px; 
     color: #39343A;}
 
-body{ font-family: 'Open Sans', sans-serif; font-weight: 400; letter-spacing: 0.1px; color: #39343A;
+body{ font-family: 'Open Sans', sans-serif; font-weight: 300; letter-spacing: 0.1px; color: #39343A; font-size: 18px; line-height: 26px;
 }
 
 .customHomeGradient {
@@ -35,6 +35,13 @@ body{ font-family: 'Open Sans', sans-serif; font-weight: 400; letter-spacing: 0.
 
 .customGradientYellow {
     background-image: linear-gradient(#ffffff, #EED991);
+}
+
+.customBackgroundNeutral {
+    background-color: #FCF8EA;
+}
+.customBackgroundDark {
+    background-color: #FFB51A;
 }
 
 .customTitleImage {
@@ -85,7 +92,7 @@ body{ font-family: 'Open Sans', sans-serif; font-weight: 400; letter-spacing: 0.
     color: #39343A;
     letter-spacing: 0.75px;
     text-transform: uppercase;
-    font-size: small;
+    font-size: medium;
     /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
     /* text-shadow: #FAFAFA 1px 0 5px; */
 }
