@@ -24,3 +24,12 @@
     font-size: large;
 
 }
+
+.customTable {
+    font-size: 14px;
+    line-height: 18px;
+    border-color: #726E73;
+    vertical-align: middle;
+    font-weight: 300;
+
+}

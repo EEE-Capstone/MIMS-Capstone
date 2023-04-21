@@ -111,10 +111,90 @@
                 <p>
                     Compared to other vehicle emission estimators, our tool accounts for the most variables, includes embodied emissions, and shows both contextualized and digestible outputs to the user.
                 </p>
-                <div class="text-center pt-3">
+
+                <table class="table table-hover table-sm customTable">
+                    <thead class="text-center">
+                      <tr>
+                        <th scope="col">Tool</th>
+                        <th scope="col">Vehicle Selection</th>
+                        <th scope="col">Location Selection</th>
+                        <th scope="col"> Direct Emissions</th>
+                        <th scope="col"> Embodied Emissions</th>
+                        <th scope="col">Contextualized Outputs</th>
+                        <th scope="col">Digestible Outputs</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider text-center">
+                      <tr class="table-warning">
+                        <th scope="row">Our <br> Emissions Explorer </th>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Evtool by Union Concerned Scientists</th>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td></td>
+                        <td></td>
+                        <td>✓</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Driveclean <br> by CARB</th>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td></td>
+                        <td>✓</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Evolution <br> by Argonne</th>
+                        <td>✓</td>
+                        <td></td>
+                        <td>✓</td>
+                        <td></td>
+                        <td>✓</td>
+                        <td>✓</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Greenercars <br> by ACEEE</th>
+                        <td>✓</td>
+                        <td></td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Beyond the Tailpipe <br> by Oak Ridge</th>
+                        <td></td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td></td>
+                        <td></td>
+                        <td>✓</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Electricity Sources and Emissions by AFDC</th>
+                        <td></td>
+                        <td></td>
+                        <td>✓</td>
+                        <td></td>
+                        <td></td>
+                        <td>✓</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                <!-- <div class="text-center pt-3">
                     <p>**replace in the future with 2x2</p>
                     <img src="../static/images/tool_comparison.png" style="width:60%">
-                </div>
+                </div> -->
                 </div> <!-- end col -->
               </div> <!-- end row -->
 
@@ -132,6 +212,7 @@
                 <div class="row d-flex">
                     <div class="col-3 p-1" style="">
                       <div class="card border-0 pt-1" style="width: 100%;">
+                        <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
                           <div class="card-body ps-5 pb-3 pt-4">
                           <h5 class="card-title text-center">Vehicle Type</h5>
                           <p class="card-text">Is the vehicle gas powered (ICE)? An electric vehicle (EV)? Or a hybrid plug-in electric vehicle (PHEV)?
@@ -141,6 +222,7 @@
                     </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
+                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Location</h5>
                             <p class="card-text">Where is the car driven and charged? Fuel emissions for electric vehicles depend on the electrical grid mix. 
@@ -150,6 +232,7 @@
                       </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
+                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Miles Driven</h5>
                             <p class="card-text">How much is the vehicle being used? Usage emissions decrease if the vehicle is driven less.
@@ -159,6 +242,7 @@
                       </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
+                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
                             <div class="card-body pe-5 pb-3 pt-4">
                             <h5 class="card-title text-center">Vehicle Size</h5>
                             <p class="card-text">How large is the car? Is it a truck, SUV, or compact? Fuel efficiency plays a role in usage emissions.
