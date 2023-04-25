@@ -333,47 +333,35 @@ function avg_emiPerMi_text() {
   const emissions_per_mile = data / life_miles
   const round_emissions_per_mile = Math.round(100 * emissions_per_mile)/100
 
-const avg_mi = d3.select("#avg_text")
-  .append("svg")
-  .append("g")
+  document.getElementById("avg-emi-output").innerHTML = `Average Emissions Per Mile: <b>${round_emissions_per_mile} kgCO2e</b>`
 
- const rect = avg_mi.append("rect")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("height", 200)
-  .attr("width", 400)
-  // .attr("rx", 15)
-  // .attr("ry", 15)
-  .style("fill", "white");
+// const avg_mi = d3.select("#avg_text")
+//   .append("svg")
+//   .append("g")
+
+//  const rect = avg_mi.append("rect")
+//   .attr("x", 0)
+//   .attr("y", 0)
+//   .attr("height", 200)
+//   .attr("width", 400)
+//   // .attr("rx", 15)
+//   // .attr("ry", 15)
+//   .style("fill", "white");
 
 // avg_mi.append('text')
 //   .attr('x', 0 )
-//   .attr('y', 25)
+//   .attr('y', 45)
 //   .style('font', '14px')
 //   .style('color', 'black')
 //   .style("font-weight", 100)
-//   .text(`Over a vehicle life of `);
+//   .text(`Average Emissions Per Mile:`);
 // avg_mi.append('text')
-//   .attr('x', 145 )
-//   .attr('y', 25)
+//   .attr('x', 195 )
+//   .attr('y', 45)
 //   .style('font', '14px')
 //   .style('color', 'black')
 //   .style("font-weight", 900)
-//   .text(`${life_years} years`);
-avg_mi.append('text')
-  .attr('x', 0 )
-  .attr('y', 45)
-  .style('font', '14px')
-  .style('color', 'black')
-  .style("font-weight", 100)
-  .text(`Average Emissions Per Mile:`);
-avg_mi.append('text')
-  .attr('x', 195 )
-  .attr('y', 45)
-  .style('font', '14px')
-  .style('color', 'black')
-  .style("font-weight", 900)
-  .text(`${round_emissions_per_mile} kgCO2e`);
+//   .text(`${round_emissions_per_mile} kgCO2e`);
 }
 
 

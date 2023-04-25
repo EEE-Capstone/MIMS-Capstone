@@ -457,6 +457,7 @@
                                         <ol id = "ICEemissionAvg"></ol>
                                         <ol id = "PHEVemissionAvg"></ol>
                                         <ol id = "BEVemissionAvg"></ol>
+                                        <ol id = "totAvg"></ol>
                                         US Grid Mix Average:
                                         <ol id = "USICEemissionAvg"></ol>
                                         <ol id = "USPHEVemissionAvg"></ol>
@@ -512,7 +513,7 @@
                       <div class="collapse" id="collapseExample">
                         <div class="card card-body">
                             <table>
-                                <h6 class="card-header">Sources</h6> 
+                                <!-- <h6 class="card-header">Sources</h6>  -->
                                     <thead class="card-header">
                                         <tr>
                                             <th>Stage</th>
@@ -572,7 +573,8 @@
                 <div class="col-12">
                     <h2>Going on a Road Trip? Estimate the Emissions</h2>
                         <!-- <div style="width: 1000px;height:70px"> -->
-                    <svg id="avg_text" style="width: 1000px;height:50px"></svg>
+                    <!-- <svg id="avg_text" style="width: 1000px;height:50px"></svg> -->
+                    <span id="avg-emi-output"> Average Emissions Per Mile:</span>
                         <!-- </div> -->
                 </div> <!-- end col -->
 
@@ -817,10 +819,12 @@
     var iceList = []
     var phevList = []
     var bevList = []
+    var yearList = []
 
     var avgICE = []
     var avgPHEV = []
     var avgBEV = []
+    var avgYear = []
 
     var USavgICE = []
     var USavgPHEV = []
@@ -1108,13 +1112,18 @@ function showMilesDrive() {
             // var y = document.getElementById("secondSubmit");
             // y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "Zip Code not found. Please double check your 5-digit zip code!"
-        }
-        else if (avg_miles > 1000000) {
+        } else if (avg_miles > 1000000) {
             var x = document.getElementById("warningmessage");
             x.style.display = "block"
             // var y = document.getElementById("secondSubmit");
             // y.style.display = "none"
             return document.getElementById("warningmessage").innerHTML = "The maximum number of miles planned on driving is 1,000,000."
+        } else if (document.getElementById("yearsOwn_res").innerHTML < 0) {
+            var x = document.getElementById("warningmessage");
+            x.style.display = "block"
+            // var y = document.getElementById("secondSubmit");
+            // y.style.display = "none"
+            return document.getElementById("warningmessage").innerHTML = "Please enter a positive number of years planned on driving."
         } else if (document.getElementById("zip").value.match(/\d{5,5}/)) {
             var x = document.getElementById("warningmessage");
             x.style.display = "none"
@@ -1428,6 +1437,16 @@ function process_vehicle(Vehicle, Manufacturing, LI_Battery, NIMH_Battery, emiss
     return lifetime_emissions
 }
 
+function findYear(full_data) {
+    let year = document.getElementById("selYear")
+    var year_data = year.options[year.selectedIndex].text
+    //var type_data = "ICE"
+    var data = full_data.filter(function (el) {
+        return el.Year === Number(year_data)  //&& el.atvTypeAbbrev === type_data 
+    })
+    return data
+}
+
 function findICE(full_data) {
     let year = document.getElementById("selYear")
     var year_data = year.options[year.selectedIndex].text
@@ -1505,7 +1524,7 @@ function getVehicle(full_data) {
     return data[0]
 }
 
-function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change to kgs
+function emissions_eval(data, ice, phev, bev, year, USice, USphev, USbev) { // change to kgs
     document.getElementById("totalEmissions").innerHTML = data[4] / 1000
     document.getElementById("totalBattery").innerHTML = data[0] / 1000
     document.getElementById("totalVehicle").innerHTML = data[1] / 1000
@@ -1520,6 +1539,7 @@ function emissions_eval(data, ice, phev, bev, USice, USphev, USbev) { // change 
     document.getElementById("ICEemissionAvg").innerHTML = ice / 1000
     document.getElementById("PHEVemissionAvg").innerHTML = phev / 1000
     document.getElementById("BEVemissionAvg").innerHTML = bev / 1000
+    document.getElementById("totAvg").innerHTML = year / 1000
     document.getElementById("USICEemissionAvg").innerHTML = USice / 1000
     document.getElementById("USPHEVemissionAvg").innerHTML = USphev / 1000
     document.getElementById("USBEVemissionAvg").innerHTML = USbev / 1000
@@ -1537,6 +1557,7 @@ function ajaxCall1(){
             iceList = findICE(response);
             phevList = findPHEV(response)
             bevList = findEV(response)
+            yearList = findYear(response)
             ajaxCall2();
         }
     });
@@ -1571,10 +1592,11 @@ function ajaxCall4(){
             avgICE = getAvg(iceList);
             avgPHEV = getAvg(phevList);
             avgBEV = getAvg(bevList);
+            avgYear = getAvg(yearList);
             USavgICE = getUSAvg(iceList)
             USavgPHEV = getUSAvg(phevList)
             USavgBEV = getUSAvg(bevList)
-            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, USavgICE, USavgPHEV, USavgBEV);
+            emissions_eval(vehicle_emissions_array, avgICE, avgPHEV, avgBEV, avgYear, USavgICE, USavgPHEV, USavgBEV);
             outputViz()
         }
     });
