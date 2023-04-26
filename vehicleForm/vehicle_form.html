@@ -95,13 +95,13 @@
               <div class="row pt-2">
                 <div class="col-12 pt-3 px-5">
                 <h5>What <u>data</u> do we use?</h5> 
-                <ul class="pt-3">
+                <p>We use data from the EPA for vehicle information and emissions from U.S. grid regions. We also use data from the GREET® Model for vehicle manufacturing.</p>
+                <!-- <ul class="pt-3">
                     <li>EPA Vehicle Data - tells us information about the range, efficiency, and specification details for a vehicle </li>
                     <li>EPA Vehicle Test - tells us the EPA adjusted estimated weight of the vehicle</li>
                     <li>EPA EGrid Power Data - tells us the emissions data for all grid regions in the U.S.</li>
                     <li>GREET® Model Data - tells us the emissions associated with vehicle manufacturing</li>
-
-                </ul>
+                </ul> -->
                 </div> <!-- end col -->
               </div> <!-- end row -->
 
@@ -109,8 +109,7 @@
                 <div class="col-12 pt-3 px-5">
                 <h5>What makes our tool unique?</h5> 
                 <p>
-                    Compared to other vehicle emission estimators, our tool accounts for the most variables, includes embodied emissions, and shows both contextualized and digestible outputs to the user.
-                </p>
+                    Compared to other vehicle emission estimators, our tool accounts for the most variables, includes embodied emissions (production and end-of-life phases), and shows both contextualized and digestible outputs to the user.
 
                 <table class="table table-hover table-sm customTable">
                     <thead class="text-center">
@@ -211,18 +210,18 @@
 
                 <div class="row d-flex">
                     <div class="col-3 p-1" style="">
-                      <div class="card border-0 pt-1" style="width: 100%;">
-                        <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
-                          <div class="card-body ps-5 pb-3 pt-4">
+                      <div class="card border-0 pt-1 " style="width: 100%;">
+                        <img  class="" src="../static/images/factorsofLCA/vehicletype.png" style="width:25%; margin: auto;">
+                          <div class="card-body pb-3 pt-4">
                           <h5 class="card-title text-center">Vehicle Type</h5>
-                          <p class="card-text">Is the vehicle gas powered (ICE)? An electric vehicle (EV)? Or a hybrid plug-in electric vehicle (PHEV)?
+                          <p class="card-text ps-2">Is the vehicle gas powered (ICE)? An electric vehicle (EV)? Or a hybrid plug-in electric vehicle (PHEV)?
                           </p>
                         </div>
                       </div> <!-- end card -->
                     </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
+                            <img src="../static/images/factorsofLCA/location.png" style="width:25%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Location</h5>
                             <p class="card-text">Where is the car driven and charged? Fuel emissions for electric vehicles depend on the electrical grid mix. 
@@ -232,7 +231,7 @@
                       </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
+                            <img src="../static/images/factorsofLCA/milesdriven.png" style="width:25%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Miles Driven</h5>
                             <p class="card-text">How much is the vehicle being used? Usage emissions decrease if the vehicle is driven less.
@@ -242,8 +241,8 @@
                       </div>  <!-- end col -->
                       <div class="col-3 p-1" style="">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/gridmix/nonrenewable.png" style="width:25%; margin: auto;">
-                            <div class="card-body pe-5 pb-3 pt-4">
+                            <img src="../static/images/factorsofLCA/vehiclesize.png" style="width:25%; margin: auto;">
+                            <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Vehicle Size</h5>
                             <p class="card-text">How large is the car? Is it a truck, SUV, or compact? Fuel efficiency plays a role in usage emissions.
                             </p>
@@ -255,13 +254,21 @@
 
                 <div class="row pt-2">
                     <div class="col-12 pt-3 px-5">
-                        <div class="text-center">
-                            <h5>Year</h5>
+                        <div class="d-flex m-auto justify-content-center align-items-center">
+                            <img src="../static/images/factorsofLCA/year.png" style="width:70px;">
+                            <h5 class="ps-3">Year</h5>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p class="w-50 text-center">Vehicle emissions from vehicles change from year to year to comply with fuel economy standards and other requirements.</p>
+
                         </div>
                         
                         <!-- DESCRIPTION OF THE CHART -->
                         <hr class="border border-secondary border-1 opacity-100" /> 
-                        <h5>Drag the slider to a year to see lifetime emissions of vehicle models released <br> that year compared to vehicle models released in 2000. 
+                        <!-- <h5>Drag the slider to a year to see lifetime emissions of vehicle models released <br> that year compared to vehicle models released in 2000. 
+                        </h5> -->
+                        <h5>
+                            With our tool's vehicle data, you can see trends of vehicle lifetime emissions over the last 23 years.  
                         </h5>
                         <hr class="border border-secondary border-1 opacity-100" /> 
                         <br>
@@ -284,7 +291,7 @@
             <div class="container-md bg-white mb-5 shadow" style="max-width: 1050px;">
               <div class="row pb-1">
                 <div class="col-12 px-5 pt-5 text-center">
-                  <h3>Calculate Vehicle Lifetime Emissions</h3>
+                  <h3>Calculate a Vehicle's Lifetime Emissions</h3>
                   <!-- <p><br>Cupcake oat cake lemon drops tiramisu tiramisu dessert chupa chups caramels gummi bears. Wafer lollipop candy canes pie carrot cake oat cake pie cake. Chocolate cake gummies biscuit carrot cake candy canes bear claw sesame snaps powder. Pastry wafer shortbread dragée lollipop.</p> -->
                 </div> <!-- end col -->
               </div> <!-- end row -->
