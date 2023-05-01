@@ -367,7 +367,7 @@
                             <div class="col-8">
                                 <label for="selType" class="form-label">Vehicle Type</label>
                                 <select name = "Selected Type" id="selType" onchange = "showType()" required class="w-75">
-                                    <option value="Internal Combustion Vehicles (ICE)" selected = "selected">Internal Combustion Vehicles (ICE)</option>
+                                    <option value="Internal Combustion Vehicle (ICE)" selected = "selected">Internal Combustion Vehicle (ICE)</option>
                                 </select>                                 
                                 <!-- <div id="selTypeHelp" class="form-text">ICE, PHEV, BEV</div> -->
                             </div> <!-- end col -->
@@ -443,7 +443,7 @@
                                         <ol id = "subregion">CAMX</ol>
                                         <ol id = "CO2eRate">206.498211592</ol>
                                         <ol id = "year_res">2023</ol>
-                                        <ol id = "type_res">Internal Combustion Vehicles (ICE)</ol>
+                                        <ol id = "type_res">Internal Combustion Vehicle (ICE)</ol>
                                         <ol id = "make_res"></ol>
                                         <ol id = "model_res"></ol>
                                         <ol id = "config_res"></ol>
@@ -731,7 +731,7 @@
                 clearSelectMake();
                 clearSelectModel();
                 clearSelectConfig();
-                document.getElementById("type_res").innerHTML = "";
+                document.getElementById("type_res").innerHTML = "Internal Combustion Vehicle (ICE)";
                 populateSelectType(response)
                 populateSelectMake(response)
             }
@@ -912,7 +912,7 @@ function showVehicle(full_data) {
   function populateSelectType(full_data) {
 
     let ele = document.getElementById('selType');
-    ele.innerHTML = '<option>' + "Internal Combustion Vehicles (ICE)" + '</option>';
+    ele.innerHTML = '<option>' + "Internal Combustion Vehicle (ICE)" + '</option>';
     var types = []
     let year = document.getElementById('selYear')
     var year_data = year.options[year.selectedIndex].text
