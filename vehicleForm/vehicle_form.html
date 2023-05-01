@@ -1291,7 +1291,7 @@ function get_battery_recycling_emissions(battery_weight, emittant,
     var pollutant_emissions = emittant_dict[0][emittant]
 
     function emissionsCalc(a,b){
-        return a.map((e,i) => e * b[i]); // potentially a.map((e,i) => e * b[i] * battery_weight_new);
+        return a.map((e,i) => e * b[i] * battery_weight_new);
     }
 
     var emissions_array = emissionsCalc(method_weights, pollutant_emissions)
