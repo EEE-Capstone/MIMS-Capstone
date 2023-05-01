@@ -1011,7 +1011,7 @@ var make_data = make.options[make.selectedIndex].text
 let model = document.getElementById("selModel")
 var model_data = model.options[model.selectedIndex].text
 var data = full_data.filter(function (el) {
-    return el.Year.toString() === year_data  && el.atvType === type_data && el.Make === make_data && el.Model === model_data
+    return el.Year.toString() === year_data  && el.atvType === type_data && el.Make === make_data && el.Model.toString() === model_data
 })
 for (let i = 0; i < data.length; i++) {
     // populate select element with json.
@@ -1217,6 +1217,29 @@ function weighted_emissions_calc(vehicle_weight, mass_fractions, emissions_vecto
     return weighted_emissions
 }
 
+const H2w = [0.77, 0.165, 0.165] // from CA standard: 33% 'renewable',assumed as 50/50 green elecrtrolysis/biomethane
+// gCo2e/MJ https://ww2.arb.ca.gov/sites/default/files/classic/fuels/lcfs/ca-greet/lut-doc.pdf
+const H2CO2e = [117.67, 99.48, 10.51] 
+
+function get_FCV_usage_emissions(vehicle_efficiency, miles_estimated, 
+                                hydrogen_weights = H2w, emissions_vector_hydrogen = H2CO2e) {
+    ///assumes vehicle efficiency entered in mpge
+    // model as efficiency*distance*emissions_intensity
+    // emissions_intensity is weighted sum of emissions intensities
+
+    function intensityCalc(a,b){
+        return a.map((e,i) => e * b[i]);
+    }
+
+    var intensity_array = intensityCalc(hydrogen_weights, emissions_vector_hydrogen)
+    var total_intensity = intensity_array.reduce((partialSum, a) => partialSum + a, 0)
+
+    // mpg ~ m/kgH2
+    // 120 MJ/kg H2 (energy.gov)
+    var usage_emissions = (vehicle_efficiency ** -1) * miles_estimated * total_intensity * 120
+    return usage_emissions
+}
+
 function get_HEV_battery_emissions(battery_weight, LI_emissions_manufacturing, NIMH_emissions_manufacturing, emissions_type, vehicle_type) {
     var batt_mass_fraction = []
     var batt_emissions_vector = []
@@ -1249,6 +1272,41 @@ function get_fuel_carbon() {
     return carbon_per_MJ * energy_per_gallon * 0.001055  // from GREET WTW calculator, GREET1 model with US fuel mix
 }
 
+// emissions in grams per ton of battery recycled
+const co2_batt = [2109062, 1909883, 687417, 553818] 
+const ch4_batt = [2311.495, 4519.279, 1085.902, 705.049]
+const n2O_batt = [21.374, 38.675, 36.109, 6.781]
+// const battery_recycling_emissions_dict = [{"pollutant": "CO2", "recycling_emi": co2_batt}, {"pollutant": "CH4", "recycling_emi": ch4_batt}, {"pollutant": "N2O", "recycling_emi": n2O_batt}]
+
+const battery_recycling_emissions_dict = [{'CO2': co2_batt, 'CH4': ch4_batt, 'N2O': n2O_batt}]
+
+function get_battery_recycling_emissions(battery_weight, emittant,
+                                    method_weights = [0.25, 0.30, 0.30, 0.15], emittant_dict = battery_recycling_emissions_dict) {
+    //gets battery recycling emissions, takes battery_weight in lbs and converts to tons.
+
+    var battery_weight_new = battery_weight / 2000 // convert to tons from lbs
+    // var pollutant_emissions = emittant_dict.filter(function (el) {
+    //     return el.pollutant === emittant
+    // })
+    var pollutant_emissions = emittant_dict[0][emittant]
+
+    function emissionsCalc(a,b){
+        return a.map((e,i) => e * b[i]); // potentially a.map((e,i) => e * b[i] * battery_weight_new);
+    }
+
+    var emissions_array = emissionsCalc(method_weights, pollutant_emissions)
+    var emissions_sum = emissions_array.reduce((partialSum, a) => partialSum + a, 0)
+    
+    return emissions_sum
+}
+    
+function get_charging_loss(percent_lost = 16.6, grid_loss = 5.5) {
+    // assume charging loss of 16.6% from: https://www.mdpi.com/2624-8921/3/4/43
+    // assume grid loss of 5.5% calculate from: https://www.eia.gov/totalenergy/data/flow-graphs/electricity.php
+
+    return (1 / (1 - (percent_lost * 0.01))) * (1 / (1 - (grid_loss * 0.01)))
+}
+
 function get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) {
     //implement PHEV emissions calculation using EPA utility factor
     var utility_factor = Vehicle.combinedUF
@@ -1256,7 +1314,7 @@ function get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) {
     var permile_electric_eff = electric_eff / 100
     var combined_mpge = Vehicle.comb08
 
-    var grid_carbon = grid_intensity * permile_electric_eff * miles_estimated 
+    var grid_carbon = grid_intensity * permile_electric_eff * miles_estimated * get_charging_loss();
     var fuel_carbon = (combined_mpge ** -1) * miles_estimated * get_fuel_carbon() 
     // consumption in hybrid mode (EV mode is zero fuel)
 
@@ -1287,7 +1345,7 @@ function get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type,
         batt_mass_fraction.push(LI_battery_emissions_manufacturing[i][emissions_type])
     }
 
-    var vehi_sum = weighted_emissions_calc(vehicle_weight, veh_mass_fraction, veh_emissions_vector)     
+    //var vehi_sum = weighted_emissions_calc(vehicle_weight, veh_mass_fraction, veh_emissions_vector)     
     
     if (vehicle_type === 'ICE_conv') {
         var battery_sum = 0
@@ -1305,6 +1363,9 @@ function get_embodied_emissions(vehicle_weight, battery_weight, vehicle_type,
         var battery_sum = weighted_emissions_calc(battery_weight, batt_mass_fraction, batt_emissions_vector)
         var fluids = 82000
     }
+
+    var net_vehicle_weight = vehicle_weight - battery_weight
+    var vehi_sum = weighted_emissions_calc(net_vehicle_weight, veh_mass_fraction, veh_emissions_vector)
 
     if (emissions_type === 'CO2') {
         // terms assumed constant:
@@ -1330,6 +1391,8 @@ function get_usage_emissions(Vehicle, vehicle_fuel_economy, vehicle_class, miles
         return grid_carbon //carbon per kwh*kwh/gallon
     } else if (vehicle_class === "PHEV") { //assume vehicle is driven in combined cycle (battery and engine)
         return get_PHEV_usage_emissions(Vehicle, miles_estimated, grid_intensity) // 8.9 kgC02 per gallon
+    } else if (vehicle_class === "FCV") {
+        return get_FCV_usage_emissions(vehicle_fuel_economy, miles_estimated, hydrogen_weights = H2w, emissions_vector_hydrogen = H2CO2e)
     } else {
         return 0
     }
@@ -1403,11 +1466,13 @@ function process_vehicle(Vehicle, Manufacturing, LI_Battery, NIMH_Battery, emiss
     var vehicle_fuel_economy = Vehicle.Highway08U * 0.55 + Vehicle.City08U * 0.45 // combined fuel economy (EPA.gov)
     var vehicle_weight = Vehicle.AdjWeight
     var vehicle_class = Vehicle.atvTypeAbbrev
+    var vehicle_year = Vehicle.Year
     var vehicle_type = conv_or_lw(vehicle_class)
     var battery_weight = est_battery_weight_from_vehicle(Vehicle)
 
     var total_embodied = 0
     //var total_battery_assembly = 0
+    //var total_battery_recycling = 0
     var total_battery = 0
     var total_vehicle = 0
 
@@ -1419,13 +1484,16 @@ function process_vehicle(Vehicle, Manufacturing, LI_Battery, NIMH_Battery, emiss
         var battery = embodied_array[0]
         var vehicle = embodied_array[1]            
         var batt_assembly = est_battery_assembly_emissions(Vehicle, emittant)
+        var batt_recycling = get_battery_recycling_emissions(battery_weight, emittant)
         var total = embodied_array[2]
         battery += batt_assembly
         total += batt_assembly
+        total += batt_recycling
         var embodied_CO2e = get_CO2e(total, emittant)
         var battery_CO2e = get_CO2e(battery, emittant)
         var vehicle_CO2e = get_CO2e(vehicle, emittant)
-        //var battery_assemble_CO2e = get_CO2e(vehicle, emittant)
+        //var battery_assembly_CO2e = get_CO2e(batt_assembly, emittant)
+        //var battery_recycling_CO2e = get_CO2e(batt_recycling, emittant)
 
         total_embodied += embodied_CO2e // for every emittant, add to total
         //total_battery_assembly += battery_assemble_CO2e
@@ -1526,7 +1594,7 @@ function getVehicle(full_data) {
     var model_data = model.options[model.selectedIndex].text
     var configuration = document.getElementById("config_res").innerHTML
     var data = full_data.filter(function (el) {
-        return el.Year === Number(year_data)  && el.atvType === type_data && el.Make === make_data && el.Model === model_data && el.Config === configuration
+        return el.Year === Number(year_data)  && el.atvType === type_data && el.Make === make_data && el.Model.toString() === model_data && el.Config === configuration
     })
     return data[0]
 }
