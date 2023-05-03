@@ -62,8 +62,8 @@ function perMileFunction() {
 
     iso_container
       .insert('rect')
-      .attr('width', 900)
-      .attr('height', 1000) // EDIT HEIGHT to height (200)
+      .attr('width', 700)
+      .attr('height', 8000) // EDIT HEIGHT to height (200)
       .attr('x', 0)
       .attr('y', 0)
       .attr('fill', "white")
@@ -137,7 +137,7 @@ function perMileFunction() {
   iso_container
     .insert('rect')
     .attr('width', 1000)
-    .attr('height', 500) // EDIT HEIGHT to height (200)
+    .attr('height', 1000) // EDIT HEIGHT to height (200)
     .attr('x', 0)
     .attr('y', 0)
     .attr('fill', "white")
@@ -627,7 +627,7 @@ const title2 = container
   .attr('x', 0)
   .attr('y', 15) //310
   .style("font", "14px sans-serif")
-  .text(`Lifetime Emissions Comparison to Vehicle Type Average`)
+  .text(`Lifetime Emissions Comparison to Vehicle Type Averages`)
 
 // const reg_avg = container
 //   .append('text')
