@@ -62,7 +62,7 @@ function perMileFunction() {
 
     iso_container
       .insert('rect')
-      .attr('width', 700)
+      .attr('width', 550)
       .attr('height', 8000) // EDIT HEIGHT to height (200)
       .attr('x', 0)
       .attr('y', 0)
@@ -136,7 +136,7 @@ function perMileFunction() {
 
   iso_container
     .insert('rect')
-    .attr('width', 700)
+    .attr('width', 550)
     .attr('height', 1000) // EDIT HEIGHT to height (200)
     .attr('x', 0)
     .attr('y', 0)
