@@ -626,7 +626,7 @@ const title2 = container
   .append('text')
   .attr('x', 0)
   .attr('y', 15) //310
-  .style("font", "14px sans-serif")
+  .style("font", "15px sans-serif")
   .text(`Lifetime Emissions Comparison to Vehicle Type Averages`)
 
 // const reg_avg = container
