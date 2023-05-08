@@ -10,7 +10,7 @@ The **Hidden Emissions of Electric Vehicles and Emissions Explorer**, were ideat
 
 ---
 ### How to use the tool
-Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html), and enter a year, make and model for a vehicle you're interested in learning more about. Then, enter a zip-code and how long you expect to own or drive the vehicle for and press submit! We will calculate an emissions estimate for your vehicle that looks something like this: 
+Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html). Then, enter a year, make and model for a vehicle you're interested in; a zip-code where you expect to drive, and an estimated owernship time. Hit submit, and we will calculate an emissions estimate for your vehicle! It should look something like this example:
 ![alt text](https://github.com/EEE-Capstone/MIMS-Capstone/blob/main/EE_output.png)
 
 
