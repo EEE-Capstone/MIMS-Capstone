@@ -54,7 +54,7 @@
               <div class="container-md" style="max-width: 1050px;">
                 <div class="row pb-5 d-flex align-items-center" style="height: 200px;">
                   <div class="col-12 p-5 customTitleText">
-                    <h1 class="customTitleText" id="header">Emissions Explorer Tool</h1>
+                    <h1 class="customTitleText" id="header">Emissions Explorer</h1>
                   </div> <!-- end col -->
                 </div> <!-- end row -->
               </div> <!-- end container -->
@@ -67,13 +67,14 @@
             <div class="container-md pb-5 my-5 bg-white shadow" style="max-width: 1050px;">
               <div class="row pt-5">
                 <div class="col-12 pt-3 px-5 text-center">
-                  <h3>Emissions Explorer estimates the lifetime emissions of a chosen vehicle.</h3>
+                  <h3>Emissions Explorer estimates the lifetime emissions of your chosen vehicle.</h3>
                 </div> <!-- end col -->
               </div> <!-- end row -->
 
               <div class="row pt-2">
                 <div class="col-12 pt-5 px-5">
-                <h5>Lifetime Emissions is the sum of emissions from all stages of life.</h5> 
+                <h5>We calculate lifetime emissions by adding up emissions estimates from each stage of a vehicle’s life. 
+                </h5> 
                 <div class="text-center pt-3">
                     <img src="../static/images/LCA/LCALine.png" style="width:90%">
                 </div>
@@ -86,8 +87,9 @@
                 <p class="pt-3">
                     We take your inputs of: vehicle year, make, model, & configuration, ZIP code, and estimated ownership time. 
                     <br><br>
-                    With this information, we use the <a href="https://greet.es.anl.gov/" target="_blank" class="link-dark link-offset-2">GREET® model built by Argonne National Laboratory</a> to calculate the lifetime emissions.
-                    <br>GREET stands for Greenhouse gases, Regulated Emissions, and Energy use in Technologies Model.
+                    We use this information, coupled with data from the <a href="https://greet.es.anl.gov/" target="_blank" class="link-dark link-offset-2">GREET® model (Argonne National Laboratory)</a> EPA vehicle data, and EPA grid emissions data, to calculate lifetime emissions. 
+                    <br>
+                    GREET stands for Greenhouse gasses, Regulated Emissions, and Energy use in Technologies Model, and is the standard open-source vehicle LCA model.
                 </p>
                 </div> <!-- end col -->
               </div> <!-- end row -->
@@ -95,7 +97,7 @@
               <div class="row pt-2">
                 <div class="col-12 pt-3 px-5">
                 <h5>What data do we use?</h5> 
-                <p>We use data from the EPA for vehicle information and emissions from U.S. grid regions. We also use data from the GREET® Model for vehicle manufacturing.</p>
+                <p>We use data from the EPA for vehicle information and emissions from U.S. grid regions. We also use data from the GREET® Model to calculate emissions from the production and end-of-life emissions phases.</p>
                 <!-- <ul class="pt-3">
                     <li>EPA Vehicle Data - tells us information about the range, efficiency, and specification details for a vehicle </li>
                     <li>EPA Vehicle Test - tells us the EPA adjusted estimated weight of the vehicle</li>
@@ -109,8 +111,9 @@
                 <div class="col-12 pt-3 px-5">
                 <h5>What makes our tool unique?</h5> 
                 <p>
-                    Compared to other vehicle emission estimators, our tool accounts for the most variables, includes embodied emissions (production and end-of-life phases), and shows both contextualized and digestible outputs to the user.
-
+                    Emissions Explorer combines location, vehicle, and mileage inputs from the user, calculates embodied emissions (production and end-of-life phases), and provides a contextualized and digestible final output. 
+                    <br>
+                    Our tool is the first consumer tool to integrate these features. We provide further comparison to other tools below.
                 <table class="table table-hover table-sm customTable">
                     <thead class="text-center">
                       <tr>
