@@ -26,8 +26,8 @@
 }
 
 .customTable {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: min(1.75vw, 14px);
+    line-height: 150%;
     border-color: #726E73;
     vertical-align: middle;
     font-weight: 300;

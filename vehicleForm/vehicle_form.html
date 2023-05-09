@@ -211,47 +211,47 @@
                   </div> <!-- end col -->
                 </div> <!-- end row -->
 
-                <div class="row d-flex">
-                    <div class="col-3 p-1" style="">
+                <div class="row d-flex justify-content-center">
+                    <span class="p-1" style="width: 260px">
                       <div class="card border-0 pt-1 " style="width: 100%;">
-                        <img  class="" src="../static/images/factorsofLCA/vehicletype.png" style="width:25%; margin: auto;">
+                        <img  class="" src="../static/images/factorsofLCA/vehicletype.png" style="width:27%; margin: auto;">
                           <div class="card-body pb-3 pt-4">
                           <h5 class="card-title text-center">Vehicle Type</h5>
                           <p class="card-text ps-2">Is the vehicle gas powered (ICE)? An electric vehicle (EV)? Or a hybrid plug-in electric vehicle (PHEV)?
                           </p>
                         </div>
                       </div> <!-- end card -->
-                    </div>  <!-- end col -->
-                      <div class="col-3 p-1" style="">
+                    </span>  <!-- end col -->
+                      <span class="p-1" style="width: 260px">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/factorsofLCA/location.png" style="width:25%; margin: auto;">
+                            <img src="../static/images/factorsofLCA/location.png" style="width:27%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Location</h5>
                             <p class="card-text">Where is the car driven and charged? Fuel emissions for electric vehicles depend on the electrical grid mix. 
                             </p>
                           </div>
                         </div> <!-- end card -->
-                      </div>  <!-- end col -->
-                      <div class="col-3 p-1" style="">
+                    </span>  <!-- end col -->
+                      <span class="p-1" style="width: 260px">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/factorsofLCA/milesdriven.png" style="width:25%; margin: auto;">
+                            <img src="../static/images/factorsofLCA/milesdriven.png" style="width:27%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Miles Driven</h5>
                             <p class="card-text">How much is the vehicle being used? Usage emissions decrease if the vehicle is driven less.
                             </p>
                           </div>
                         </div> <!-- end card -->
-                      </div>  <!-- end col -->
-                      <div class="col-3 p-1" style="">
+                    </span>  <!-- end col -->
+                      <span class=" p-1" style="width: 260px">
                         <div class="card border-0 pt-1" style="width: 100%;">
-                            <img src="../static/images/factorsofLCA/vehiclesize.png" style="width:25%; margin: auto;">
+                            <img src="../static/images/factorsofLCA/vehiclesize.png" style="width:27%; margin: auto;">
                             <div class="card-body pb-3 pt-4">
                             <h5 class="card-title text-center">Vehicle Size</h5>
                             <p class="card-text">How large is the car? Is it a truck, SUV, or compact? Fuel efficiency plays a role in usage emissions.
                             </p>
                           </div>
                         </div> <!-- end card -->
-                      </div>  <!-- end col -->
+                    </span>  <!-- end col -->
                 
                   </div> <!-- end row -->
 
@@ -358,18 +358,19 @@
                                 <!-- <img src="../static/images/emissionsExplorer/1.png" class="" style="width: 50px; height: 50px"> -->
                             </div>
                         </div> <!-- end row -->
-                        <div class=" row pt-4 d-flex justify-content-start">
-                            <div class="col-4">
+                        <div class = " row pt-5 justify-content-center">
+                        <!-- <div class=" row pt-4 d-flex justify-content-start"> -->
+                            <div class="col-auto justify-content-end">
                                 <label for="selYear" class="form-label">Vehicle Year</label>
-                                <select name = "Selected Year" id="selYear" onchange = "showYear()" required class="w-50">
+                                <select name = "Selected Year" id="selYear" onchange = "showYear()" required class="" style = "width:100px">
                                     <option value="2023" selected = "selected" class="text-center">2023</option>
                                 </select>
                                 <!-- <div id="selYearHelp" class="form-text">Text Help -- Select a Year --</div> -->
                             </div> <!-- end col -->
 
-                            <div class="col-8">
+                            <div class="col-auto">
                                 <label for="selType" class="form-label">Vehicle Type</label>
-                                <select name = "Selected Type" id="selType" onchange = "showType()" required class="w-75">
+                                <select name = "Selected Type" id="selType" onchange = "showType()" required class="w-75" >
                                     <option value="Internal Combustion Vehicle (ICE)" selected = "selected">Internal Combustion Vehicle (ICE)</option>
                                 </select>                                 
                                 <!-- <div id="selTypeHelp" class="form-text">ICE, PHEV, BEV</div> -->
@@ -385,10 +386,10 @@
                                     <option value="" selected = "selected"> -- Select a Year First --</option>
                             </select> 
                         </span> -->
-                        <div class="row pt-4">
+                        <div class="row pt-4 justify-content-center">
                             <div class="col-auto">
                                 <label for="selMake" class="form-label">Make</label>
-                                <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
+                                <select name = "Selected Make" id="selMake" class="text-center" style = "width:190px" onchange = "showMake()" required>
                                     <option value="" selected = "selected" > -- Select a Type First --</option>
                                 </select>
                                 <!-- <div id="selMakeHelp" class="form-text">Text Help</div> -->
@@ -396,7 +397,7 @@
 
                             <div class="col-auto">
                                 <label for="selModel" class="form-label">Model</label>
-                                <select name = "Selected Make" id="selModel" onchange = "showModel()" required>
+                                <select name = "Selected Make" id="selModel" class="text-center" style = "width:190px" onchange = "showModel()" required>
                                     <option value="" selected = "selected" > -- Select a Make First --</option>
                                 </select>                                 
                                 <!-- <div id="selModelHelp" class="form-text">Make Help</div> -->
@@ -416,6 +417,7 @@
                                 </span>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
+                    <!-- </div> -->
                         <!-- <span>
                             Make: <select name = "Selected Make" id="selMake" onchange = "showMake()" required>
                                 <option value="" selected = "selected"> -- Select a Type First --</option>
@@ -497,16 +499,8 @@
                 </div> <!-- end col -->
             </div> <!-- end row -->
 
-        <div class="row px-5" style="">
-            <div class="col-6 d-flex flex-column" style="">
-                <div>
-                    <svg id="barChart" viewBox="0 0 400 350" preserveAspectRatio="xMidYMid meet"></svg>
-                </div>
-                <div>
-                    <p style="font-size: 11px;">*Note: Averages shown in bar chart are based on zip code, model year, <br>and planned number of miles for driving from user inputs.</p>
-                </div>
-            </div> <!-- end col -->
-            <div class="col-6 d-flex flex-column">
+        <div class="row px-5 justify-content-center" style="" dir="rtl">
+            <span class="col-6 d-flex flex-column" style="min-width:280px" dir="ltr">
                 <!-- <div id=""style="height: 80px"></div> -->
                 <div >
                     <h3 style="color: #46B5B5;">Lifetime Emissions of your Input Vehicle:</h3>
@@ -566,12 +560,20 @@
                         <span style="font-family:Arial, Helvetica, sans-serif; color:gray">&emsp; &emsp; &emsp; &emsp; Battery-Electric Vehicle  (BEV): </span>
                         <span id = "emiBEVavg" style="font-family:Arial, Helvetica, sans-serif; text-align:right;">__</span>
                     </div> -->
-                </div> <!-- end col -->
+                </span> <!-- end col -->
+                <span class="col-6 d-flex flex-column" style="min-width:300px" dir="ltr">
+                    <div>
+                        <svg id="barChart" viewBox="0 0 400 350" preserveAspectRatio="xMidYMid meet"></svg>
+                    </div>
+                    <div>
+                        <p style="font-size: 11px;">*Note: Averages shown in bar chart are based on zip code, model year, and planned number of miles for driving from user inputs.</p>
+                    </div>
+                </span> <!-- end col -->
             </div> <!-- end row -->
             <div class="row px-5" style="">
                 <div class="col-12" style="">
-                    <svg id="equivalencies" viewBox="0 0 925 200" preserveAspectRatio="xMidYMid meet"></svg>
-                    <svg id="equivalencies2" viewBox="0 0 925 200" preserveAspectRatio="xMidYMid meet"></svg>
+                    <svg id="equivalencies" viewBox="0 0 925 200" preserveAspectRatio="xMidYMid meet" style="min-width:300px"></svg>
+                    <svg id="equivalencies2" viewBox="0 0 925 200" preserveAspectRatio="xMidYMid meet" style="min-width:300px"></svg>
                     <!-- <svg id="equivalencies2" style="width:100%; height: 200px"></svg> -->
                     <p style = "font-size: 11px;">*Note: Emissions calculations for equivalencies are based on US averages.</p>
                 </div> <!-- end col -->
@@ -592,7 +594,7 @@
                 <div class="col-6">
                     <form>
                         <label for="miles" class="form-label">Enter number of miles:</label>
-                        <input type="text" class="form-control w-25" id="miles" value="0" min="0" max="9999" maxlength="5" oninput="return perMileFunction()"/> 
+                        <input type="text" class="form-control" style="width:100px" id="miles" value="0" min="0" max="9999" maxlength="5" oninput="return perMileFunction()"/> 
                         <div id="miles" class="form-text">Minimum Number of Miles: 1, Maximum: 9999</div>
                         <!-- <button type="button" onclick="return perMileFunction()">Enter  </button> -->
                     </form>
@@ -611,7 +613,7 @@
                     <!-- ISOTOPES -->
                     <!-- <div style="width: 1000px;height:500px"> -->
                     <div>
-                        <svg id="isotopes"  viewBox="0 0 800 700" preserveAspectRatio="xMidYMid meet"></svg> 
+                        <svg id="isotopes"  viewBox="0 0 800 700" preserveAspectRatio="xMidYMid meet" style="min-width:300px"></svg> 
                         <!-- style="width: 1000px;height:500px" -->
                     </div>
                     <p style = "font-size:10px">Note: This estimate is based on overall LCA. The actual emissions per mile will depend on a variety of factors including road condition, weather, speed, etc.</p>
