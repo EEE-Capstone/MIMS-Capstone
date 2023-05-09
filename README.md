@@ -8,9 +8,10 @@ Our Emissions Explorer allows a user to input almost any vehicle (gas, hybrid, o
 
 The **Hidden Emissions of Electric Vehicles and Emissions Explorer**, were ideated, designed, and built by three students from the School of Information at UC Berkeley as a capstone project for the Master of Information Management and Systems program. 
 
-- [Visit our project website](https://eee-capstone.github.io/MIMS-Capstone/templates/index.html#) 
+##- [Visit our project website](https://eee-capstone.github.io/MIMS-Capstone/templates/index.html#) 
 - [Try our Emissions Explorer Tool](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html)
 - [Read our project report](https://www.ischool.berkeley.edu/sites/default/files/sproject_attachments/eee_astoriaclarajosh_mimscapstonefinalpaper_0.pdf)
+- [Read our Datatsheet](https://docs.google.com/document/d/15uAj8BKXHfsfqDbIANXNfrjy8w1evmyS8of8dsCocIg/edit?usp=sharing)
 
 ---
 ### How to use the tool
