@@ -8,6 +8,10 @@ Our Emissions Explorer allows a user to input almost any vehicle (gas, hybrid, o
 
 The **Hidden Emissions of Electric Vehicles and Emissions Explorer**, were ideated, designed, and built by three students from the School of Information at UC Berkeley as a capstone project for the Master of Information Management and Systems program. 
 
+- [Visit our project website](https://eee-capstone.github.io/MIMS-Capstone/templates/index.html#) 
+- [Try our Emissions Explorer Tool](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html)
+- [Read our project report](https://www.ischool.berkeley.edu/sites/default/files/sproject_attachments/eee_astoriaclarajosh_mimscapstonefinalpaper_0.pdf)
+
 ---
 ### How to use the tool
 Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html). Then, enter a year, make and model for a vehicle you're interested in; a zip-code where you expect to drive, and an estimated owernship time. Hit submit, and we will calculate an emissions estimate for your vehicle! It should look something like this example:
@@ -16,9 +20,3 @@ Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capston
 
 ### More about our tool
 We use the GREET life cycle analysis module, developed by Argonne National Laboratory as the basis for our emissions calculations. In addition, we use vehicle and emissions information from the EPA. More about our data sources and model assumptions is located in the report below. 
-
-[Visit our project website](https://eee-capstone.github.io/MIMS-Capstone/templates/index.html#) 
-
-[Try our Emissions Explorer Tool](https://eee-capstone.github.io/MIMS-Capstone/vehicleForm/vehicle_form.html)
-
-[Read our project report](https://www.ischool.berkeley.edu/sites/default/files/sproject_attachments/eee_astoriaclarajosh_mimscapstonefinalpaper_0.pdf)
