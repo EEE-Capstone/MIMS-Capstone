@@ -20,4 +20,4 @@ Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capston
 
 
 ### More about our tool
-We use the GREET life cycle analysis module, developed by Argonne National Laboratory as the basis for our emissions calculations. In addition, we use vehicle and emissions information from the EPA. More about our data sources and model assumptions is located in the report below. 
+We use the GREET life cycle analysis module, developed by Argonne National Laboratory as the basis for our emissions calculations. In addition, we use vehicle and emissions information from the EPA. More about our data sources and model assumptions is located in the [report](https://www.ischool.berkeley.edu/sites/default/files/sproject_attachments/eee_astoriaclarajosh_mimscapstonefinalpaper_0.pdf).
