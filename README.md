@@ -21,3 +21,16 @@ Navigate to the [Emissions Explorer](https://eee-capstone.github.io/MIMS-Capston
 
 ### More about our tool
 We use the GREET life cycle analysis module, developed by Argonne National Laboratory as the basis for our emissions calculations. In addition, we use vehicle and emissions information from the EPA. More about our data sources and model assumptions is located in the [report](https://www.ischool.berkeley.edu/sites/default/files/sproject_attachments/eee_astoriaclarajosh_mimscapstonefinalpaper_0.pdf).
+
+### Datasets used in our tool
+All datasets that were used to calculate vehicle lifetime emissions can be found in the Data folder of this GitHub Repository
+
+| Name      | Description |
+| ----------- | ----------- |
+| adj_weight_data_join_2000_2023.csv | Data for vehicles from model years 2000 to 2023 |
+| emissions_factor_LI.csv   | Emissions factors for materials in Lithium Ion EV batteries        |
+| emissions_factor_NIMH.csv | Emissions factors for materials in Nickel Metal Hydroxide EV batteries |
+| emissions_factor_vehicle.csv| Emissions factors for vehicle materials|
+| material_emissions| General emissions factors for materials|
+| subregion_emissions.csv| Average grid mix emissions based on EPA eGrid Subregions|
+| zip_to_grid.csv| Mapping zip code to EPA eGrid Subregion|
